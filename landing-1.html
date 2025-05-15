@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Skills & Expertise – E-Portfolio</title>
+  <title>Skills &amp; Expertise – E-Portfolio</title>
   <!-- Google Font & FontAwesome -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet"/>
@@ -18,7 +18,7 @@
       --radius: 12px;
       --transition: 0.3s ease;
     }
-    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
@@ -27,18 +27,18 @@
     }
     a { text-decoration: none; color: inherit; transition: color var(--transition); }
     a:hover { color: var(--highlight); }
-    .container { width: min(90%,1200px); margin:0 auto; padding:0 1rem; }
+    .container { width: min(90%,1200px); margin: 0 auto; padding: 0 1rem; }
 
     /* Header */
     header {
       background: var(--surface);
-      position: sticky; top:0; z-index:1000;
+      position: sticky; top: 0; z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    nav { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
-    .logo { font-size:1.5rem; font-weight:600; color:var(--primary); }
-    .nav-links { display:flex; gap:2rem; }
-    .nav-links a { font-weight:500; text-transform:uppercase; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-weight: 500; text-transform: uppercase; }
 
     /* Hero */
     #hero {
@@ -52,7 +52,6 @@
       padding: 2.5rem 2rem;
       border-radius: var(--radius);
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      position: relative;
     }
     .hero-card h1 {
       font-size: 2.75rem;
@@ -77,54 +76,95 @@
       line-height: 1.8;
       color: var(--text);
     }
-	/* Styles for the new Skills Section */
-.skills-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  padding: 0;
-  margin: 0;
-}
-.skills-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  transition: transform var(--transition), color var(--transition);
-  cursor: default;
-}
-.skills-list li:hover {
-  transform: translateY(-4px);
-  color: var(--highlight);
-}
-.skill-icon {
-  font-size: 2rem;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-.skill-text h3 {
-  font-size: 1.2rem;
-  font-weight: var(--fw-semibold);
-  margin-bottom: 0.25rem;
-  position: relative;
-}
-.skill-text h3::after {
-  content: '';
-  display: block;
-  width: 30px;
-  height: 3px;
-  background: var(--highlight);
-  border-radius: 2px;
-  margin-top: 4px;
-}
-.skill-text p {
-  margin: 0.5rem 0 0;
-  font-size: 0.95rem;
-  color: var(--text);
-  line-height: 1.4;
-}
 
-    /* Skills & Footer omitted for brevity… */
+    /* Section Title */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--highlight);
+      border-radius: 2px;
+      margin: 0.5rem auto 0;
+    }
+
+    /* Skills List */
+    .skills-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform var(--transition), color var(--transition);
+    }
+    .skills-list li:hover {
+      transform: translateY(-4px);
+      color: var(--highlight);
+    }
+    .skill-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .skill-text h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      position: relative;
+    }
+    .skill-text h3::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--highlight);
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .skill-text p {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    /* Contact */
+    #contact {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    #contact p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    #contact a.email {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -153,59 +193,59 @@
     </div>
   </section>
 
-<!-- Skills Section -->
-<section id="skills" class="container">
-	<h2 class="section-title">Technical Proficiencies</h2>
-	<ul class="skills-list">
-	  <li>
-		<i class="fas fa-code skill-icon"></i>
-		<div class="skill-text">
-		  <h3>Backend Programming</h3>
-		  <p>COBOL, PHP, Python for secure, maintainable backends.</p>
-		</div>
-	  </li>
-	  <li>
-		<i class="fas fa-database skill-icon"></i>
-		<div class="skill-text">
-		  <h3>Database &amp; SQL</h3>
-		  <p>Oracle &amp; MySQL: schema design, tuning, indexing.</p>
-		</div>
-	  </li>
-	  <li>
-		<i class="fas fa-cogs skill-icon"></i>
-		<div class="skill-text">
-		  <h3>Data Automation</h3>
-		  <p>ETL pipelines, cron jobs, shell scripts for reporting.</p>
-		</div>
-	  </li>
-	  <li>
-		<i class="fas fa-tools skill-icon"></i>
-		<div class="skill-text">
-		  <h3>Infrastructure &amp; Tools</h3>
-		  <p>Docker, Git, Linux CLI, SD-WAN orchestration.</p>
-		</div>
-	  </li>
-	  <li>
-		<i class="fas fa-users skill-icon"></i>
-		<div class="skill-text">
-		  <h3>Soft Skills</h3>
-		  <p>Analytical thinking, collaboration, decisive leadership.</p>
-		</div>
-	  </li>
-	</ul>
+  <!-- Skills Section -->
+  <section id="skills" class="container">
+    <h2 class="section-title">Technical Proficiencies</h2>
+    <ul class="skills-list">
+      <li>
+        <i class="fas fa-code skill-icon"></i>
+        <div class="skill-text">
+          <h3>Backend Programming</h3>
+          <p>COBOL, PHP, Python for secure, maintainable backends.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-database skill-icon"></i>
+        <div class="skill-text">
+          <h3>Database &amp; SQL</h3>
+          <p>Oracle &amp; MySQL: schema design, tuning, indexing.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-cogs skill-icon"></i>
+        <div class="skill-text">
+          <h3>Data Automation</h3>
+          <p>ETL pipelines, cron jobs, shell scripts for reporting.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-tools skill-icon"></i>
+        <div class="skill-text">
+          <h3>Infrastructure &amp; Tools</h3>
+          <p>Docker, Git, Linux CLI, SD-WAN orchestration.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-users skill-icon"></i>
+        <div class="skill-text">
+          <h3>Soft Skills</h3>
+          <p>Analytical thinking, collaboration, decisive leadership.</p>
+        </div>
+      </li>
+    </ul>
   </section>
 
-  <!-- Contact Section (Optional) -->
-  <section id="contact" class="container" style="padding:4rem 0">
+  <!-- Contact Section -->
+  <section id="contact" class="container">
     <h2 class="section-title">Get In Touch</h2>
-    <p style="margin-bottom:2rem;color:var(--color-text)">Feel free to reach out via email or LinkedIn for opportunities and collaborations.</p>
-    <a href="mailto:you@example.com" style="font-weight:var(--fw-semibold);">you@example.com</a>
+    <p>Feel free to reach out via email or LinkedIn for opportunities and collaborations.</p>
+    <a href="mailto:you@example.com" class="email">you@example.com</a>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
-      &copy; 2025 Your Name. Built & Designed by Me.
+      &copy; 2025 Your Name. Built &amp; Designed by Me.
     </div>
   </footer>
 
