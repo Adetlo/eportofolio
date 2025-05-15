@@ -5,8 +5,43 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/alternate.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Custom visual enhancement */
+			body {
+				background: #f2f2f2;
+				font-family: 'Segoe UI', sans-serif;
+				color: #333;
+			}
+			h1, h2 {
+				color: #003366;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+			.tiles article {
+				box-shadow: 0 0 20px rgba(0,0,0,0.1);
+				border-radius: 12px;
+				transition: transform 0.3s ease;
+				overflow: hidden;
+			}
+			.tiles article:hover {
+				transform: scale(1.03);
+			}
+			.tiles article h2 {
+				font-size: 1.4rem;
+				margin-bottom: 0.5rem;
+			}
+			.tiles article .content p {
+				font-size: 0.95rem;
+				color: #555;
+			}
+			#banner.style3 {
+				background: linear-gradient(135deg, #003366, #006699);
+				color: white;
+			}
+			#banner.style3 h1, #banner.style3 p {
+				color: #fff;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
@@ -22,7 +57,7 @@
 						<h1>Professional Skills</h1>
 					</header>
 					<div class="content">
-						<p>Blending technical knowledge with practical application in enterprise-grade environments.</p>
+						<p>Bridging enterprise-grade experience with cutting-edge technologies in backend, data, automation, and systems engineering.</p>
 					</div>
 				</div>
 			</section>
@@ -36,7 +71,7 @@
 						<a href="#">
 							<h2>Backend Development</h2>
 							<div class="content">
-								<p>Proficient in COBOL, PHP, and Python for robust and secure enterprise systems.</p>
+								<p>Proficient in COBOL, PHP, and Python for secure, maintainable enterprise applications.</p>
 							</div>
 						</a>
 					</article>
@@ -45,9 +80,9 @@
 							<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL & Data Design" />
 						</span>
 						<a href="#">
-							<h2>Data & SQL Mastery</h2>
+							<h2>Database & SQL Mastery</h2>
 							<div class="content">
-								<p>Expert in relational database schema, query tuning, and Oracle/MySQL optimization.</p>
+								<p>Designing scalable schemas and writing optimized queries in Oracle and MySQL.</p>
 							</div>
 						</a>
 					</article>
@@ -58,7 +93,7 @@
 						<a href="#">
 							<h2>Automation</h2>
 							<div class="content">
-								<p>Automation of daily tasks and reporting using Python, Bash, and scheduling tools.</p>
+								<p>Automating reporting and workflows with Python, cron jobs, and Linux scripting.</p>
 							</div>
 						</a>
 					</article>
@@ -69,7 +104,7 @@
 						<a href="#">
 							<h2>Tools & Platforms</h2>
 							<div class="content">
-								<p>Experienced with Git, Linux CLI, SD-WAN, Docker, and modern dev environments.</p>
+								<p>Working fluently with Git, SD-WAN, Docker, and Linux CLI in deployment scenarios.</p>
 							</div>
 						</a>
 					</article>
@@ -80,7 +115,7 @@
 						<a href="#">
 							<h2>Soft Skills</h2>
 							<div class="content">
-								<p>Strong analytical thinking, independent problem-solving, and team collaboration skills.</p>
+								<p>Excellent communication, leadership, and analytical thinking in technical roles.</p>
 							</div>
 						</a>
 					</article>
