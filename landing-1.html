@@ -1,146 +1,146 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Skills & Expertise - E-Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<style>
-			/* Custom visual enhancement */
-			body {
-				background: #f2f2f2;
-				font-family: 'Segoe UI', sans-serif;
-				color: #333;
-			}
-			h1, h2 {
-				color: #003366;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-			}
-			.tiles article {
-				box-shadow: 0 0 20px rgba(0,0,0,0.1);
-				border-radius: 12px;
-				transition: transform 0.3s ease;
-				overflow: hidden;
-			}
-			.tiles article:hover {
-				transform: scale(1.03);
-			}
-			.tiles article h2 {
-				font-size: 1.4rem;
-				margin-bottom: 0.5rem;
-			}
-			.tiles article .content p {
-				font-size: 0.95rem;
-				color: #555;
-			}
-			#banner.style3 {
-				background: linear-gradient(135deg, #003366, #006699);
-				color: white;
-			}
-			#banner.style3 h1, #banner.style3 p {
-				color: #fff;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
+<head>
+	<title>Skills & Expertise - E-Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		body {
+			background: #ffffff;
+			font-family: 'Segoe UI', sans-serif;
+			color: #333;
+		}
+		h1, h2, h3 {
+			color: #2c3e50;
+			margin-top: 0;
+		}
+		#banner.style3 {
+			background: linear-gradient(to right, #283e51, #485563);
+			color: #ffffff;
+			text-align: center;
+			padding: 5rem 1rem;
+		}
+		#banner.style3 h1 {
+			font-size: 2.8rem;
+			margin-bottom: 1rem;
+		}
+		#banner.style3 p {
+			font-size: 1.1rem;
+			line-height: 1.6;
+			max-width: 700px;
+			margin: 0 auto;
+		}
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+			padding: 4rem;
+			background-color: #f9f9f9;
+		}
+		.skill-card {
+			background-color: #ffffff;
+			border-radius: 12px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+			transition: transform 0.3s ease;
+		}
+		.skill-card:hover {
+			transform: translateY(-5px);
+		}
+		.skill-card img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+		}
+		.skill-content {
+			padding: 1.5rem;
+		}
+		.skill-content h3 {
+			margin-bottom: 0.75rem;
+			font-size: 1.3rem;
+		}
+		.skill-content p {
+			font-size: 0.95rem;
+			line-height: 1.5;
+			color: #666;
+		}
+	</style>
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<header id="header">
+			<a href="index.html" class="logo alt"><strong>My Skills</strong> <span>and Expertise</span></a>
+			<nav><a href="#menu">Menu</a></nav>
+		</header>
 
-			<header id="header">
-				<a href="index.html" class="logo alt"><strong>My Skills</strong> <span>and Expertise</span></a>
-				<nav><a href="#menu">Menu</a></nav>
-			</header>
+		<section id="banner" class="style3">
+			<div class="inner">
+				<h1>Professional Skills</h1>
+				<p>Blending enterprise-grade experience with modern technologies in backend systems, data engineering, and IT operations.</p>
+			</div>
+		</section>
 
-			<section id="banner" class="style3">
-				<div class="inner">
-					<header class="major">
-						<h1>Professional Skills</h1>
-					</header>
-					<div class="content">
-						<p>Bridging enterprise-grade experience with cutting-edge technologies in backend, data, automation, and systems engineering.</p>
-					</div>
+		<div class="skills-grid">
+			<div class="skill-card">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Cobolcode.png" alt="Backend Development">
+				<div class="skill-content">
+					<h3>Backend Development</h3>
+					<p>Proficient in COBOL, PHP, and Python for secure and maintainable enterprise applications.</p>
 				</div>
-			</section>
-
-			<div id="main">
-				<section class="tiles">
-					<article class="style1">
-						<span class="image">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Cobolcode.png" alt="Backend Programming" />
-						</span>
-						<a href="#">
-							<h2>Backend Development</h2>
-							<div class="content">
-								<p>Proficient in COBOL, PHP, and Python for secure, maintainable enterprise applications.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style2">
-						<span class="image">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL & Data Design" />
-						</span>
-						<a href="#">
-							<h2>Database & SQL Mastery</h2>
-							<div class="content">
-								<p>Designing scalable schemas and writing optimized queries in Oracle and MySQL.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style3">
-						<span class="image">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Data_visualization_process.jpg" alt="Automation Scripting" />
-						</span>
-						<a href="#">
-							<h2>Automation</h2>
-							<div class="content">
-								<p>Automating reporting and workflows with Python, cron jobs, and Linux scripting.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style4">
-						<span class="image">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Digital_tools_for_project_management.jpg/800px-Digital_tools_for_project_management.jpg" alt="Project Tools" />
-						</span>
-						<a href="#">
-							<h2>Tools & Platforms</h2>
-							<div class="content">
-								<p>Working fluently with Git, SD-WAN, Docker, and Linux CLI in deployment scenarios.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style5">
-						<span class="image">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mind_map_sample.svg/800px-Mind_map_sample.svg.png" alt="Soft Skills" />
-						</span>
-						<a href="#">
-							<h2>Soft Skills</h2>
-							<div class="content">
-								<p>Excellent communication, leadership, and analytical thinking in technical roles.</p>
-							</div>
-						</a>
-					</article>
-				</section>
 			</div>
 
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Your Name</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-					</ul>
+			<div class="skill-card">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="SQL & Data">
+				<div class="skill-content">
+					<h3>Database & SQL Mastery</h3>
+					<p>Designing scalable schemas and optimizing data operations with Oracle and MySQL systems.</p>
 				</div>
-			</footer>
+			</div>
 
+			<div class="skill-card">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Data_visualization_process.jpg" alt="Automation">
+				<div class="skill-content">
+					<h3>Automation</h3>
+					<p>Automating reporting and backend processes using Python, Shell Script, and scheduling tools on Linux.</p>
+				</div>
+			</div>
+
+			<div class="skill-card">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Digital_tools_for_project_management.jpg" alt="Tools">
+				<div class="skill-content">
+					<h3>Tools & Platforms</h3>
+					<p>Hands-on with Git, Docker, SD-WAN, Linux CLI, and cloud deployment workflows.</p>
+				</div>
+			</div>
+
+			<div class="skill-card">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Mind_map_sample.svg" alt="Soft Skills">
+				<div class="skill-content">
+					<h3>Soft Skills</h3>
+					<p>Strong communication, critical thinking, problem solving, and leadership in cross-functional teams.</p>
+				</div>
+			</div>
 		</div>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
+
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Your Name</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
 </html>
