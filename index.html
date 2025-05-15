@@ -21,63 +21,55 @@
       --fw-semibold: 600;
       --fw-bold: 700;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
-    a { text-decoration: none; color: inherit; transition: color var(--transition); }
-    a:hover { color: var(--color-highlight); }
-
-    /* Header */
-    header { background: var(--color-surface); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    .container { width: min(90%,1200px); margin: 0 auto; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
-    .logo { font-size: 1.5rem; font-weight: var(--fw-bold); color: var(--color-primary); }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { font-weight: var(--fw-semibold); text-transform: uppercase; font-size: 0.9rem; }
-
-    /* Hero / Banner */
-    #banner { background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%); color: #fff; text-align: center; padding: 6rem 2rem; }
-    #banner h1 { font-size: 3rem; font-weight: var(--fw-bold); margin-bottom: 0.5rem; }
-    #banner p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
-
-    /* Section Title */
-    .section-title { font-size: 2rem; font-weight: var(--fw-semibold); margin-bottom: 1.5rem; position: relative; }
-    .section-title::before { content: ''; position: absolute; bottom: -5px; left: 0; width: 60px; height: 4px; background: var(--color-highlight); border-radius: var(--radius); }
-
-    /* Feature Grid */
-    #features { padding: 4rem 0; background: var(--color-bg); }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 2rem; }
-    .feature-card { background: var(--color-surface); padding: 2rem; border-radius: var(--radius); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform var(--transition), box-shadow var(--transition); }
-    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-    .feature-card h3 { font-size: 1.25rem; font-weight: var(--fw-semibold); color: var(--color-primary); margin-bottom: 0.75rem; }
-    .feature-card p { font-size: 1rem; color: var(--color-accent); }
-
+    a { text-decoration: none; color: inherit; transition: color var(--transition);} a:hover { color: var(--color-highlight);}    
+    .container { width: min(90%,1200px); margin:0 auto; padding:0 1rem; }
+    header { background: var(--color-surface); backdrop-filter: blur(10px); position: sticky; top:0; z-index:100; box-shadow: 0 2px 10px rgba(0,0,0,0.05);}    
+    nav { display: flex; align-items:center; justify-content: space-between; padding:1rem 0;}    
+    .logo { font-size:1.5rem; font-weight: var(--fw-bold); color: var(--color-primary);}    
+    .nav-links { display:flex; gap:2rem;} .nav-links a { font-weight: var(--fw-semibold); text-transform:uppercase; font-size:0.9rem;}    
+    #banner { background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%); color:#fff; text-align:center; padding:6rem 2rem;}    
+    #banner h1 { font-size:3rem; font-weight: var(--fw-bold); margin-bottom:0.5rem;}    
+    #banner p { font-size:1.1rem; max-width:700px; margin:0 auto; opacity:0.9;}    
+    .section-title { font-size:2rem; font-weight: var(--fw-semibold); margin-bottom:1.5rem; position:relative;}    
+    .section-title::before { content:''; position:absolute; bottom:-5px; left:0; width:60px; height:4px; background: var(--color-highlight); border-radius:var(--radius);}    
+    /* Main Tiles */
+    #main { padding:4rem 0;}    
+    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:2rem;}    
+    .tiles article { background: var(--color-surface); border-radius: var(--radius); overflow:hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform var(--transition), box-shadow var(--transition);}    
+    .tiles article:hover { transform: translateY(-5px); box-shadow:0 8px 24px rgba(0,0,0,0.1);}    
+    .tiles .image img { width:100%; display:block;}    
+    .tiles .major { padding:1.5rem;}    
+    .tiles h3 { font-size:1.25rem; font-weight: var(--fw-semibold); color: var(--color-primary); margin-bottom:0.75rem;}    
+    .tiles p { font-size:1rem; color: var(--color-accent); line-height:1.5;}    
     /* Section Two */
-    #two { padding: 4rem 0; }
-    #two a.button { display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--color-highlight); color: #fff; border-radius: var(--radius); font-weight: var(--fw-semibold); transition: background var(--transition); }
-    #two a.button:hover { background: var(--color-primary); }
-
-    /* Contact */
-    #contact { padding: 4rem 0; }
-    .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; }
-    .contact-form, .contact-info { background: var(--color-surface); padding: 2rem; border-radius: var(--radius); flex: 1 1 300px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .contact-form .field { margin-bottom: 1rem; }
-    .contact-form label { display: block; margin-bottom: 0.5rem; font-weight: var(--fw-semibold); }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: var(--radius); font-family: inherit; }
-    .contact-form textarea { resize: vertical; }
-    .contact-form .actions { display: flex; gap: 1rem; }
-    .contact-form .actions input[type="submit"], .contact-form .actions input[type="reset"] { cursor: pointer; padding: 0.75rem 1.5rem; border: none; border-radius: var(--radius); background: var(--color-highlight); color: #fff; font-weight: var(--fw-semibold); transition: background var(--transition); }
-    .contact-form .actions input[type="reset"] { background: var(--color-accent); }
-    .contact-form .actions input:hover { background: var(--color-primary); }
-    .contact-info .contact-method { margin-bottom: 1.5rem; }
-    .contact-info h3 { font-size: 1.1rem; font-weight: var(--fw-semibold); margin-bottom: 0.5rem; }
-    .contact-info a, .contact-info span { display: block; color: var(--color-text); }
-
+    #two { padding:4rem 0; background: var(--color-bg);}    
+    #two .inner { max-width:800px; margin:0 auto; text-align:center;}    
+    #two h2 { font-size:2rem; font-weight: var(--fw-semibold); margin-bottom:1rem; position:relative; display:inline-block;}    
+    #two h2::before { content:''; position:absolute; bottom:-5px; left:0; width:60px; height:4px; background: var(--color-highlight); border-radius:var(--radius);}    
+    #two p { font-size:1rem; color: var(--color-text); margin-bottom:1.5rem; }
+    #two .actions .next { display:inline-block; padding:0.75rem 1.5rem; background: var(--color-highlight); color:#fff; border-radius:var(--radius); font-weight:var(--fw-semibold); transition:background var(--transition);}    
+    #two .actions .next:hover { background: var(--color-primary);}    
+    /* Contact Section */
+    #contact { padding:4rem 0;}    
+    .contact-container { display:flex; flex-wrap:wrap; gap:2rem;}    
+    .contact-form, .contact-info { background: var(--color-surface); padding:2rem; border-radius: var(--radius); flex:1 1 300px; box-shadow:0 4px 12px rgba(0,0,0,0.05);}    
+    .contact-form .field { margin-bottom:1rem;}    
+    .contact-form label { display:block; margin-bottom:0.5rem; font-weight:var(--fw-semibold);}    
+    .contact-form input, .contact-form textarea { width:100%; padding:0.75rem; border:1px solid #ddd; border-radius:var(--radius); font-family:inherit;}    
+    .contact-form textarea { resize:vertical;}    
+    .contact-form .actions { display:flex; gap:1rem;}    
+    .contact-form .actions input { cursor:pointer; padding:0.75rem 1.5rem; border:none; border-radius:var(--radius); background:var(--color-highlight); color:#fff; font-weight:var(--fw-semibold); transition:background var(--transition);}    
+    .contact-form .actions input[type="reset"] { background:var(--color-accent);}    
+    .contact-form .actions input:hover { background:var(--color-primary);}    
+    .contact-info .contact-method { margin-bottom:1.5rem;}    
+    .contact-info h3 { font-size:1.1rem; font-weight:var(--fw-semibold); margin-bottom:0.5rem;}    
+    .contact-info a, .contact-info span { display:block; color:var(--color-text);}    
     /* Footer */
-    footer { background: var(--color-primary); color: #fff; text-align: center; padding: 2rem 0; font-size: 0.9rem; }
-    footer a { color: #fff; font-weight: var(--fw-semibold); }
-  </style>
+    footer { background: var(--color-primary); color:#fff; text-align:center; padding:2rem 0; font-size:0.9rem;}    
+    footer a { color:#fff; font-weight:var(--fw-semibold);}  </style>
 </head>
 <body>
   <header>
@@ -86,7 +78,7 @@
         <a href="index.html" class="logo">E-Portfolio</a>
         <div class="nav-links">
           <a href="#banner">Home</a>
-          <a href="#features">Projects</a>
+          <a href="#main">Main</a>
           <a href="#two">About</a>
           <a href="#contact">Contact</a>
         </div>
@@ -101,42 +93,67 @@
     </div>
   </section>
 
-  <section id="features" class="container">
-    <h2 class="section-title">Project Showcase</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Core Banking Modules</h3>
-        <p>Developed COBOL applications integrated with Oracle, handling high-volume transactions with fault tolerance.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Skills & Expertise</h3>
-        <p>Specializing in backend development, SQL optimization, automation via Python and shell scripting.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Work Experience</h3>
-        <p>Led optimization of legacy systems, implementing CI/CD with Docker and hybrid cloud deployment strategies.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Education & Certifications</h3>
-        <p>Certified in Oracle DBA and Python for Data Engineering, with formal education in Computer Science.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Additional Projects</h3>
-        <p>Contributed to open-source analytics tools and internal dashboards for real-time monitoring.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Research & Publications</h3>
-        <p>Published papers on optimizing mainframe resource usage and data pipeline performance.</p>
-      </div>
-    </div>
-  </section>
+  <!-- Main Content -->
+  <div id="main" class="container">
 
-  <section id="two" class="container">
-    <h2 class="section-title">About Me</h2>
-    <p>With over 5 years in enterprise software, I enjoy designing architectures that balance reliability and scalability. I thrive in collaborative environments and continuously explore new technologies.</p>
-    <a href="#contact" class="button">Get in Touch</a>
-  </section>
+    <!-- One -->
+    <section id="one" class="tiles">
+      <article>
+        <span class="image"><img src="images/pic01.jpg" alt="" /></span>
+        <div class="major">
+          <h3><a href="landing.html" class="link">Project Showcase</a></h3>
+          <p>Developed core banking modules in COBOL with Oracle integration. Automated data pipelines using Python and Shell on Linux. Skilled in backend development, SQL optimization, and designing scalable databases for high-volume transactions.</p>
+        </div>
+      </article>
+      <article>
+        <span class="image"><img src="images/pic02.jpg" alt="" /></span>
+        <div class="major">
+          <h3><a href="landing-1.html" class="link">Skills & Expertise</a></h3>
+          <p>Specializing in core banking development using COBOL, database management with Oracle, and automation through Python and Shell Scripting in Linux environments.</p>
+        </div>
+      </article>
+      <article>
+        <span class="image"><img src="images/pic03.jpg" alt="" /></span>
+        <div class="major">
+          <h3><a href="landing.html" class="link">Work Experience</a></h3>
+          <p>Led the development and optimization of core banking systems, ensuring seamless integration of COBOL applications with Oracle databases, while leveraging Python and Shell Scripting for process automation and data handling.</p>
+        </div>
+      </article>
+      <article>
+        <span class="image"><img src="images/pic04.jpg" alt="" /></span>
+        <div class="major">
+          <h3><a href="landing.html" class="link">Education & Certifications</a></h3>
+          <p>Education & Certifications</p>
+        </div>
+      </article>
+      <article>
+        <span class="image"><img src="images/pic05.jpg" alt="" /></span>
+        <div class="major">
+          <h3><a href="landing.html" class="link">Consequat</a></h3>
+          <p>Ipsum dolor sit amet</p>
+        </div>
+      </article>
+      <article>
+        <span class="image"><img src="images/pic06.jpg" alt="" /></span>
+        <div class="major">
+          <h3><a href="landing.html" class="link">Etiam</a></h3>
+          <p>Feugiat amet tempus</p>
+        </div>
+      </article>
+    </section>
 
+    <!-- Two -->
+    <section id="two">
+      <div class="inner">
+        <h2 class="section-title">Massa libero</h2>
+        <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+        <div class="actions"><a href="landing.html" class="next">Get Started</a></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Contact -->
   <section id="contact" class="container">
     <h2 class="section-title">Contact</h2>
     <div class="contact-container">
@@ -175,6 +192,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       &copy; 2025 Ade Putra Tio Aldino. Designed & Built by Me.
