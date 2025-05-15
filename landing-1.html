@@ -117,36 +117,51 @@
       border-radius: var(--radius);
     }
 
-    /* Skills */
-    #skills {
-      padding: 4rem 0;
-      background: var(--color-bg);
-    }
-    .skills-grid {
+    /* Skills List */
+    .skills-list {
+      list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 2rem;
+      padding: 0;
+      margin: 0;
     }
-    .skill-card {
-      background: var(--color-surface);
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform var(--transition), box-shadow var(--transition);
+    .skills-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform var(--transition), color var(--transition);
     }
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    .skills-list li:hover {
+      transform: translateY(-4px);
+      color: var(--highlight);
     }
-    .skill-card h3 {
+    .skill-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .skill-text h3 {
       font-size: 1.25rem;
-      font-weight: var(--fw-semibold);
-      color: var(--color-primary);
-      margin-bottom: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      position: relative;
     }
-    .skill-card p {
-      font-size: 1rem;
-      color: var(--color-accent);
+    .skill-text h3::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--highlight);
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .skill-text p {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: var(--text);
     }
 
     /* Footer */
@@ -190,28 +205,43 @@
   <!-- Skills Section -->
   <section id="skills" class="container">
     <h2 class="section-title">Technical Proficiencies</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Backend Programming</h3>
-        <p>Expertise in COBOL, PHP, Python for developing secure, maintainable backend services.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Database & SQL</h3>
-        <p>Proficient with Oracle, MySQL: schema design, query optimization, indexing, and migrations.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Data Automation</h3>
-        <p>Orchestrating ETL pipelines, cron jobs, shell scripts to automate financial reporting workflows.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Infrastructure & Tools</h3>
-        <p>Hands-on with Docker, Git, Linux CLI, SD-WAN, and CI/CD pipelines for hybrid cloud deployments.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Soft Skills</h3>
-        <p>Analytical thinking, cross-team collaboration, self-driven decision making, and clear communication.</p>
-      </div>
-    </div>
+    <ul class="skills-list">
+      <li>
+        <i class="fas fa-code skill-icon"></i>
+        <div class="skill-text">
+          <h3>Backend Programming</h3>
+          <p>COBOL, PHP, Python for secure, maintainable backends.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-database skill-icon"></i>
+        <div class="skill-text">
+          <h3>Database &amp; SQL</h3>
+          <p>Oracle &amp; MySQL: schema design, tuning, indexing.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-cogs skill-icon"></i>
+        <div class="skill-text">
+          <h3>Data Automation</h3>
+          <p>ETL pipelines, cron jobs, shell scripts for reporting.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-tools skill-icon"></i>
+        <div class="skill-text">
+          <h3>Infrastructure &amp; Tools</h3>
+          <p>Docker, Git, Linux CLI, SD-WAN orchestration.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-users skill-icon"></i>
+        <div class="skill-text">
+          <h3>Soft Skills</h3>
+          <p>Analytical thinking, collaboration, decisive leadership.</p>
+        </div>
+      </li>
+    </ul>
   </section>
 
   <!-- Contact Section (Optional) -->
