@@ -1,98 +1,115 @@
-<!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Landing - Forty by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<header id="header" class="alt">
-				<a href="index.html" class="logo"><strong>E-Portofolio</strong><span> </span></a>
-				<nav><a href="#menu">Menu</a></nav>
-			</header>
-			<section id="banner" class="style2">
-				<div class="inner">
-					<span class="image"><img src="images/pic07.jpg" alt="" /></span>
-					<header class="major">
-						<h1>Project Showcase</h1>
-					</header>
-					<div class="content">
-						<p>Developed critical core banking modules using COBOL, integrated with Oracle databases, and automated data processing with Python and Shell Script on Linux environments. Additionally, utilized PHP, MySQL, and frontend technologies like JavaScript and CSS to build interfaces and support web integration.</p>
-					</div>
-				</div>
-			</section>
-
-			<section id="two" class="spotlights">
-				<section>
-					<a href="#" class="image">
-						<img src="https://images.unsplash.com/photo-1623524713064-257294b0e34b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Core Banking Migration" data-position="center center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>Project 1 – Core Banking Implementation at BNI New York Branch</h3>
-							</header>
-							<p>Led technical team during implementation, ensuring accurate migration of Loan, Deposit, and Customer data. Guaranteed compliance with FRB and The Fed regulations. Resolved 10+ critical migration issues and met the go-live target within 8 months.</p>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="#" class="image">
-						<img src="https://images.unsplash.com/photo-1674591879620-952110bef92c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shariah Banking Migration" data-position="top center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>Project 2 – Merger Data Migration: BNI Syariah to BSI</h3>
-							</header>
-							<p>Played a key role in extracting and segregating Islamic banking data from a shared core banking system. Ensured Shariah-compliant customer data isolation. Achieved full migration with 100% accuracy within 6-month timeline.</p>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="#" class="image">
-						<img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="IT Centralisation" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>Project 3 – IT Centralisation & Standardisation</h3>
-							</header>
-							<p>Migrated core banking infrastructure and critical applications from BNI London Branch to BNI Head Office (Jakarta). Deployed SD-WAN to maintain secure and stable cross-border connectivity. Ensured zero data loss and <strong>achieved 30% infrastructure cost reduction</strong>.</p>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="#" class="image">
-						<img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dashboard Automation" data-position="center center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>Project 4 – Office Automation (London Branch)</h3>
-							</header>
-							<p>Built an automated dashboard for Balance Sheet and P&L using raw text files from daily EOD. Backed by SQL-based ETL processing and PHP/MySQL backend, users can filter by date and track financial growth (day-to-day, MoM, YoY). Integrated email automation to deliver daily reports to management. Upcoming feature includes AML-related transaction monitoring for Compliance, processed and delivered automatically post-EOD.</p>
-						</div>
-					</div>
-				</section>
-			</section>
-
-		</div>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Showcase – E-Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #f5f7fa;
+      --color-surface: #ffffff;
+      --color-primary: #2b2d42;
+      --color-accent: #8d99ae;
+      --color-highlight: #ef233c;
+      --color-text: #343a40;
+      --radius: 10px;
+      --transition: 0.3s ease;
+      --fw-light: 300;
+      --fw-regular: 400;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+      --img-size: 250px; /* Square image size */
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; transition: color var(--transition); }
+    a:hover { color: var(--color-highlight); }
+    header { background: var(--color-surface); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .container { width: min(90%,1200px); margin: 0 auto; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: var(--fw-bold); color: var(--color-primary); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-weight: var(--fw-semibold); text-transform: uppercase; font-size: 0.9rem; }
+    /* Banner */
+    #banner { background: var(--color-surface); padding: 4rem 2rem; }
+    #banner .inner { display: flex; align-items: center; gap: 2rem; }
+    #banner .image { flex-shrink: 0; width: var(--img-size); height: var(--img-size); overflow: hidden; border-radius: var(--radius); }
+    #banner .image img { width: 100%; height: 100%; object-fit: cover; }
+    #banner header.major h1 { font-size: 2.5rem; font-weight: var(--fw-bold); margin-bottom: 1rem; }
+    #banner .content p { font-size: 1rem; line-height: 1.6; }
+    /* Spotlights */
+    .spotlights > section { margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem; }
+    .spotlights .image { flex-shrink: 0; width: var(--img-size); height: var(--img-size); overflow: hidden; border-radius: var(--radius); }
+    .spotlights .image img { width: 100%; height: 100%; object-fit: cover; }
+    .spotlights .content { background: var(--color-surface); max-width: calc(100% - var(--img-size) - 2rem); border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 2rem; }
+    .spotlights .major h3 { font-size: 1.75rem; font-weight: var(--fw-semibold); margin-bottom: 0.5rem; position: relative; }
+    .spotlights .major h3::after { content: ''; display: block; width: 40px; height: 3px; background: var(--color-highlight); border-radius: 2px; margin-top: 4px; }
+    .spotlights .content p { font-size: 1rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">E-Portofolio</a>
+        <div class="nav-links">
+          <a href="#banner">Home</a>
+          <a href="#two">Projects</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section id="banner">
+    <div class="container inner">
+      <span class="image"><img src="images/pic07.jpg" alt="" /></span>
+      <div>
+        <header class="major"><h1>Project Showcase</h1></header>
+        <div class="content">
+          <p>Developed critical core banking modules using COBOL, integrated with Oracle databases, and automated data processing with Python and Shell Script on Linux environments. Additionally, utilized PHP, MySQL, and frontend technologies like JavaScript and CSS to build interfaces and support web integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="two" class="spotlights container">
+    <section>
+      <a href="#" class="image"><img src="https://images.unsplash.com/photo-1623524713064-257294b0e34b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Core Banking Migration" /></a>
+      <div class="content">
+        <div class="inner">
+          <header class="major"><h3>Project 1 – Core Banking Implementation at BNI New York Branch</h3></header>
+          <p>Led technical team during implementation, ensuring accurate migration of Loan, Deposit, and Customer data. Guaranteed compliance with FRB and The Fed regulations. Resolved 10+ critical migration issues and met the go-live target within 8 months.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <a href="#" class="image"><img src="https://images.unsplash.com/photo-1674591879620-952110bef92c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shariah Banking Migration" /></a>
+      <div class="content">
+        <div class="inner">
+          <header class="major"><h3>Project 2 – Merger Data Migration: BNI Syariah to BSI</h3></header>
+          <p>Played a key role in extracting and segregating Islamic banking data from a shared core banking system. Ensured Shariah-compliant customer data isolation. Achieved full migration with 100% accuracy within 6-month timeline.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <a href="#" class="image"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfDB8fHx8fA%3D%3D" alt="IT Centralisation" /></a>
+      <div class="content">
+        <div class="inner">
+          <header class="major"><h3>Project 3 – IT Centralisation & Standardisation</h3></header>
+          <p>Migrated core banking infrastructure and critical applications from BNI London Branch to BNI Head Office (Jakarta). Deployed SD-WAN to maintain secure and stable cross-border connectivity. Ensured zero data loss and <strong>achieved 30% infrastructure cost reduction</strong>.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <a href="#" class="image"><img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfDB8fHx8fA%3D%3D" alt="Dashboard Automation" /></a>
+      <div class="content">
+        <div class="inner">
+          <header class="major"><h3>Project 4 – Office Automation (London Branch)</h3></header>
+          <p>Built an automated dashboard for Balance Sheet and P&L using raw text files from daily EOD. Backed by SQL-based ETL processing and PHP/MySQL backend, users can filter by date and track financial growth (day-to-day, MoM, YoY). Integrated email automation to deliver daily reports to management. Upcoming feature includes AML-related transaction monitoring for Compliance, processed and delivered automatically post-EOD.</p>
+        </div>
+      </div>
+    </section>
+  </section>
+</body>
 </html>
