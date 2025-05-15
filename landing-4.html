@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>e-Portfolio – MSc Data Science</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #f5f7fa;
+      --color-surface: #ffffff;
+      --color-primary: #2b2d42;
+      --color-accent: #8d99ae;
+      --color-highlight: #ef233c;
+      --color-text: #343a40;
+      --radius: 10px;
+      --transition: 0.3s ease;
+      --fw-light: 300;
+      --fw-regular: 400;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; transition: color var(--transition); }
+    a:hover { color: var(--color-highlight); }
+    header { background: var(--color-surface); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .container { width: min(90%,1200px); margin: 0 auto; padding: 0 1rem; }
+    nav.main { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: var(--fw-bold); color: var(--color-primary); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-weight: var(--fw-semibold); text-transform: uppercase; font-size: 0.9rem; }
+
+    /* Banner */
+    #banner { background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%); color: #fff; text-align: center; padding: 5rem 1rem; }
+    #banner h1 { font-size: 2.5rem; font-weight: var(--fw-bold); margin-bottom: 1rem; }
+    #banner p { max-width: 800px; margin: 0 auto; opacity: 0.9; }
+
+    /* Module-nav */
+    .module-nav { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0; }
+    .module-nav a {
+      padding: 0.5rem 1rem;
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-weight: var(--fw-semibold);
+      font-size: 0.95rem;
+    }
+    .module-nav a:hover {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    /* Modules */
+    #modules { padding-bottom: 4rem; }
+    .module {
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .module h2 {
+      font-size: 1.75rem;
+      font-weight: var(--fw-semibold);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .module h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--color-highlight);
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+    .module p.description {
+      font-style: italic;
+      opacity: 0.8;
+      margin-bottom: 1.5rem;
+    }
+    .module h3 {
+      font-size: 1.25rem;
+      font-weight: var(--fw-semibold);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-primary);
+    }
+    .module ul {
+      list-style: disc inside;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+    }
+    .module ul li + li {
+      margin-top: 0.5rem;
+    }
+    .module .reflection {
+      background: #f0f0f0;
+      border-left: 4px solid var(--color-accent);
+      padding: 1rem 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="main">
+        <a href="#" class="logo">E-Portfolio</a>
+        <div class="nav-links">
+          <a href="#banner">Home</a>
+          <a href="#modules">Modules</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="banner">
+    <div class="container">
+      <h1>Data Science Learning Portfolio</h1>
+      <p>As an MSc Data Science student, this e-Portfolio captures my learning artefacts, reflections and professional growth. Navigate through each module to explore my work.</p>
+    </div>
+  </section>
+
+  <section id="modules" class="container">
+    <div class="module-nav">
+      <a href="#num-analysis">Numerical Analysis</a>
+      <a href="#visualising-data">Visualising Data</a>
+      <a href="#data-professional">The Data Professional</a>
+    </div>
+
+    <div class="module" id="num-analysis">
+      <h2>Numerical Analysis</h2>
+      <p class="description">Foundation in mathematics & statistics for Data Science & AI (using R, optional Python).</p>
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Demonstrate understanding of mathematical/statistical concepts underpinning Data Science and AI.</li>
+        <li>Apply mathematical/statistical methods in data-driven decision-making.</li>
+        <li>Critically evaluate statistical analyses and interpret outcomes.</li>
+        <li>Present results effectively to diverse audiences.</li>
+      </ul>
+      <h3>e-Portfolio Activities / Assignments</h3>
+      <ul>
+        <li>Weekly practical assignments using R</li>
+        <li>Final statistical analysis report</li>
+        <li>Optional extension tasks using Python</li>
+      </ul>
+      <h3>Skills to Be Gained</h3>
+      <ul>
+        <li>Numeracy</li>
+        <li>Research</li>
+        <li>IT & Digital</li>
+        <li>Critical Thinking & Analysis</li>
+        <li>Communication & Literacy</li>
+        <li>Problem-solving</li>
+        <li>Ethical Awareness</li>
+        <li>Critical Reflection</li>
+      </ul>
+      <div class="reflection">
+        <strong>My Reflection:</strong><br>
+        This module laid the foundational groundwork for my journey into Data Science by enhancing my proficiency in core mathematical and statistical concepts. Using R as the primary tool, I explored essential techniques such as t-tests, regression analysis, and probability distributions. These practical exercises allowed me to apply theoretical knowledge to real-world datasets, fostering analytical thinking and data interpretation. Additionally, I experimented with Python to implement the same techniques, which deepened my understanding of methodological flexibility across programming platforms. Regular tutor feedback and peer discussions helped me identify areas of growth and strengthened my ability to communicate statistical results effectively to technical and non-technical audiences alike.
+      </div>
+    </div>
+
+    <div class="module" id="visualising-data">
+      <h2>Visualising Data</h2>
+      <p class="description">Grammar & idioms of visualisation; Python/R tools to reveal patterns and support decision-making.</p>
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Apply visualisation grammar and idioms across the full visualisation process.</li>
+        <li>Evaluate visualisation tools and programming languages for exploring complex data.</li>
+        <li>Implement visualisation techniques using realistic, multidisciplinary data.</li>
+        <li>Communicate insights clearly to facilitate informed decision-making.</li>
+      </ul>
+      <h3>e-Portfolio Activities / Assignments</h3>
+      <ul>
+        <li>Dashboard development with Python/R (e.g. Plotly, Seaborn, ggplot2)</li>
+        <li>Storytelling project collating data from multiple domains</li>
+        <li>Justification of tool selection and design choices</li>
+        <li>Reflective summary, PDP, feedback notes & supporting artefacts</li>
+      </ul>
+      <h3>Skills to Be Gained</h3>
+      <ul>
+        <li>Communication & Literacy</li>
+        <li>IT & Digital</li>
+        <li>Visual Reasoning</li>
+        <li>Research</li>
+        <li>Commercial Awareness</li>
+        <li>Problem-solving</li>
+        <li>Time Management</li>
+        <li>Critical Thinking & Reflection</li>
+      </ul>
+      <div class="reflection">
+        <strong>My Reflection:</strong><br>
+        This module taught me that data visualisation is more than just aesthetic design—it is a powerful medium for storytelling and strategic communication. I developed dynamic dashboards using Python libraries such as Plotly and Seaborn, translating complex datasets into clear, actionable insights. A key part of my learning was understanding how to tailor visual outputs for different audiences, ensuring clarity and relevance in every presentation. By engaging in visual storytelling projects, I refined my ability to highlight data trends, uncover relationships, and support decision-making through impactful visuals.
+      </div>
+    </div>
+
+    <div class="module" id="data-professional">
+      <h2>The Data Professional</h2>
+      <p class="description">Roles, ethics & tools of the modern data professional (GitHub & workflow automation).</p>
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Identify the roles and responsibilities of a data professional, considering ethics, law, and privacy.</li>
+        <li>Analyse the process of transforming data into knowledge to support decision-making.</li>
+        <li>Evaluate appropriate tools and techniques for working with pre-processed data.</li>
+        <li>Develop professional awareness, including the use of GitHub and workflow automation.</li>
+      </ul>
+      <h3>e-Portfolio Activities / Assignments</h3>
+      <ul>
+        <li>Collaborative Forum Summaries (LOs 1–3)</li>
+        <li>Reflective essay on process & professional development</li>
+        <li>GitHub repositories showcasing coding artefacts</li>
+        <li>PDP, feedback & coding-related artefacts</li>
+      </ul>
+      <h3>Skills to Be Gained</h3>
+      <ul>
+        <li>Ethical Awareness</li>
+        <li>Critical Thinking</li>
+        <li>Communication & Literacy</li>
+        <li>IT & Digital (incl. Git & Actions)</li>
+        <li>Commercial Awareness</li>
+        <li>Teamwork & Leadership</li>
+        <li>Time Management</li>
+        <li>Problem-solving</li>
+        <li>Interpersonal Skills</li>
+        <li>Research</li>
+        <li>Global Citizenship</li>
+        <li>Critical Reflection</li>
+      </ul>
+      <div class="reflection">
+        <strong>My Reflection:</strong><br>
+        This module broadened my understanding of what it means to be a data professional in today’s fast-paced and ethically complex landscape. I explored responsibilities from lawful and ethical data handling to preserving privacy and transparency. I practised reproducibility and collaboration by using GitHub to version-control and document my coding exercises, and I gained exposure to GitHub Actions to automate workflows. This module introduced me to the professional standards expected of data scientists and prepared me to contribute responsibly in any data-driven organisation.
+      </div>
+    </div>
+  </section>
+</body>
+</html>
