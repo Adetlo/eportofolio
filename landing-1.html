@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-	<title>Skills & Expertise - E-Portfolio</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Skills & Expertise – E-Portfolio</title>
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
+		/* Reset & base */
 		body {
 			font-family: 'Segoe UI', sans-serif;
 			background-color: #f2f4f8;
@@ -13,96 +14,121 @@
 			margin: 0;
 			padding: 0;
 		}
+		a { color: inherit; text-decoration: none; }
+
+		/* Header */
 		#header {
 			background-color: #1f2e40;
 			padding: 1rem 2rem;
-			color: #fff;
+			color: #ffffff;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 		}
 		#header .logo {
+			font-size: 1.4rem;
 			font-weight: bold;
-			font-size: 1.3rem;
-			text-decoration: none;
-			color: #fff;
 		}
-		#banner {
-	background: linear-gradient(135deg, #0255ee, #99bbf5); /* biru gradasi elegan */
-	color: #ffffff;
-	padding: 3rem 2rem;
-	text-align: center;
-}
-#banner h1 {
-	font-size: 3.5rem;
-	margin-bottom: 1.5rem;
-	color: #ffffff; /* putih terang */
-}
-#banner p {
-	font-size: 1.5rem;
-	max-width: 900px;
-	margin: 0 auto;
-	line-height: 1.85;
-	color: #f2f2f2; /* putih muda agar tidak terlalu kontras */
-}
+		#header nav a {
+			padding: 0.5rem 1rem;
+			transition: background 0.2s;
+		}
+		#header nav a:hover {
+			background: rgba(255,255,255,0.1);
+			border-radius: 4px;
+		}
 
+		/* Banner – lebih terang dan kontras */
+		#banner {
+			background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+			padding: 4rem 2rem;
+			text-align: center;
+		}
+		#banner h1 {
+			font-size: 3.5rem;
+			margin-bottom: 1rem;
+			color: #1f2e40;
+		}
+		#banner p {
+			font-size: 1.4rem;
+			max-width: 800px;
+			margin: 0 auto;
+			line-height: 1.7;
+			color: #2c3e50;
+		}
+
+		/* Section umum */
 		.section {
 			max-width: 1000px;
 			margin: 0 auto;
 			padding: 3rem 2rem;
 		}
 		.section h2 {
-			font-size: 2rem;
+			font-size: 2.2rem;
 			margin-bottom: 1.5rem;
-			border-left: 4px solid #2980b9;
+			color: #1f2e40;
+			border-left: 5px solid #2980b9;
 			padding-left: 1rem;
-			color: #2c3e50;
 		}
+
+		/* Daftar skill */
 		.skill-list {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 			gap: 2rem;
 		}
 		.skill-box {
-			background: #fff;
+			background: #ffffff;
 			padding: 1.5rem;
 			border-radius: 8px;
 			box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-			transition: box-shadow 0.3s;
+			transition: transform 0.3s, box-shadow 0.3s;
 		}
 		.skill-box:hover {
-			box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+			transform: translateY(-4px);
+			box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 		}
 		.skill-box h3 {
 			margin-top: 0;
 			color: #2980b9;
+			font-size: 1.3rem;
 		}
 		.skill-box p {
-			color: #555;
-			font-size: 0.95rem;
-			line-height: 1.5;
+			color: #555555;
+			font-size: 1rem;
+			line-height: 1.6;
 		}
+
+		/* Footer */
 		#footer {
+			background: #1f2e40;
+			color: #cccccc;
 			text-align: center;
 			padding: 2rem;
-			background: #1f2e40;
-			color: #ccc;
 			font-size: 0.9rem;
 		}
 	</style>
 </head>
 <body>
+
+	<!-- Header -->
 	<header id="header">
 		<a href="index.html" class="logo">My Portfolio</a>
-		<nav><a href="#">Menu</a></nav>
+		<nav>
+			<a href="#banner">Home</a>
+			<a href="#skills">Skills</a>
+			<a href="#contact">Contact</a>
+		</nav>
 	</header>
 
+	<!-- Banner -->
 	<section id="banner">
-		<h1>Skills & Expertise</h1>
+		<h1>Skills &amp; Expertise</h1>
 		<p>Combining strong backend development, data engineering, and system integration skills to build secure and scalable solutions across banking and enterprise environments.</p>
 	</section>
 
-	<section class="section">
+	<!-- Skills Section -->
+	<section id="skills" class="section">
 		<h2>Technical Proficiencies</h2>
 		<div class="skill-list">
 			<div class="skill-box">
@@ -110,7 +136,7 @@
 				<p>Advanced in COBOL for mainframe systems, PHP for web services, and Python for scripting and automation.</p>
 			</div>
 			<div class="skill-box">
-				<h3>Database & SQL</h3>
+				<h3>Database &amp; SQL</h3>
 				<p>Skilled in Oracle and MySQL. Experienced with schema design, complex queries, indexing, and performance tuning.</p>
 			</div>
 			<div class="skill-box">
@@ -118,7 +144,7 @@
 				<p>Automating financial reports and transactional data flows using Python, cron jobs, and shell scripting in Linux.</p>
 			</div>
 			<div class="skill-box">
-				<h3>Infrastructure & Tools</h3>
+				<h3>Infrastructure &amp; Tools</h3>
 				<p>Hands-on with SD-WAN, Linux CLI, Git, Docker, and hybrid deployment pipelines for financial applications.</p>
 			</div>
 			<div class="skill-box">
@@ -128,8 +154,10 @@
 		</div>
 	</section>
 
+	<!-- Footer -->
 	<footer id="footer">
 		<p>&copy; 2025 Your Name. Built with HTML5UP | Customized by Me</p>
 	</footer>
+
 </body>
 </html>
