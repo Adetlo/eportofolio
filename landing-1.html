@@ -104,16 +104,27 @@
       padding: 0;
       margin: 0;
     }
-    .skills-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: transform var(--transition), color var(--transition);
-    }
-    .skills-list li:hover {
-      transform: translateY(-4px);
-      color: var(--highlight);
-    }
+ /* Menjadi: */
+.skills-list > li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.skills-list > li:hover {
+  transform: translateY(-4px);
+  /* Hanya teks dalam skill-text yang berubah warna: */
+  color: inherit; 
+}
+
+.skills-list > li:hover .skill-icon {
+  color: var(--highlight);
+}
+
+.skills-list > li:hover .skill-text h3 {
+  color: var(--highlight);
+}
     .skill-icon {
       font-size: 2rem;
       color: var(--accent);
