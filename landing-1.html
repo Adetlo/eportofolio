@@ -1,144 +1,230 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skills & Expertise – E-Portfolio</title>
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f2f4f8;
-      color: #2c3e50;
+    :root {
+      --color-bg: #f5f7fa;
+      --color-surface: #ffffff;
+      --color-primary: #2b2d42;
+      --color-accent: #8d99ae;
+      --color-highlight: #ef233c;
+      --color-text: #343a40;
+      --radius: 10px;
+      --transition: 0.3s ease;
+      --fw-light: 300;
+      --fw-regular: 400;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    a { color: inherit; text-decoration: none; }
 
-    /* Header */
-    #header {
-      background-color: #1f2e40;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    #header .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #a2e8ff;
-    }
-    #header nav a {
-      color: #ffffff;
-      margin-left: 1.5rem;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    #header nav a:hover {
-      color: #a2e8ff;
-    }
-
-
-    /* Section Umum */
-    .section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-    .section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      color: #1f2e40;
-      border-left: 5px solid #2980b9;
-      padding-left: 1rem;
-    }
-
-    /* Daftar Skill */
-    .skill-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .skill-box {
-      background: #ffffff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .skill-box:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .skill-box h3 {
-      margin-top: 0;
-      color: #2980b9;
-      font-size: 1.3rem;
-    }
-    .skill-box p {
-      color: #555555;
-      font-size: 1rem;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
       line-height: 1.6;
     }
 
-    /* Footer */
-    #footer {
-      background: #1f2e40;
-      color: #cccccc;
-      text-align: center;
-      padding: 2rem;
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color var(--transition);
+    }
+    a:hover {
+      color: var(--color-highlight);
+    }
+
+    header {
+      background: var(--color-surface);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .container {
+      width: min(90%, 1200px);
+      margin: 0 auto;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: var(--fw-bold);
+      color: var(--color-primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
       font-size: 0.9rem;
+    }
+
+    /* Hero */
+    #hero {
+      background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: var(--fw-bold);
+      margin-bottom: 0.5rem;
+    }
+    #hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 2rem;
+      font-weight: var(--fw-semibold);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--color-highlight);
+      border-radius: var(--radius);
+    }
+
+    /* Skills */
+    #skills {
+      padding: 4rem 0;
+      background: var(--color-bg);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .skill-card {
+      background: var(--color-surface);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .skill-card h3 {
+      font-size: 1.25rem;
+      font-weight: var(--fw-semibold);
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+    .skill-card p {
+      font-size: 1rem;
+      color: var(--color-accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #fff;
+      font-weight: var(--fw-semibold);
     }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header id="header">
-    <a href="index.html" class="logo">My Portfolio</a>
-    <nav>
-      <a href="#banner">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">My Portfolio</a>
+        <div class="nav-links">
+          <a href="#hero">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Banner -->
-  <section id="banner" class="major">
-</section>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <h1>Skills & Expertise</h1>
+      <p>Building robust backend systems, automating data workflows, and designing scalable architectures for modern enterprises.</p>
+    </div>
+  </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="section">
-    <h2>Technical Proficiencies</h2>
-    <div class="skill-list">
-      <div class="skill-box">
+  <section id="skills" class="container">
+    <h2 class="section-title">Technical Proficiencies</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
         <h3>Backend Programming</h3>
-        <p>Advanced in COBOL for mainframe systems, PHP for web services, and Python for scripting and automation.</p>
+        <p>Expertise in COBOL, PHP, Python for developing secure, maintainable backend services.</p>
       </div>
-      <div class="skill-box">
-        <h3>Database &amp; SQL</h3>
-        <p>Skilled in Oracle and MySQL. Experienced with schema design, complex queries, indexing, and performance tuning.</p>
+      <div class="skill-card">
+        <h3>Database & SQL</h3>
+        <p>Proficient with Oracle, MySQL: schema design, query optimization, indexing, and migrations.</p>
       </div>
-      <div class="skill-box">
+      <div class="skill-card">
         <h3>Data Automation</h3>
-        <p>Automating financial reports and transactional data flows using Python, cron jobs, and shell scripting in Linux.</p>
+        <p>Orchestrating ETL pipelines, cron jobs, shell scripts to automate financial reporting workflows.</p>
       </div>
-      <div class="skill-box">
-        <h3>Infrastructure &amp; Tools</h3>
-        <p>Hands-on with SD-WAN, Linux CLI, Git, Docker, and hybrid deployment pipelines for financial applications.</p>
+      <div class="skill-card">
+        <h3>Infrastructure & Tools</h3>
+        <p>Hands-on with Docker, Git, Linux CLI, SD-WAN, and CI/CD pipelines for hybrid cloud deployments.</p>
       </div>
-      <div class="skill-box">
+      <div class="skill-card">
         <h3>Soft Skills</h3>
-        <p>Strong analytical thinking, collaboration, independent decision-making, and effective communication across departments.</p>
+        <p>Analytical thinking, cross-team collaboration, self-driven decision making, and clear communication.</p>
       </div>
     </div>
   </section>
 
+  <!-- Contact Section (Optional) -->
+  <section id="contact" class="container" style="padding:4rem 0">
+    <h2 class="section-title">Get In Touch</h2>
+    <p style="margin-bottom:2rem;color:var(--color-text)">Feel free to reach out via email or LinkedIn for opportunities and collaborations.</p>
+    <a href="mailto:you@example.com" style="font-weight:var(--fw-semibold);">you@example.com</a>
+  </section>
+
   <!-- Footer -->
-  <footer id="footer">
-    <p>&copy; 2025 Your Name. Built with HTML5UP | Customized by Me</p>
+  <footer>
+    <div class="container">
+      &copy; 2025 Your Name. Built & Designed by Me.
+    </div>
   </footer>
 
 </body>
