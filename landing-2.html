@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work Experience – E-Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #f5f7fa;
+      --color-surface: #ffffff;
+      --color-primary: #2b2d42;
+      --color-accent: #8d99ae;
+      --color-highlight: #ef233c;
+      --color-text: #343a40;
+      --radius: 10px;
+      --transition: 0.3s ease;
+      --fw-light: 300;
+      --fw-regular: 400;
+      --fw-semibold: 600;
+      --fw-bold: 700;
+      --img-size: 250px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; transition: color var(--transition); }
+    a:hover { color: var(--color-highlight); }
+    header { background: var(--color-surface); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .container { width: min(90%,1200px); margin: 0 auto; padding: 0 1rem; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: var(--fw-bold); color: var(--color-primary); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-weight: var(--fw-semibold); text-transform: uppercase; font-size: 0.9rem; }
+
+    /* Banner */
+    #banner { background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%); color: #fff; text-align: center; padding: 6rem 2rem; }
+    #banner h1 { font-size: 3rem; font-weight: var(--fw-bold); margin-bottom: 0.5rem; }
+    #banner p { max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; text-align: justify; text-justify: inter-word; }
+
+    /* Work Experience List */
+    #work { padding: 4rem 0; }
+    details {
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.5rem 2rem;
+      font-weight: var(--fw-semibold);
+      font-size: 1.25rem;
+      position: relative;
+    }
+    /* hilangkan marker default */
+    summary::-webkit-details-marker { display: none; }
+    /* icon panah */
+    summary::after {
+      content: '\f078';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      transition: var(--transition);
+    }
+    details[open] summary::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+    .job-content {
+      padding: 1rem 2rem 2rem;
+      border-top: 1px solid var(--color-bg);
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    .job-meta {
+      font-size: 0.9rem;
+      color: var(--color-accent);
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">E-Portofolio</a>
+        <div class="nav-links">
+          <a href="index.html#banner">Home</a>
+          <a href="projects.html#two">Projects</a>
+          <a href="work.html#work">Work</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Section -->
+  <section id="banner">
+    <div class="container">
+      <h1>Work Experience</h1>
+      <p>Selama lebih dari 10 tahun berkarir di industri perbankan dan teknologi, saya memimpin berbagai inisiatif besar mulai dari migrasi core banking, integrasi sistem syariah, hingga pengembangan dashboard keuangan. Setiap peran menuntut kolaborasi lintas tim, kepatuhan regulasi, dan fokus pada skalabilitas serta keamanan. Berikut ringkasan pengalaman kerja saya:</p>
+    </div>
+  </section>
+
+  <!-- Work Experience List -->
+  <section id="work" class="container">
+    <details>
+      <summary>IT Project Manager · Bank Negara Indonesia, New York Branch <span class="job-meta">(Jan 2023 – Sekarang)</span></summary>
+      <div class="job-content">
+        <ul>
+          <li>Memimpin tim teknis 12 orang untuk implementasi core banking dan migrasi data nasabah, deposito, serta pinjaman.</li>
+          <li>Menjamin kepatuhan penuh pada regulasi FRB & Federal Reserve, mengatasi >10 tantangan migrasi secara proaktif.</li>
+          <li>Mencapai go-live dalam waktu 8 bulan dengan zero critical defects dan uptime 99.9% pada bulan pertama operasional.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Data Migration Lead · Bank Syariah Indonesia <span class="job-meta">(Jul 2021 – Des 2022)</span></summary>
+      <div class="job-content">
+        <ul>
+          <li>Ekstraksi dan isolasi 100% data nasabah syariah dari sistem core banking gabungan.</li>
+          <li>Bekerja sama dengan tim compliance untuk menjaga integritas dan kerahasiaan data sesuai prinsip syariah.</li>
+          <li>Menuntaskan migrasi dalam 6 bulan tanpa downtime layanan nasabah.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Infrastructure Specialist · BNI London Branch <span class="job-meta">(Mar 2019 – Jun 2021)</span></summary>
+      <div class="job-content">
+        <ul>
+          <li>Mengarahkan migrasi infrastruktur TI dari London ke Jakarta, termasuk SD-WAN deployment bersama IBM & EY.</li>
+          <li>Menjamin kepatuhan PRA & FCA, serta zero data loss selama proses.</li>
+          <li>Mengurangi biaya infrastruktur sebesar 30% melalui optimasi cloud dan virtualization.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Software Engineer · PT. TechFinance Indonesia <span class="job-meta">(Sep 2015 – Feb 2019)</span></summary>
+      <div class="job-content">
+        <ul>
+          <li>Mendesain dan mengembangkan dashboard finansial berbasis web (PHP/MySQL) untuk pelaporan EOD.</li>
+          <li>Membangun pipeline ETL SQL untuk memproses data balance sheet dan P&L dengan filter interaktif.</li>
+          <li>Automasi email report harian untuk manajemen, meningkatkan kecepatan pengambilan keputusan.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+</body>
+</html>
