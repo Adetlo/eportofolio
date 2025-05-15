@@ -77,6 +77,52 @@
       line-height: 1.8;
       color: var(--text);
     }
+	/* Styles for the new Skills Section */
+.skills-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+.skills-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform var(--transition), color var(--transition);
+  cursor: default;
+}
+.skills-list li:hover {
+  transform: translateY(-4px);
+  color: var(--highlight);
+}
+.skill-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.skill-text h3 {
+  font-size: 1.2rem;
+  font-weight: var(--fw-semibold);
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+.skill-text h3::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: var(--highlight);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+.skill-text p {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.4;
+}
 
     /* Skills & Footer omitted for brevity… */
   </style>
@@ -107,31 +153,46 @@
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="container">
-    <h2 class="section-title">Technical Proficiencies</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Backend Programming</h3>
-        <p>Expertise in COBOL, PHP, Python for developing secure, maintainable backend services.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Database & SQL</h3>
-        <p>Proficient with Oracle, MySQL: schema design, query optimization, indexing, and migrations.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Data Automation</h3>
-        <p>Orchestrating ETL pipelines, cron jobs, shell scripts to automate financial reporting workflows.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Infrastructure & Tools</h3>
-        <p>Hands-on with Docker, Git, Linux CLI, SD-WAN, and CI/CD pipelines for hybrid cloud deployments.</p>
-      </div>
-      <div class="skill-card">
-        <h3>Soft Skills</h3>
-        <p>Analytical thinking, cross-team collaboration, self-driven decision making, and clear communication.</p>
-      </div>
-    </div>
+<!-- Skills Section -->
+<section id="skills" class="container">
+	<h2 class="section-title">Technical Proficiencies</h2>
+	<ul class="skills-list">
+	  <li>
+		<i class="fas fa-code skill-icon"></i>
+		<div class="skill-text">
+		  <h3>Backend Programming</h3>
+		  <p>COBOL, PHP, Python for secure, maintainable backends.</p>
+		</div>
+	  </li>
+	  <li>
+		<i class="fas fa-database skill-icon"></i>
+		<div class="skill-text">
+		  <h3>Database &amp; SQL</h3>
+		  <p>Oracle &amp; MySQL: schema design, tuning, indexing.</p>
+		</div>
+	  </li>
+	  <li>
+		<i class="fas fa-cogs skill-icon"></i>
+		<div class="skill-text">
+		  <h3>Data Automation</h3>
+		  <p>ETL pipelines, cron jobs, shell scripts for reporting.</p>
+		</div>
+	  </li>
+	  <li>
+		<i class="fas fa-tools skill-icon"></i>
+		<div class="skill-text">
+		  <h3>Infrastructure &amp; Tools</h3>
+		  <p>Docker, Git, Linux CLI, SD-WAN orchestration.</p>
+		</div>
+	  </li>
+	  <li>
+		<i class="fas fa-users skill-icon"></i>
+		<div class="skill-text">
+		  <h3>Soft Skills</h3>
+		  <p>Analytical thinking, collaboration, decisive leadership.</p>
+		</div>
+	  </li>
+	</ul>
   </section>
 
   <!-- Contact Section (Optional) -->
