@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>E-Portfolio – Ade Putra Tio Aldino</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --primary-color: #2c3e50;
@@ -16,6 +16,7 @@
       --text-color: #333;
       --border-radius: 10px;
       --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,59 +29,108 @@
     }
 
     header {
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
       color: white;
-      padding: 1rem 0;
+      padding: 2rem 0;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
       border-bottom: 4px solid var(--secondary-color);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
       font-family: 'Roboto Slab', serif;
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
+
+    header h1::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 25%;
+      border-radius: 3px;
     }
 
     header p {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #ecf0f1;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     .container {
       max-width: 1200px;
       margin: auto;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
     }
 
     .section-title {
       font-family: 'Roboto Slab', serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: var(--primary-color);
       border-bottom: 3px solid var(--secondary-color);
       padding-bottom: 0.5rem;
       margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: rgba(52, 152, 219, 0.2);
+      bottom: -5px;
+      left: 0;
     }
 
     .unit-container {
       background: white;
-      padding: 2rem;
+      padding: 2.5rem;
       margin-bottom: 2rem;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    .unit-container:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .unit-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
     }
 
     .unit-container h3 {
       color: var(--secondary-color);
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .unit-container p {
       margin-bottom: 1rem;
-      color: #444;
+      color: #555;
+      font-size: 1.05rem;
     }
 
     .tile-grid {
@@ -90,34 +140,88 @@
     }
 
     .card-style {
-      background-color: var(--light-color);
-      padding: 1.5rem;
+      background-color: white;
+      padding: 2rem;
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      transition: transform 0.3s;
+      transition: var(--transition);
+      position: relative;
+      border-top: 3px solid var(--secondary-color);
     }
 
     .card-style:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
 
     .card-style h4 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--primary-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-style h4 i {
+      color: var(--secondary-color);
+      font-size: 1.5rem;
     }
 
     .card-style p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #666;
+      margin-bottom: 1.5rem;
+      min-height: 60px;
+    }
+
+    .card-style a {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--secondary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: 2px solid var(--secondary-color);
+    }
+
+    .card-style a:hover {
+      background-color: transparent;
+      color: var(--secondary-color);
     }
 
     .contact-section {
-      padding: 2rem;
-      background-color: var(--light-color);
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, var(--light-color) 0%, #dfe6e9 100%);
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    }
+
+    .contact-section h3 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.1rem;
     }
 
     .contact-section a {
@@ -125,19 +229,98 @@
       margin-top: 1rem;
       font-weight: bold;
       color: var(--accent-color);
+      font-size: 1.1rem;
+      transition: var(--transition);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    .contact-section a:hover {
+      background-color: rgba(231, 76, 60, 0.1);
+      transform: translateY(-2px);
     }
 
     footer {
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
       color: white;
-      padding: 1.5rem 0;
+      padding: 2rem 0;
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 3rem;
+      position: relative;
     }
 
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+
+    /* Decorative elements */
+    .decorative-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .circle-1 {
+      width: 150px;
+      height: 150px;
+      background: var(--secondary-color);
+      top: 10%;
+      right: 5%;
+    }
+
+    .circle-2 {
+      width: 100px;
+      height: 100px;
+      background: var(--accent-color);
+      bottom: 15%;
+      left: 8%;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .tile-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Decorative background elements -->
+  <div class="decorative-circle circle-1"></div>
+  <div class="decorative-circle circle-2"></div>
 
   <header>
     <h1>Ade Putra Tio Aldino</h1>
@@ -154,41 +337,54 @@
 
     <div class="tile-grid">
       <div class="card-style">
-        <h4><i class="fas fa-briefcase"></i> Project Showcase</h4>
+        <h4><i class="fas fa-laptop-code"></i> Project Showcase</h4>
         <p>COBOL/Oracle modules, automated Linux data pipelines with Python, scalable SQL-based reporting.</p>
-        <a href="landing.html">View Project</a>
+        <a href="landing.html">View Projects <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="card-style">
-        <h4><i class="fas fa-cogs"></i> Skills & Expertise</h4>
+        <h4><i class="fas fa-tools"></i> Skills & Expertise</h4>
         <p>Specialist in core banking, Python scripting, database optimization, and Linux environments.</p>
-        <a href="landing-1.html">Explore Skills</a>
+        <a href="landing-1.html">Explore Skills <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="card-style">
-        <h4><i class="fas fa-briefcase-tie"></i> Work Experience</h4>
+        <h4><i class="fas fa-briefcase"></i> Work Experience</h4>
         <p>Led modernization of core banking systems and optimized operational flows via shell automation.</p>
-        <a href="landing-2.html">View Experience</a>
+        <a href="landing-2.html">View Experience <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="card-style">
         <h4><i class="fas fa-graduation-cap"></i> Education & Certifications</h4>
         <p>Certified Oracle DBA, academic background in Computer Science and formal training in data systems.</p>
-        <a href="landing-3.html">View Education</a>
+        <a href="landing-3.html">View Education <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="card-style">
-        <h4><i class="fas fa-database"></i> Data Science Portfolio</h4>
+        <h4><i class="fas fa-chart-line"></i> Data Science Portfolio</h4>
         <p>Modular analytics, visualizations, machine learning applications, and regulatory considerations.</p>
-        <a href="landing-4.html">Go to Portfolio</a>
+        <a href="landing-4.html">Go to Portfolio <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-style">
+        <h4><i class="fas fa-star"></i> Achievements</h4>
+        <p>Recognitions, awards, and notable contributions to the field of banking technology.</p>
+        <a href="landing-5.html">View Achievements <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
 
-    <div class="contact-section" style="margin-top:3rem;">
+    <div class="contact-section">
       <h3>Get In Touch</h3>
-      <p>Feel free to contact me for consulting, collaboration, or professional inquiries.</p>
-      <a href="mailto:adeputratio@gmail.com">adeputratio@gmail.com</a>
+      <p>Feel free to contact me for consulting, collaboration, or professional inquiries. I'm always open to discussing new projects and opportunities.</p>
+      <a href="mailto:adeputratio@gmail.com"><i class="fas fa-envelope"></i> adeputratio@gmail.com</a>
+      
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Medium"><i class="fab fa-medium"></i></a>
+      </div>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 Ade Putra Tio Aldino. Built & designed with passion.
+    <p>&copy; 2025 Ade Putra Tio Aldino. Built & designed with passion.</p>
+    <p>Last updated: July 2025</p>
   </footer>
 
 </body>
