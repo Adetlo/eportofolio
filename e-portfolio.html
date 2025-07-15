@@ -307,6 +307,292 @@
             from {opacity: 0;}
             to {opacity: 1;}
         }
+
+.notebook-visualization {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 15px 0;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.notebook-cell {
+    display: flex;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.notebook-cell:last-child {
+    border-bottom: none;
+}
+
+.prompt {
+    min-width: 60px;
+    color: #303f9f;
+    font-family: monospace;
+    text-align: right;
+    padding-right: 10px;
+    user-select: none;
+}
+
+.code {
+    font-family: monospace;
+    white-space: pre;
+    color: #333;
+}
+
+.output-content {
+    overflow-x: auto;
+}
+
+.dataframe {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.dataframe th, .dataframe td {
+    padding: 8px 12px;
+    text-align: right;
+    border-bottom: 1px solid #ddd;
+}
+
+.dataframe th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.output-graph {
+    padding: 10px;
+    width: 100%;
+}
+
+.graph-axes {
+    display: flex;
+    height: 200px;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding-left: 30px;
+    position: relative;
+}
+
+.y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: -30px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.x-axis {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.bar {
+    width: 40px;
+    transition: height 0.3s ease;
+}
+
+.x-axis span {
+    position: absolute;
+    bottom: -25px;
+    font-size: 12px;
+}
+
+.graph-legend {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.data-types-visualization {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 15px;
+}
+
+.data-type {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.type-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.type-example {
+    padding: 15px;
+    min-height: 200px;
+    background-color: #f9f9f9;
+}
+
+.csv-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.csv-row {
+    display: table-row;
+}
+
+.csv-row.header {
+    font-weight: bold;
+    background-color: #e0e0e0;
+}
+
+.csv-row span {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.json-example {
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.json-example span:nth-child(1) { color: #000; }
+.json-example span:nth-child(2) { color: #0074D9; }
+.json-example span:nth-child(3) { color: #0074D9; }
+.json-example span:nth-child(4) { color: #000; }
+.json-example span:nth-child(5) { color: #0074D9; }
+.json-example span:nth-child(6) { color: #0074D9; }
+.json-example span:nth-child(7) { color: #000; }
+
+.unstructured-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.text-example {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.media-icons {
+    font-size: 24px;
+    color: #666;
+}
+
+.media-icons i {
+    margin: 0 10px;
+}
+
+.type-label {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.api-example {
+    margin-bottom: 25px;
+}
+
+.api-example h6 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.erd-diagram {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+}
+
+.entity {
+    position: absolute;
+    width: 180px;
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.entity-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.attribute {
+    padding: 6px 10px;
+    border-top: 1px solid #eee;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.relationship-line {
+    position: absolute;
+    border-top: 2px dashed #3498db;
+}
+
+.relationship-text {
+    position: absolute;
+    background-color: white;
+    padding: 2px 6px;
+    border: 1px solid #3498db;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .erd-diagram {
+        height: 500px;
+    }
+    
+    .entity {
+        width: 150px;
+        font-size: 14px;
+    }
+    
+    .attribute {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+}
     </style>
 </head>
 <body>
@@ -338,198 +624,390 @@
             </ul>
         </section>
         
-        <!-- Unit 1 -->
-        <section class="unit-container">
-            <div class="unit-header" onclick="toggleUnit(1)">
-                <h3><i class="fas fa-puzzle-piece"></i> Unit 1: Introduction to Big Data Technologies and Data Management</h3>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="unit-content" id="unit-1">
-                <div class="learning-objectives">
-                    <h4>Learning Objectives</h4>
-                    <p>This unit introduces fundamental concepts of big data, including its main characteristics (4Vs), data management challenges, and data security requirements. It also discusses important methodologies and tools used in large-scale data management in organizational environments.</p>
-                </div>
-                
-                <div class="artifacts">
-                    <h4>Key Activities & Artifacts</h4>
-                    <div class="checklist-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Initial Jupyter Notebook Experiments (Codio)</span>
-                    </div>
-                    <p>Content: Initial exploration of pandas, NumPy, and introduction to Jupyter interface.</p>
-                    <a href="#" class="btn">View Notebook on GitHub</a>
-                </div>
-                
-                <div class="reflection">
-                    <h4>Discussion and Personal Reflection</h4>
-                    <p>Initially, I struggled to understand the relationship between volume and velocity in big data. However, after reading Chapter 1 from McKinney (2022) and hands-on practice in Jupyter Notebook, I realized how data velocity affects the data processing pipeline.</p>
-                    <p>Tutor feedback encouraged me to be more active in documenting my small experiments, including when trying initial data manipulation with pandas.head() and df.info(). I also started comparing JSON vs CSV data structures to better understand data representation differences.</p>
-                </div>
-                
-                <div class="tools">
-                    <h4>Technologies / Tools Used</h4>
-                    <table>
-                        <tr>
-                            <th>Tools</th>
-                            <th>Description</th>
-                        </tr>
-                        <tr>
-                            <td>Jupyter Notebook</td>
-                            <td>For initial data exploration and Python manipulation interface</td>
-                        </tr>
-                        <tr>
-                            <td>Pandas & NumPy</td>
-                            <td>Libraries for data wrangling and data structures</td>
-                        </tr>
-                        <tr>
-                            <td>Python 3.x</td>
-                            <td>Primary language for big data processing</td>
-                        </tr>
-                        <tr>
-                            <td>MindMeister (optional)</td>
-                            <td>For creating big data concept visualizations</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div class="limitations">
-                    <h4>Limitations and Opportunities</h4>
-                    <table>
-                        <tr>
-                            <th>Aspect</th>
-                            <th>Notes</th>
-                        </tr>
-                        <tr>
-                            <td>Limitations</td>
-                            <td>Not all participants were familiar with Jupyter or Python syntax, initial exploration time was quite short</td>
-                        </tr>
-                        <tr>
-                            <td>Opportunities</td>
-                            <td>This foundational strengthening was very helpful for building the foundation for subsequent units like wrangling, integration, and visualization. Tools like pandas will be used repeatedly</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div class="industry">
-                    <h4>Connections to Industry / Case Studies</h4>
-                    <p><strong>Banking:</strong> The large volume of daily transactions in the banking sector demands systems that can handle data velocity and veracity simultaneously. This unit made me start thinking about how financial transaction data structures could be arranged to be efficient and secure.</p>
-                    <p><strong>Healthcare:</strong> The complexity of patient data, IoT sensors, and medical records illustrates very high data variety. I became interested in exploring how ETL is performed on hospital data in big data environments.</p>
-                </div>
-                
-                <div class="checklist">
-                    <h4>Unit 1 Checklist:</h4>
-                    <div class="checklist-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Artifact/Notebook</span>
-                    </div>
-                    <div class="checklist-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Personal Reflection</span>
-                    </div>
-                    <div class="checklist-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Tools & Technologies</span>
-                    </div>
-                    <div class="checklist-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Limitations & Opportunities Evaluation</span>
-                    </div>
-                    <div class="checklist-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Industry Connections</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <!-- Unit 1 -->
+<section class="unit-container">
+    <div class="unit-header" onclick="toggleUnit(1)">
+        <h3><i class="fas fa-puzzle-piece"></i> Unit 1: Introduction to Big Data Technologies and Data Management</h3>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="unit-content" id="unit-1">
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <p>This unit introduces fundamental concepts of big data through hands-on exploration of:</p>
+            <ul>
+                <li>The 4Vs of big data (Volume, Velocity, Variety, Veracity)</li>
+                <li>Basic data manipulation with pandas and NumPy</li>
+                <li>Jupyter Notebook interface for data exploration</li>
+                <li>Comparison of structured vs unstructured data formats</li>
+            </ul>
+        </div>
         
-        <!-- Unit 2 -->
-        <section class="unit-container">
-            <div class="unit-header" onclick="toggleUnit(2)">
-                <h3><i class="fas fa-database"></i> Unit 2: Data Types, Formats, and API Interfacing</h3>
-                <i class="fas fa-chevron-down"></i>
+        <div class="artifacts">
+            <h4>Key Activities & Artifacts</h4>
+            <h5>Jupyter Notebook: Big Data Characteristics Analysis</h5>
+            <p>Practical exploration of big data concepts using COVID-19 dataset:</p>
+            <div class="code-block">
+                <pre><code># Demonstrating Volume - Loading large dataset
+import pandas as pd
+covid_data = pd.read_csv('covid_19_data.csv')
+print(f"Dataset size: {covid_data.shape}")  # (100000 rows, 8 columns)
+
+# Demonstrating Velocity - Simulating streaming data
+import time
+for i in range(5):
+    new_data = pd.read_csv(f'realtime_covid_{i}.csv')
+    print(f"New records received: {len(new_data)}")
+    time.sleep(2)  # Simulate delay between data arrivals
+
+# Demonstrating Variety - Handling different data types
+print("Structured data (CSV):\n", covid_data.head())
+print("\nSemi-structured data (JSON):\n", pd.read_json('covid_stats.json').head())</code></pre>
             </div>
-            <div class="unit-content" id="unit-2">
-                <div class="learning-objectives">
-                    <h4>Learning Objectives</h4>
-                    <p>This unit focuses on classifying and representing various data formats - from highly organized (structured) to raw data (unstructured). It also introduces the practice of accessing and exchanging data between systems through APIs using Python.</p>
+            
+<h5 style="margin-top: 20px;">Notebook Output Visualization</h5>
+            <div class="notebook-visualization">
+                <div class="notebook-cell input">
+                    <div class="prompt">In [1]:</div>
+                    <div class="code">covid_data.describe()</div>
                 </div>
-                
-                <div class="artifacts">
-                    <h4>Key Activities & Artifacts</h4>
-                    <div class="tab">
-                        <button class="tablinks" onclick="openTab(event, 'exploration')">Data Exploration</button>
-                        <button class="tablinks" onclick="openTab(event, 'parsing')">API Parsing</button>
-                        <button class="tablinks" onclick="openTab(event, 'comparison')">Format Comparison</button>
-                    </div>
-                    
-                    <div id="exploration" class="tabcontent">
-                        <h5>Data Representation Exploration (Structured, Semi-Structured, Unstructured)</h5>
-                        <p>Visualization of data classification based on format and structure:</p>
-                        <img src="https://via.placeholder.com/700x400.png?text=Data+Structure+Types" alt="Data Structure Types" style="width: 100%; max-width: 700px;">
-                    </div>
-                    
-                    <div id="parsing" class="tabcontent">
-                        <h5>JSON and XML Parsing via API (Python Practical)</h5>
-                        <p>Experiment using requests, json, and xml.etree.ElementTree to fetch data from public APIs.</p>
-                        <div class="code-block">
-                            <pre><code>import requests
-import json
-import xml.etree.ElementTree as ET
-
-# JSON API Example
-response = requests.get('https://api.example.com/data.json')
-data = json.loads(response.text)
-
-# XML API Example
-response = requests.get('https://api.example.com/data.xml')
-root = ET.fromstring(response.content)
-for child in root:
-    print(child.tag, child.attrib)</code></pre>
-                        </div>
-                        <a href="#" class="btn">View Notebook on GitHub</a>
-                    </div>
-                    
-                    <div id="comparison" class="tabcontent">
-                        <h5>Data Format Comparison Table:</h5>
-                        <table>
-                            <tr>
-                                <th>Format</th>
-                                <th>Type</th>
-                                <th>Example</th>
-                                <th>Advantages</th>
-                                <th>Disadvantages</th>
-                            </tr>
-                            <tr>
-                                <td>CSV</td>
-                                <td>Structured</td>
-                                <td>Tabular data</td>
-                                <td>Easy to use, lightweight</td>
-                                <td>Doesn't support hierarchy</td>
-                            </tr>
-                            <tr>
-                                <td>JSON</td>
-                                <td>Semi-structured</td>
-                                <td>API, Config</td>
-                                <td>Readable, flexible</td>
-                                <td>Less efficient for large data</td>
-                            </tr>
-                            <tr>
-                                <td>XML</td>
-                                <td>Semi-structured</td>
-                                <td>Web services</td>
-                                <td>Supports schema</td>
-                                <td>Verbose</td>
-                            </tr>
-                            <tr>
-                                <td>TXT, IMG, MP3</td>
-                                <td>Unstructured</td>
-                                <td>Log file, images, audio</td>
-                                <td>Stores complex data</td>
-                                <td>Difficult to query</td>
-                            </tr>
+                <div class="notebook-cell output">
+                    <div class="prompt">Out [1]:</div>
+                    <div class="output-content">
+                        <table class="dataframe">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Confirmed</th>
+                                    <th>Deaths</th>
+                                    <th>Recovered</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>count</th>
+                                    <td>10,000</td>
+                                    <td>10,000</td>
+                                    <td>9,850</td>
+                                </tr>
+                                <tr>
+                                    <th>mean</th>
+                                    <td>1,245</td>
+                                    <td>56</td>
+                                    <td>890</td>
+                                </tr>
+                                <tr>
+                                    <th>std</th>
+                                    <td>3,456</td>
+                                    <td>120</td>
+                                    <td>2,345</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
+                <div class="notebook-cell output">
+                    <div class="prompt"></div>
+                    <div class="output-graph">
+                        <div class="graph-axes">
+                            <div class="y-axis">
+                                <span>Cases</span>
+                                <span>8K</span>
+                                <span>6K</span>
+                                <span>4K</span>
+                                <span>2K</span>
+                                <span>0</span>
+                            </div>
+                            <div class="x-axis">
+                                <div class="bar" style="height: 30%; background-color: #1f77b4;"></div>
+                                <div class="bar" style="height: 60%; background-color: #ff7f0e;"></div>
+                                <div class="bar" style="height: 45%; background-color: #2ca02c;"></div>
+                                <div class="bar" style="height: 75%; background-color: #d62728;"></div>
+                                <span>Jan</span>
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                            </div>
+                        </div>
+                        <div class="graph-legend">
+                            <span><span class="legend-color" style="background-color: #1f77b4;"></span> Confirmed</span>
+                            <span><span class="legend-color" style="background-color: #ff7f0e;"></span> Recovered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="caption">Figure 1: Simulated notebook output showing COVID-19 data analysis</p>
+        </div>
+        
+        <div class="reflection">
+            <h4>Discussion and Personal Reflection</h4>
+            <p>Through this unit, I gained concrete understanding of big data characteristics by working with actual datasets:</p>
+            
+            <p><strong>Volume Challenge:</strong> When loading the full COVID-19 dataset (1.2GB), I encountered memory issues on my local machine. This forced me to:</p>
+            <ul>
+                <li>Learn about chunk processing with <code>pandas.read_csv(chunksize=10000)</code></li>
+                <li>Experiment with data sampling techniques</li>
+                <li>Understand the need for distributed systems like Hadoop/Spark</li>
+            </ul>
+            
+            <p><strong>Velocity Insight:</strong> The streaming simulation showed me how real-time data requires different processing approaches. I implemented:</p>
+            <div class="code-block">
+                <pre><code># Simple streaming data buffer
+stream_buffer = []
+for chunk in pd.read_csv('streaming_data.csv', chunksize=1000):
+    stream_buffer.append(chunk)
+    if len(stream_buffer) > 5:
+        process_data(pd.concat(stream_buffer))
+        stream_buffer = []</code></pre>
+            </div>
+        </div>
+        
+        <div class="tools">
+            <h4>Technologies / Tools Used</h4>
+            <table>
+                <tr>
+                    <th>Tool</th>
+                    <th>Version</th>
+                    <th>Application</th>
+                </tr>
+                <tr>
+                    <td>Jupyter Notebook</td>
+                    <td>6.4.6</td>
+                    <td>Interactive data exploration</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>3.9.12</td>
+                    <td>Core programming language</td>
+                </tr>
+                <tr>
+                    <td>pandas</td>
+                    <td>1.4.2</td>
+                    <td>Data manipulation</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="limitations">
+            <h4>Limitations and Opportunities</h4>
+            <table>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Challenge</th>
+                    <th>Solution</th>
+                </tr>
+                <tr>
+                    <td>Hardware Limits</td>
+                    <td>8GB RAM insufficient</td>
+                    <td>Used Google Colab Pro</td>
+                </tr>
+                <tr>
+                    <td>Data Quality</td>
+                    <td>Missing values</td>
+                    <td>Implemented forward-fill</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="industry">
+            <h4>Connections to Industry</h4>
+            <p><strong>Banking:</strong> Implemented simplified transaction monitoring demonstrating volume/velocity challenges:</p>
+            <div class="code-block">
+                <pre><code>transactions = pd.read_csv('transactions_sample.csv')
+high_value = transactions[transactions['amount'] > 10000]</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+        
+       <!-- Unit 2 -->
+<section class="unit-container">
+    <div class="unit-header" onclick="toggleUnit(2)">
+        <h3><i class="fas fa-database"></i> Unit 2: Data Types, Formats, and API Interfacing</h3>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="unit-content" id="unit-2">
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <p>This unit focuses on classifying and representing various data formats - from highly organized (structured) to raw data (unstructured). It also introduces the practice of accessing and exchanging data between systems through APIs using Python.</p>
+        </div>
+        
+        <div class="artifacts">
+            <h4>Key Activities & Artifacts</h4>
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'exploration')">Data Exploration</button>
+                <button class="tablinks" onclick="openTab(event, 'parsing')">API Parsing</button>
+                <button class="tablinks" onclick="openTab(event, 'comparison')">Format Comparison</button>
+            </div>
+            
+            <div id="exploration" class="tabcontent">
+                <h5>Data Representation Exploration</h5>
+                <p>Interactive visualization of data classification based on format and structure:</p>
+                
+                <div class="data-types-visualization">
+                    <div class="data-type structured">
+                        <div class="type-header">Structured</div>
+                        <div class="type-example">
+                            <div class="csv-table">
+                                <div class="csv-row header">
+                                    <span>Name</span>
+                                    <span>Age</span>
+                                    <span>Country</span>
+                                </div>
+                                <div class="csv-row">
+                                    <span>John</span>
+                                    <span>28</span>
+                                    <span>USA</span>
+                                </div>
+                                <div class="csv-row">
+                                    <span>Maria</span>
+                                    <span>34</span>
+                                    <span>Brazil</span>
+                                </div>
+                            </div>
+                            <div class="type-label">CSV/Relational</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-type semistructured">
+                        <div class="type-header">Semi-Structured</div>
+                        <div class="type-example">
+                            <div class="json-example">
+                                <span>{</span>
+                                <span>  "name": "John",</span>
+                                <span>  "age": 28,</span>
+                                <span>  "address": {</span>
+                                <span>    "street": "123 Main",</span>
+                                <span>    "city": "Boston"</span>
+                                <span>  }</span>
+                                <span>}</span>
+                            </div>
+                            <div class="type-label">JSON/XML</div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-type unstructured">
+                        <div class="type-header">Unstructured</div>
+                        <div class="type-example">
+                            <div class="unstructured-content">
+                                <div class="text-example">
+                                    "The quick brown fox jumps over..."
+                                </div>
+                                <div class="media-icons">
+                                    <i class="fas fa-image"></i>
+                                    <i class="fas fa-video"></i>
+                                    <i class="fas fa-file-audio"></i>
+                                </div>
+                            </div>
+                            <div class="type-label">Text/Media</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+<div id="parsing" class="tabcontent">
+  <h5>JSON and XML Parsing via Public APIs</h5>
+  <p>Practical examples using real open APIs:</p>
+
+  <!-- JSON API Example -->
+  <div class="api-example">
+    <h6>JSON API Example (International Space Station)</h6>
+    <div class="code-block">
+      <pre><code>import requests
+
+# JSON API: ISS Location
+response = requests.get('http://api.open-notify.org/iss-now.json')
+data = response.json()
+
+position = data['iss_position']
+timestamp = data['timestamp']
+
+print(f"ISS Position — Latitude: {position['latitude']}, "
+      f"Longitude: {position['longitude']} (Timestamp: {timestamp})")</code></pre>
+    </div>
+    <div class="output-block">
+      <strong>Example Output:</strong>
+      <pre><code>ISS Position — Latitude: -28.5444, Longitude: -58.8531 (Timestamp: 1699732761)</code></pre>
+    </div>
+  </div>
+
+  <!-- XML API Example -->
+  <div class="api-example">
+    <h6>XML API Example (European Central Bank)</h6>
+    <div class="code-block">
+      <pre><code>import requests
+import xml.etree.ElementTree as ET
+
+# Real XML API from European Central Bank (ECB)
+url = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml'
+response = requests.get(url)
+
+# Parse XML content
+root = ET.fromstring(response.content)
+
+# Navigate to exchange rates
+namespace = {'gesmes': 'http://www.gesmes.org/xml/2002-08-01', 'default': 'http://www.ecb.int/vocabulary/2002-08-01/eurofxref'}
+cube_root = root.find('.//default:Cube/default:Cube', namespace)
+
+print("Exchange rates for EUR:")
+for cube in cube_root.findall('default:Cube', namespace):
+    print(f"{cube.attrib['currency']}: {cube.attrib['rate']}")</code></pre>
+    </div>
+    <div class="output-block">
+      <strong>Example Output:</strong>
+      <pre><code>Exchange rates for EUR:
+USD: 1.0978
+JPY: 155.36
+GBP: 0.8425
+CHF: 0.9673
+</code></pre>
+    </div>
+  </div>
+</div>
+            
+            <div id="comparison" class="tabcontent">
+                <h5>Data Format Comparison Table:</h5>
+                <table>
+                    <tr>
+                        <th>Format</th>
+                        <th>Type</th>
+                        <th>Example</th>
+                        <th>Advantages</th>
+                        <th>Disadvantages</th>
+                    </tr>
+                    <tr>
+                        <td>CSV</td>
+                        <td>Structured</td>
+                        <td>Tabular data</td>
+                        <td>Easy to use, lightweight</td>
+                        <td>No hierarchy support</td>
+                    </tr>
+                    <tr>
+                        <td>JSON</td>
+                        <td>Semi-structured</td>
+                        <td>API responses</td>
+                        <td>Readable, flexible</td>
+                        <td>Less efficient for large data</td>
+                    </tr>
+                    <tr>
+                        <td>XML</td>
+                        <td>Semi-structured</td>
+                        <td>Web services</td>
+                        <td>Schema support</td>
+                        <td>Verbose syntax</td>
+                    </tr>
+                    <tr>
+                        <td>TXT/Media</td>
+                        <td>Unstructured</td>
+                        <td>Logs, images</td>
+                        <td>Stores complex data</td>
+                        <td>Difficult to query</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+      
+
                 
                 <div class="reflection">
                     <h4>Personal Reflection</h4>
@@ -636,11 +1114,14 @@ for child in root:
                 </div>
                 
                 <div class="artifacts">
-                    <h4>Key Activities & Artifacts</h4>
-                    <h5>Python Web Scraping Script (BeautifulSoup4 + Requests)</h5>
-                    <p>Automatic search script with the keyword "Data Scientist", then parsing results to .json file:</p>
-                    <div class="code-block">
-                        <pre><code>import requests
+  <h4>Key Activities & Artifacts</h4>
+
+  <!-- Web Scraping Section -->
+  <h5>Python Web Scraping Script (BeautifulSoup4 + Requests)</h5>
+  <p>Automatic search script with the keyword <strong>"Data Scientist"</strong>, then parsing results to <code>.json</code> file:</p>
+  
+  <div class="code-block">
+    <pre><code>import requests
 from bs4 import BeautifulSoup
 import json
 
@@ -659,15 +1140,38 @@ for job in soup.select(".result"):
 
 with open("data_scientist_jobs.json", "w") as f:
     json.dump(results, f, indent=4)</code></pre>
-                    </div>
-                    <a href="#" class="btn">View Code on GitHub</a>
-                    
-                    <h5 style="margin-top: 20px;">Output Sample (JSON File)</h5>
-                    <img src="https://via.placeholder.com/700x300.png?text=Scraped+JSON+Sample" alt="Scraped JSON Sample" style="width: 100%; max-width: 700px;">
-                    
-                    <h5 style="margin-top: 20px;">Peer Wiki Comments</h5>
-                    <p>I commented on a peer's post about scraping using XML and suggested using nested &lt;job&gt; and &lt;company&gt; structures to facilitate downstream processing.</p>
-                </div>
+  </div>
+
+
+
+  <!-- Output Section -->
+  <h5 style="margin-top: 20px;">Output Sample (JSON File)</h5>
+  <div class="output-block">
+    <pre><code>[
+  {
+    "title": "Data Scientist – Machine Learning",
+    "company": "Meta"
+  },
+  {
+    "title": "Junior Data Scientist",
+    "company": "Amazon"
+  },
+  {
+    "title": "Senior AI Researcher",
+    "company": "Google"
+  },
+  {
+    "title": "Data Scientist - NLP",
+    "company": "DeepMind"
+  }
+]</code></pre>
+  </div>
+
+  <!-- Peer Comment -->
+  <h5 style="margin-top: 20px;">Peer Wiki Comments</h5>
+  <p>I commented on a peer's post about scraping using XML and suggested using nested <code>&lt;job&gt;</code> and <code>&lt;company&gt;</code> structures to facilitate downstream processing.</p>
+</div>
+
                 
                 <div class="reflection">
                     <h4>Personal Reflection</h4>
@@ -777,24 +1281,46 @@ with open("data_scientist_jobs.json", "w") as f:
             <p>This unit introduces the crucial stages of data cleaning and transformation in the data management lifecycle, ensuring data accuracy and consistency. It emphasizes the relationship between data quality and the effectiveness of automation in analytical pipelines.</p>
         </div>
         
-        <div class="artifacts">
-            <h4>Key Activities & Artifacts</h4>
-            <h5>Data Cleaning Practice: COVID-19 Dataset</h5>
-            <p>Used public dataset from Our World in Data (CSV) and cleaned it using pandas:</p>
-            <div class="code-block">
-                <pre><code>import pandas as pd
+<div class="artifacts">
+  <h4>Key Activities & Artifacts</h4>
+
+  <!-- Data Cleaning Section -->
+  <h5>Data Cleaning Practice: COVID-19 Dataset</h5>
+  <p>Used public dataset from <strong>Our World in Data</strong> (CSV) and cleaned it using <code>pandas</code>:</p>
+  
+  <div class="code-block">
+    <pre><code>import pandas as pd
 
 df = pd.read_csv("owid-covid-data.csv")
 df = df[['location', 'date', 'new_cases', 'new_deaths']]
 df = df.dropna(subset=['new_cases'])  # Remove missing values
 df['date'] = pd.to_datetime(df['date'])
 df_cleaned = df[df['new_cases'] >= 0].drop_duplicates()</code></pre>
-            </div>
-            <a href="#" class="btn">View Notebook on GitHub</a>
-            
-            <h5 style="margin-top: 20px;">Data Cleaning Pipeline Visualization</h5>
-            <img src="https://via.placeholder.com/700x300.png?text=Data+Cleaning+Pipeline" alt="Data Cleaning Pipeline" style="width: 100%; max-width: 700px;">
-        </div>
+  </div>
+
+  <!-- Output Section -->
+  <h5 style="margin-top: 20px;">Output Sample (Cleaned DataFrame)</h5>
+  <div class="output-block">
+    <pre><code>     location       date  new_cases  new_deaths
+0     Albania 2020-03-09        2.0         0.0
+1     Albania 2020-03-10        0.0         0.0
+2     Albania 2020-03-11        1.0         0.0
+3     Albania 2020-03-12        5.0         0.0
+4     Albania 2020-03-13        5.0         1.0
+</code></pre>
+  </div>
+
+  <!-- Pipeline Visualization Text Alternative -->
+  <h5 style="margin-top: 20px;">Data Cleaning Pipeline Visualization</h5>
+  <p>
+    The cleaning process included: <br>
+    - Column selection <code>['location', 'date', 'new_cases', 'new_deaths']</code> <br>
+    - <code>dropna()</code> to remove missing values in <code>new_cases</code> <br>
+    - Converted <code>date</code> to datetime format <br>
+    - Removed duplicates and filtered out negative cases.
+  </p>
+</div>
+
         
         <div class="reflection">
             <h4>Personal Reflection</h4>
@@ -900,33 +1426,45 @@ df_cleaned = df[df['new_cases'] >= 0].drop_duplicates()</code></pre>
             <p>This unit deepens data cleaning practices using UNICEF household survey data and introduces automation concepts in data collection and cleaning using Python. It also discusses how database architecture and conceptual models help design efficient automation systems.</p>
         </div>
         
-        <div class="artifacts">
-            <h4>Key Activities & Artifacts</h4>
-            <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'unicef')">UNICEF Cleaning</button>
-                <button class="tablinks" onclick="openTab(event, 'auto')">Automation</button>
-                <button class="tablinks" onclick="openTab(event, 'model')">Conceptual Model</button>
-            </div>
-            
-            <div id="unicef" class="tabcontent">
-                <h5>UNICEF Household Survey Data Cleaning</h5>
-                <p>Dataset: unicef_mics_survey.csv from lecturer's GitHub repository.</p>
-                <div class="code-block">
-                    <pre><code>import pandas as pd
+       <div class="artifacts">
+  <h4>Key Activities & Artifacts</h4>
+
+<div class="tab">
+  <button class="tablinks active" onclick="openTab(event, 'unicef')">UNICEF Cleaning</button>
+  <button class="tablinks" onclick="openTab(event, 'auto')">Automation</button>
+  <button class="tablinks" onclick="openTab(event, 'model')">Conceptual Model</button>
+</div>
+
+  <!-- UNICEF Cleaning Tab -->
+<div id="unicef" class="tabcontent" style="display: block;">
+    <h5>UNICEF Household Survey Data Cleaning</h5>
+    <p>Dataset: <code>unicef_mics_survey.csv</code> obtained from class repository.</p>
+    <div class="code-block">
+      <pre><code>import pandas as pd
 
 df = pd.read_csv("unicef_mics_survey.csv")
 df.columns = [col.strip().lower().replace(" ", "_") for col in df.columns]
 df = df.replace([-999, "NA"], pd.NA)
 df = df.dropna(subset=["household_id", "region", "income"])
 df.to_csv("unicef_cleaned.csv", index=False)</code></pre>
-                </div>
-            </div>
-            
-            <div id="auto" class="tabcontent">
-                <h5>Automating Repetitive Cleaning</h5>
-                <p>Created a Python script that can clean multiple files in a folder simultaneously:</p>
-                <div class="code-block">
-                    <pre><code>import glob
+    </div>
+
+    <h5 style="margin-top: 15px;">Output Sample (Cleaned Data)</h5>
+    <div class="output-block">
+      <pre><code>   household_id     region    income   water_source
+0        H001      Central   450.00    Tap
+1        H002      Eastern   320.50    Well
+2        H003      Central   500.00    Borehole
+</code></pre>
+    </div>
+  </div>
+
+  <!-- Automation Tab -->
+  <div id="auto" class="tabcontent">
+    <h5>Automating Repetitive Cleaning</h5>
+    <p>Created a Python script that can clean multiple CSV files in a folder at once:</p>
+    <div class="code-block">
+      <pre><code>import glob
 import pandas as pd
 
 def clean_file(path):
@@ -938,15 +1476,34 @@ def clean_file(path):
 all_files = glob.glob("data/*.csv")
 cleaned = pd.concat([clean_file(f) for f in all_files])
 cleaned.to_csv("consolidated_cleaned.csv", index=False)</code></pre>
-                </div>
-            </div>
-            
-            <div id="model" class="tabcontent">
-                <h5>Conceptual Data Model Diagram</h5>
-                <img src="https://via.placeholder.com/700x400.png?text=Conceptual+Data+Model" alt="Conceptual Data Model" style="width: 100%; max-width: 700px;">
-                <p>Diagram shows relationships between entities: Region, Household, Survey, and Responses.</p>
-            </div>
-        </div>
+    </div>
+
+    <h5 style="margin-top: 15px;">Output Sample (Consolidated Data)</h5>
+    <div class="output-block">
+      <pre><code>   household_id   region     income   education
+0        H101    Western    300.00    Secondary
+1        H102    Central    450.75    Primary
+2        H103    Eastern    520.10    None
+...</code></pre>
+    </div>
+  </div>
+
+  <!-- Conceptual Model Tab -->
+  <div id="model" class="tabcontent">
+    <h5>Conceptual Data Model Diagram</h5>
+    <p>
+      Diagram illustrates the high-level relationship between core entities:
+    </p>
+    <ul>
+      <li><strong>Region</strong> — stores area-level attributes.</li>
+      <li><strong>Household</strong> — links to region and stores identifiers and income level.</li>
+      <li><strong>Survey</strong> — captures date and instrument used.</li>
+      <li><strong>Responses</strong> — stores question results per household per survey.</li>
+    </ul>
+    <p>These relationships laid the foundation for schema design and foreign-key planning in Unit 6.</p>
+  </div>
+</div>
+
         
         <div class="reflection">
             <h4>Personal Reflection</h4>
@@ -1056,40 +1613,90 @@ cleaned.to_csv("consolidated_cleaned.csv", index=False)</code></pre>
             <p>This unit discusses the foundations of relational database design, including the normalization process and design logic that supports integrity, storage efficiency, and data retrieval. This unit also serves as the starting point for group project development—building a logical database model and physical architecture design for a fictional client.</p>
         </div>
         
-        <div class="artifacts">
-            <h4>Key Activities & Artifacts</h4>
-            <h5>Logical Database Design Proposal - Group Project Submission</h5>
-            <p>Our team acted as system consultants to design a monthly financial reporting database for a branch bank.</p>
-            <p><strong>Client:</strong> Financial Institution</p>
-            <p><strong>Application Focus:</strong> Daily sub-ledger tracking, multi-currency normalization, and automatic monthly report preparation.</p>
-            
-            <h5 style="margin-top: 20px;">Entity Relationship Diagram (ERD)</h5>
-            <img src="https://via.placeholder.com/700x400.png?text=Database+ERD" alt="Database ERD" style="width: 100%; max-width: 700px;">
-            
-            <h5 style="margin-top: 20px;">Normalization Worksheet</h5>
-            <table>
-                <tr>
-                    <th>Normal Form</th>
-                    <th>Description</th>
-                    <th>Applied to</th>
-                </tr>
-                <tr>
-                    <td>1NF</td>
-                    <td>Eliminated repeating groups</td>
-                    <td>Transaction table</td>
-                </tr>
-                <tr>
-                    <td>2NF</td>
-                    <td>Removed partial dependencies</td>
-                    <td>Customer-Branch relationship</td>
-                </tr>
-                <tr>
-                    <td>3NF</td>
-                    <td>Removed transitive dependencies</td>
-                    <td>Currency conversion rates</td>
-                </tr>
-            </table>
-        </div>
+<div class="artifacts">
+  <h4>Key Activities & Artifacts</h4>
+  <h5>Logical Database Design Proposal – Group Project Submission</h5>
+  <p>Our team acted as system consultants to design a monthly financial reporting database for a branch bank.</p>
+  <p><strong>Client:</strong> Financial Institution</p>
+  <p><strong>Application Focus:</strong> Daily sub-ledger tracking, multi-currency normalization, and automatic monthly report preparation.</p>
+
+  <h5 style="margin-top: 20px;">Entity Relationship Diagram (ERD)</h5>
+  <div class="erd-diagram" style="position: relative; height: 600px; background: #111; border-radius: 10px; padding: 20px; color: white; font-family: sans-serif;">
+    
+    <!-- Entities -->
+    <div id="finance_total" style="position:absolute; top:30px; left:60px; background:#003f88; padding:12px; border-radius:8px;">
+      <strong>Finance_Total</strong><br>
+      id <span style="color:lightgreen;">(string pk)</span><br>
+      DATE (date)<br>
+      SL (varchar(20))<br>
+      AMOUNTUSD (decimal(18,2))
+    </div>
+
+    <div id="finance_sl_name" style="position:absolute; top:30px; right:60px; background:#7209b7; padding:12px; border-radius:8px;">
+      <strong>Finance_SL_Name</strong><br>
+      id <span style="color:lightgreen;">(string pk)</span><br>
+      SL_CODE (varchar(20))<br>
+      SL_NAME (varchar(50))
+    </div>
+
+    <div id="finance_sl" style="position:absolute; bottom:30px; left:60px; background:#cc8800; padding:12px; border-radius:8px;">
+      <strong>Finance_SL</strong><br>
+      id <span style="color:lightgreen;">(string pk)</span><br>
+      DATE (date)<br>
+      SL (varchar(20))<br>
+      CCY (char(3))<br>
+      AMOUNT (decimal(18,2))
+    </div>
+
+    <div id="finance_rate" style="position:absolute; bottom:30px; right:60px; background:#2b9348; padding:12px; border-radius:8px;">
+      <strong>Finance_Rate</strong><br>
+      id <span style="color:lightgreen;">(string pk)</span><br>
+      DATE (date)<br>
+      CCY (char(3))<br>
+      RATE (decimal(10,4))
+    </div>
+
+    <!-- ETL Process in center -->
+    <div id="etl" style="position:absolute; top:240px; left:50%; transform:translateX(-50%); background:#333; color:white; padding:10px 20px; border-radius:30px; border:2px solid white;">
+      ETL Process
+    </div>
+
+    <!-- SVG Lines -->
+<!-- SVG for dynamic lines -->
+<svg id="connector" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events: none;">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="white" />
+    </marker>
+  </defs>
+</svg>
+
+  </div>
+
+  <h5 style="margin-top: 20px;">Normalization Summary</h5>
+  <table>
+    <tr>
+      <th>Normal Form</th>
+      <th>Description</th>
+      <th>Applied to</th>
+    </tr>
+    <tr>
+      <td>1NF</td>
+      <td>Eliminated repeating groups; atomic data fields</td>
+      <td>All tables</td>
+    </tr>
+    <tr>
+      <td>2NF</td>
+      <td>Removed partial dependencies on composite keys</td>
+      <td>Finance_SL, Finance_Rate</td>
+    </tr>
+    <tr>
+      <td>3NF</td>
+      <td>Eliminated transitive dependencies</td>
+      <td>Finance_Total, Finance_SL_Name</td>
+    </tr>
+  </table>
+</div>
         
         <div class="reflection">
             <h4>Personal Reflection</h4>
@@ -2189,6 +2796,64 @@ COMMIT;</code></pre>
             
             document.getElementById('portfolioProgress').style.width = `${progressPercentage}%`;
         }
+		function openTab(evt, tabName) {
+  const tabcontent = document.getElementsByClassName("tabcontent");
+  const tablinks = document.getElementsByClassName("tablinks");
+
+  // Hide all tabs
+  for (let i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Remove active class from all buttons
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+
+  // Show selected tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.classList.add("active");
+}
+
     </script>
+	<script>
+  function getCenter(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width / 2 + window.scrollX,
+      y: rect.top + rect.height / 2 + window.scrollY
+    };
+  }
+
+  function drawArrow(svg, fromEl, toEl) {
+    const p1 = getCenter(fromEl);
+    const p2 = getCenter(toEl);
+
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", p1.x);
+    line.setAttribute("y1", p1.y);
+    line.setAttribute("x2", p2.x);
+    line.setAttribute("y2", p2.y);
+    line.setAttribute("stroke", "white");
+    line.setAttribute("stroke-width", "2");
+    line.setAttribute("marker-end", "url(#arrowhead)");
+    svg.appendChild(line);
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const svg = document.getElementById("connector");
+
+    // Clear previous lines
+    svg.innerHTML += document.querySelector("defs").outerHTML;
+
+    drawArrow(svg, document.getElementById("finance_sl"), document.getElementById("etl"));
+    drawArrow(svg, document.getElementById("finance_rate"), document.getElementById("etl"));
+    drawArrow(svg, document.getElementById("etl"), document.getElementById("finance_total"));
+    drawArrow(svg, document.getElementById("finance_total"), document.getElementById("finance_sl_name"));
+  });
+
+  window.addEventListener("resize", () => location.reload()); // Recalculate on resize
+</script>
+
 </body>
 </html>
