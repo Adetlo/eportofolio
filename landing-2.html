@@ -1,168 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work Experience – E-Portfolio</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Experience – Ade Putra Tio Aldino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --color-bg: #f5f7fa;
-      --color-surface: #ffffff;
-      --color-primary: #2b2d42;
-      --color-accent: #8d99ae;
-      --color-highlight: #ef233c;
-      --color-text: #343a40;
-      --radius: 10px;
-      --transition: 0.3s ease;
-      --fw-light: 300;
-      --fw-regular: 400;
-      --fw-semibold: 600;
-      --fw-bold: 700;
-      --img-size: 250px;
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --border-radius: 10px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
-    a { text-decoration: none; color: inherit; transition: color var(--transition); }
-    a:hover { color: var(--color-highlight); }
-    header { background: var(--color-surface); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    .container { width: min(90%,1200px); margin: 0 auto; padding: 0 1rem; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
-    .logo { font-size: 1.5rem; font-weight: var(--fw-bold); color: var(--color-primary); }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { font-weight: var(--fw-semibold); text-transform: uppercase; font-size: 0.9rem; }
 
-    /* Banner */
-    #banner { background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%); color: #fff; text-align: center; padding: 6rem 2rem; }
-    #banner h1 { font-size: 3rem; font-weight: var(--fw-bold); margin-bottom: 0.5rem; }
-    #banner p { max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; text-align: justify; text-justify: inter-word; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    /* Work Experience List */
-    #work { padding: 4rem 0; }
-    details {
-      background: var(--color-surface);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-      overflow: hidden;
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
       transition: var(--transition);
     }
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 1.5rem 2rem;
-      font-weight: var(--fw-semibold);
-      font-size: 1.25rem;
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 4px solid var(--secondary-color);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .logo {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo:hover {
+      color: var(--secondary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 0;
       position: relative;
     }
-    /* hilangkan marker default */
-    summary::-webkit-details-marker { display: none; }
-    /* icon panah */
-    summary::after {
-      content: '\f078';
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
+
+    .nav-links a::after {
+      content: '';
       position: absolute;
-      right: 2rem;
-      top: 50%;
-      transform: translateY(-50%) rotate(0deg);
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      bottom: 0;
+      left: 0;
       transition: var(--transition);
     }
-    details[open] summary::after {
-      transform: translateY(-50%) rotate(180deg);
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
-    .job-content {
-      padding: 1rem 2rem 2rem;
-      border-top: 1px solid var(--color-bg);
-      font-size: 1rem;
-      line-height: 1.6;
+
+    /* Banner Section */
+    #banner {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    }
+
+    #banner h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    #banner h1::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 25%;
+      border-radius: 3px;
+    }
+
+    #banner p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
       text-align: justify;
       text-justify: inter-word;
     }
-    .job-meta {
+
+    /* Experience Section */
+    .experience-section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2rem;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: rgba(52, 152, 219, 0.2);
+      bottom: -5px;
+      left: 0;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--secondary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 2px;
+    }
+
+    .experience-card {
+      padding: 1.5rem;
+      position: relative;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 2rem;
+      transition: var(--transition);
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      top: 2rem;
+      left: -10px;
+      z-index: 1;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .job-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .company {
+      font-weight: 500;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .date {
+      background: var(--light-color);
+      color: var(--primary-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
       font-size: 0.9rem;
-      color: var(--color-accent);
-      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    .job-description {
+      margin-top: 1rem;
+    }
+
+    .job-description ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .job-description li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .job-description li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 8px;
+      height: 8px;
+      background: var(--accent-color);
+      border-radius: 50%;
+    }
+
+    .achievement-badge {
+      display: inline-block;
+      background: rgba(52, 152, 219, 0.1);
+      color: var(--secondary-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #banner h1 {
+        font-size: 2.2rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .timeline::before {
+        left: 31px;
+      }
+
+      .experience-card {
+        margin-left: 50px;
+      }
+
+      .experience-card::before {
+        left: -48px;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .experience-card {
+        margin-left: 30px;
+      }
+
+      .experience-card::before {
+        left: -38px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="container">
       <nav>
-        <a href="index.html" class="logo">E-Portofolio</a>
+        <a href="index.html" class="logo">Ade Putra Tio Aldino</a>
         <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="landing.html">Projects</a>
+          <a href="landing-1.html">Skills</a>
+          <a href="landing-3.html">Education</a>
+          <a href="landing-4.html">Data Science</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Banner Section -->
   <section id="banner">
     <div class="container">
       <h1>Work Experience</h1>
-      <p>Leading the Information Technology department at PT. BANK NEGARA INDONESIA's London Overseas Branch, I harness my depth of expertise in application and web development to drive innovation and operational excellence. My role encompasses the strategic oversight of our core banking technology, ensuring systems align with our overarching business goals.
-        Previously, as IT & Accounting Supervisor, I honed my skills in project management and system migrations, contributing significantly to our branch's technology advancements. Our team's collaborative efforts have enabled us to deliver robust IT solutions, fostering a resilient and efficient banking environment.</p>
+      <p>Leading the Information Technology department at PT. BANK NEGARA INDONESIA's London Overseas Branch, I harness my depth of expertise in application and web development to drive innovation and operational excellence. My role encompasses the strategic oversight of our core banking technology, ensuring systems align with our overarching business goals. Previously, as IT & Accounting Supervisor, I honed my skills in project management and system migrations, contributing significantly to our branch's technology advancements. Our team's collaborative efforts have enabled us to deliver robust IT solutions, fostering a resilient and efficient banking environment.</p>
     </div>
   </section>
 
-  <!-- Work Experience List -->
-   <!-- Work Experience List -->
-   <section id="work" class="container">
-    <details>
-      <summary>Information Technology Manager | PT. BANK NEGARA INDONESIA (Persero) Tbk, London Branch <span class="job-meta">(Jan 2024 – Present)</span></summary>
-      <div class="job-content">
-        <ul>
-          <li>Led full-stack digital platform development, increasing internal processing speed by 80% and reducing manual workload by 70% through automation.</li>
-          <li>Resolved over 250 technical issues annually involving desktops, printers, and basic networking equipment, achieving a &gt;98% first-time resolution rate.</li>
-          <li>Administered internal systems and databases for production logs, inventory tracking, and digital forms, boosting data accuracy by 90% and reducing paper usage by 85%.</li>
-          <li>Monitored data backups, access controls, and system performance, resulting in 99.98% uptime and zero data loss incidents.</li>
-          <li>Provided IT support for cloud-based tools (Office 365, SharePoint), increasing tool adoption across departments by 60%.</li>
-          <li>Implemented digital workflows across teams, improving process efficiency by 75% and reducing approval time from days to hours.</li>
-          <li>Developed detailed documentation practices across systems and processes, improving audit readiness and reducing troubleshooting time by 40%.</li>
-        </ul>
+  <section class="experience-section container">
+    <h2 class="section-title">Professional Journey</h2>
+    
+    <div class="timeline">
+      <!-- Current Position -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="job-title">Information Technology Manager</h3>
+            <p class="company">PT. BANK NEGARA INDONESIA (Persero) Tbk, London Branch</p>
+          </div>
+          <span class="date">Jan 2024 – Present</span>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Led full-stack digital platform development, increasing internal processing speed by <span class="achievement-badge">80% faster</span> and reducing manual workload by <span class="achievement-badge">70% through automation</span></li>
+            <li>Resolved over <span class="achievement-badge">250 technical issues</span> annually involving desktops, printers, and basic networking equipment, achieving a <span class="achievement-badge">&gt;98% first-time resolution rate</span></li>
+            <li>Administered internal systems and databases for production logs, inventory tracking, and digital forms, boosting <span class="achievement-badge">data accuracy by 90%</span> and <span class="achievement-badge">reducing paper usage by 85%</span></li>
+            <li>Monitored data backups, access controls, and system performance, resulting in <span class="achievement-badge">99.98% uptime</span> and <span class="achievement-badge">zero data loss</span> incidents</li>
+            <li>Provided IT support for cloud-based tools (Office 365, SharePoint), increasing <span class="achievement-badge">tool adoption by 60%</span> across departments</li>
+            <li>Implemented digital workflows across teams, improving <span class="achievement-badge">process efficiency by 75%</span> and reducing approval time from days to hours</li>
+          </ul>
+        </div>
       </div>
-    </details>
 
-    <details>
-      <summary>IT Supervisor | PT. BANK NEGARA INDONESIA (Persero) Tbk, London Branch <span class="job-meta">(Jul 2022 – Jan 2024)</span></summary>
-      <div class="job-content">
-        <ul>
-          <li>Engineered backend components for real-time financial dashboards, cutting report generation time from 2 days to under 30 minutes.</li>
-          <li>Handled 15–20 weekly IT support tickets related to PC repair, printer maintenance, and basic network troubleshooting.</li>
-          <li>Maintained and optimized MySQL databases supporting over 10,000 transactions per month with 100% data retention success.</li>
-          <li>Built over 10 automation workflows for operational reporting, saving up to 50% in staff time.</li>
-          <li>Introduced a real-time transaction monitoring system, improving compliance accuracy by 35%.</li>
-          <li>Authored SOPs and troubleshooting documentation, cutting onboarding and training time for new IT staff by 30%.</li>
-        </ul>
+      <!-- Previous Position 1 -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="job-title">IT Supervisor</h3>
+            <p class="company">PT. BANK NEGARA INDONESIA (Persero) Tbk, London Branch</p>
+          </div>
+          <span class="date">Jul 2022 – Jan 2024</span>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Engineered backend components for real-time financial dashboards, cutting <span class="achievement-badge">report generation time from 2 days to under 30 minutes</span></li>
+            <li>Handled <span class="achievement-badge">15–20 weekly IT support tickets</span> related to PC repair, printer maintenance, and basic network troubleshooting</li>
+            <li>Maintained and optimized MySQL databases supporting over <span class="achievement-badge">10,000 transactions per month</span> with <span class="achievement-badge">100% data retention</span> success</li>
+            <li>Built over <span class="achievement-badge">10 automation workflows</span> for operational reporting, saving up to <span class="achievement-badge">50% in staff time</span></li>
+            <li>Introduced a real-time transaction monitoring system, improving <span class="achievement-badge">compliance accuracy by 35%</span></li>
+          </ul>
+        </div>
       </div>
-    </details>
 
-    <details>
-      <summary>IT Software Engineer Manager | Core Banking System | PT. BANK NEGARA INDONESIA (Persero) Tbk <span class="job-meta">(Aug 2020 – Jul 2022)</span></summary>
-      <div class="job-content">
-        <ul>
-          <li>Led the core banking backend modernization initiative, enhancing transaction speeds by 45% and enabling system resilience across branches.</li>
-          <li>Managed a team of 6 engineers to deliver mission-critical projects on time, reducing project cycle times by 25% through agile practices.</li>
-          <li>Migrated legacy COBOL systems to integrated platforms with Oracle DB, ensuring a 99.9% error-free environment and smooth data transfer.</li>
-          <li>Implemented risk mitigation strategies that reduced downtime risks during system upgrades by 80%.</li>
-        </ul>
+      <!-- Previous Position 2 -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="job-title">IT Software Engineer Manager | Core Banking System</h3>
+            <p class="company">PT. BANK NEGARA INDONESIA (Persero) Tbk</p>
+          </div>
+          <span class="date">Aug 2020 – Jul 2022</span>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Led the core banking backend modernization initiative, enhancing <span class="achievement-badge">transaction speeds by 45%</span> and enabling system resilience across branches</li>
+            <li>Managed a team of <span class="achievement-badge">6 engineers</span> to deliver mission-critical projects on time, reducing <span class="achievement-badge">project cycle times by 25%</span> through agile practices</li>
+            <li>Migrated legacy COBOL systems to integrated platforms with Oracle DB, ensuring a <span class="achievement-badge">99.9% error-free</span> environment and smooth data transfer</li>
+            <li>Implemented risk mitigation strategies that reduced <span class="achievement-badge">downtime risks by 80%</span> during system upgrades</li>
+          </ul>
+        </div>
       </div>
-    </details>
 
-    <details>
-      <summary>IT Software Engineer Assistant Manager | Core Banking System | PT. BANK NEGARA INDONESIA (Persero) Tbk <span class="job-meta">(Dec 2016 – Jul 2020)</span></summary>
-      <div class="job-content">
-        <ul>
-          <li>Developed and maintained core banking backend systems that processed over 150,000 transactions daily with less than 0.01% failure rate.</li>
-          <li>Enhanced system interoperability between E-Channel and core systems using API and SOA, boosting data sync reliability by 35%.</li>
-          <li>Reduced development bugs by 40% through rigorous unit testing and automated QA pipelines.</li>
-          <li>Played a key role in the 2019 banking system migration with zero critical incidents reported post-go-live.</li>
-        </ul>
+      <!-- Previous Position 3 -->
+      <div class="experience-card">
+        <div class="experience-header">
+          <div>
+            <h3 class="job-title">IT Software Engineer Assistant Manager | Core Banking System</h3>
+            <p class="company">PT. BANK NEGARA INDONESIA (Persero) Tbk</p>
+          </div>
+          <span class="date">Dec 2016 – Jul 2020</span>
+        </div>
+        <div class="job-description">
+          <ul>
+            <li>Developed and maintained core banking backend systems that processed over <span class="achievement-badge">150,000 transactions daily</span> with less than <span class="achievement-badge">0.01% failure rate</span></li>
+            <li>Enhanced system interoperability between E-Channel and core systems using API and SOA, boosting <span class="achievement-badge">data sync reliability by 35%</span></li>
+            <li>Reduced <span class="achievement-badge">development bugs by 40%</span> through rigorous unit testing and automated QA pipelines</li>
+            <li>Played a key role in the 2019 banking system migration with <span class="achievement-badge">zero critical incidents</span> reported post-go-live</li>
+          </ul>
+        </div>
       </div>
-    </details>
+    </div>
   </section>
+
 </body>
 </html>
