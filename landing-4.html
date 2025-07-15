@@ -337,44 +337,76 @@
         text-align: center;
       }
     }
-	.dual-link {
+	/* Dropdown container */
+.dropdown-nav {
   position: relative;
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.nav-dropbtn {
   padding: 0.8rem 1.5rem;
   background: white;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   font-weight: 600;
   color: var(--primary-color);
-  transition: var(--transition);
   border: 2px solid var(--secondary-color);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: inherit;
 }
 
-.dual-link:hover {
+.nav-dropbtn:hover {
   background: var(--secondary-color);
   color: white;
-  transform: translateY(-3px);
 }
 
-.dual-link a {
-  color: inherit;
+/* Dropdown content (hidden by default) */
+.dropdown-nav-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: var(--box-shadow);
+  z-index: 1;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 2px solid var(--secondary-color);
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Links inside dropdown */
+.dropdown-nav-content a {
+  color: var(--primary-color);
+  padding: 0.8rem 1.5rem;
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
 }
 
-.dual-link a:first-child {
-  padding-right: 0.5rem;
+.dropdown-nav-content a:hover {
+  background-color: var(--secondary-color);
+  color: white;
 }
 
-.dual-link a:last-child {
-  padding-left: 0.5rem;
-  border-left: 1px solid rgba(255,255,255,0.3);
+/* Show dropdown menu */
+.dropdown-nav:hover .dropdown-nav-content {
+  display: block;
 }
 
-.dual-link:hover a:last-child {
-  border-left-color: rgba(255,255,255,0.5);
+/* Caret icon */
+.fa-caret-down {
+  margin-left: auto;
+  font-size: 0.8em;
 }
   </style>
 </head>
@@ -407,10 +439,15 @@
       <a href="#num-analysis"><i class="fas fa-calculator"></i> Numerical Analysis</a>
       <a href="#visualising-data"><i class="fas fa-chart-line"></i> Visualising Data</a>
       <a href="#data-professional"><i class="fas fa-user-tie"></i> The Data Professional</a>
-	  <span class="dual-link">
-  <a href="reflection.html" title="Reflection">Deciphering Big Data</a>
-  <a href="e-portfolio.html" title="Portfolio"><i class="fas fa-search-plus"></i></a>
-</span>
+	  <div class="dropdown-nav">
+    <button class="nav-dropbtn">
+      <i class="fas fa-search-plus"></i> Deciphering Big Data <i class="fas fa-caret-down"></i>
+    </button>
+    <div class="dropdown-nav-content">
+      <a href="reflection.html"><i class="fas fa-book-open"></i> Reflection</a>
+      <a href="e-portfolio.html"><i class="fas fa-folder-open"></i> E-Portfolio</a>
+    </div>
+  </div>
     </div>
 
     <div class="module" id="num-analysis">
@@ -532,4 +569,24 @@
   </section>
 
 </body>
+<script>
+document.querySelectorAll('.nav-dropbtn').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.stopPropagation();
+    this.parentElement.classList.toggle('active');
+  });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function() {
+  document.querySelectorAll('.dropdown-nav').forEach(dropdown => {
+    dropdown.classList.remove('active');
+  });
+});
+
+// Update CSS for active state
+.dropdown-nav.active .dropdown-nav-content {
+  display: block;
+}
+</script>
 </html>
