@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflection – Deciphering Big Data</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #f5f7fa;
+    --color-surface: #ffffff;
+    --color-primary: #2b2d42;
+    --color-accent: #8d99ae;
+    --color-highlight: #ef233c;
+    --color-text: #343a40;
+    --radius: 10px;
+    --transition: 0.3s ease;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 5px solid var(--color-accent);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  h2, h3, h4 {
+    color: var(--color-primary);
+  }
+
+  h3 {
+    margin-top: 2rem;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+
+<header>
+  <h1>Reflection Section</h1>
+  <h1 class="subheading">Deciphering Big Data Module</h1>
+</header>
+
+  <div class="container">
+    <h2>By Ade Putra Tio Aldino</h2>
+
+    <h3>What?</h3>
+    <p>Throughout this module I explored big-data tech, data-management principles, and related compliance rules through a mix of technical and conceptual tasks. Work was spread over twelve units, starting with basic concepts (the 4 Vs and common formats) and moving to hands-on exercises in extracting, cleaning, modelling, and visualising data with Python, Pandas, SQL, MongoDB, and Jupyter Notebook. I did not stop at solo drills; in Unit 6 I teamed up with classmates to map and build a logical database model for a mock bank, a step aimed at automating financial reports.</p>
+    <p>Within that project my main duties were to draw the Entity Relationship Diagram, set up the relational schemas, and add the mechanics for handling exchange rates in a multi-currency reporting setup. I also wrote the SQL scripts and checked data integrity by making sure all foreign-key links held. Outside the database work, I used Python to merge scattered Excel templates into a single file and kept the whole team in sync using GitHub.</p>
+
+    <h3>So What?</h3>
+    <p>Taking this module has really sharpened my technical skills. Before the course I handled most data cleaning by poking around in Excel, which was slow and often blurred the facts. Now, thanks to hands-on practice with Pandas using <code>dropna()</code>, <code>pipe()</code>, and <code>merge()</code>, I can wire up a cleaning pipeline that runs on its own. Tackling big public datasets such as the COVID-19 reports and UNICEF surveys showed me firsthand the missing values, duplicates, and wobbly formats McKinney (2022) talks about.</p>
+    <p>My grasp of data modelling also grew, particularly the costs and benefits of normalised versus denormalised schemas. That light bulb moment hit during the group project in Unit 6, when we had to pick a model to suit the task—3NF for strict integrity or a denormalised shape for speedy reports. As Sardar and Pandey (2024) say, well-normalised tables keep facts steady but can make queries feel like a maze. Finding that centre line matters most in finance, where every number must clear accuracy and compliance hurdles.</p>
+    <p>Working hands-on with Python for automated ETL tasks has really boosted my day-to-day comfort with the language. At the same time I explored MongoDB, noting how its document model neatly accommodates data that refuses to sit in tidy rows and columns. Comparing that with MySQL deepened my grasp of indexing strategies, schema rules, and how each setup retrieves data when the queries get busy.</p>
+    <p>On the emotional side, tackling rough project milestones made me feel I was steering the ship, not just along for the ride. The first time my pipeline spit out clean reports, I almost celebrated; the workload remained substantial, but the payoff was visible. Feedback from peers was a valuable combination of encouragement and constructive suggestions—it reminded me to name variables more clearly and to include meaningful comments in my code, practices I had previously overlooked. Tutors highlighted my clearer ERD and practical script examples as noteworthy contributions that helped build my confidence.</p>
+    <p>I picked up softer skills too, especially in teamwork and version control. Juggling Git branches across a dispersed crew, untangling merge knots, and agreeing on schema tweaks in video calls taught me a lot about those distributed agile rhythms Strode and colleagues wrote about in 2012.</p>
+
+    <h3>Now What?</h3>
+    <p>Looking ahead, the module has really sharpened my confidence in tackling everyday work problems that depend on data. I now feel ready to build large, robust pipelines, even in tightly regulated fields such as banking or healthcare. At BNI London Branch, for instance, I am using Python and SQL to automate our daily financial reports, turning sub-ledger entries into USD summaries exactly the way we planned in the class project.</p>
+    <p>The ethics discussion in Unit 8 changed how I think about data security and compliance. Working through GDPR rules and running mock Subject Access Requests reminded me of user rights and the need to keep only the minimum data. Following the Information Commissioner's Office guidance, I now build every feature with privacy in mind. That means I avoid storing personal details in internal logs and use role-based access controls for our dashboards.</p>
+    <p>Next, I want to plug machine-learning models into our pipelines to spot unusual patterns in financial data. The skills gained in this module—data cleaning, format handling, and compliance—give me a useful anchor for those advanced topics. Finally, keeping the e-portfolio organised has really helped me see how far I've come. Writing down learning goals, activities, tools, roadblocks, and real-world uses for each unit gave me a clear way to track and show my growth. Looking back on each entry has made it easier to spot both the things I still need to work on and the wins I've gathered along the way.</p>
+
+    <h3>Conclusion</h3>
+    <p>This reflection shows how much I've grown technically and professionally during the module. At the start, parsing JSON or XML felt daunting, and building structured models seemed out of reach, yet I gradually became comfortable with Python, Pandas, SQL, and MongoDB. Working on the group project, I designed a fully normalised financial database, enforced referential integrity, and automated reporting, turning theory into practice. Each step served as a milestone that directly feeds into my daily work, particularly in consolidating and automating financial data.</p>
+    <p>Alongside the hands-on skills, I gained a sharper awareness of the ethical and legal side of data management. Studying GDPR and role-playing Subject Access Requests hammered home the need for privacy-by-design thinking. Using Rolfe et al.'s (2001) model prompted me to stop, think, and connect each new tool to my future practice. Now I design data systems with compliance, performance, and scalability in mind, and I intend to push deeper into data architecture, ethical AI, and secure-by-default systems.</p>
+
+    <h3>References</h3>
+    <ul>
+      <li>McKinney, W. (2022). <em>Python for Data Analysis</em> (3rd ed.). O’Reilly Media.</li>
+      <li>Sardar, T. H., & Pandey, B. K. (2024). <em>Big Data Computing</em>. CRC Press.</li>
+      <li>Strode, D., Huff, S., & Hope, B. (2012). <em>Agile Coordination in Global Virtual Teams</em>. Springer.</li>
+      <li>ICO (2024). <em>UK GDPR and DPA 2018 Compliance Guidance</em>. Information Commissioner’s Office.</li>
+      <li>Rolfe, G., Freshwater, D., & Jasper, M. (2001). <em>Critical Reflection for Nursing and the Helping Professions</em>. Palgrave Macmillan.</li>
+    </ul>
+  </div>
+
+  <footer>
+    &copy; 2025 Ade Putra Tio Aldino | MSc Data Science E-Portfolio
+  </footer>
+</body>
+</html>
