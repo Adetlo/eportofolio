@@ -1,159 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>E-Portfolio – Ade Putra Tio Aldino</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
   <style>
     :root {
-      --color-bg: #f5f7fa;
-      --color-surface: #ffffff;
-      --color-primary: #2b2d42;
-      --color-accent: #8d99ae;
-      --color-highlight: #ef233c;
-      --color-text: #343a40;
-      --radius: 10px;
-      --transition: 0.3s ease;
-      --fw-light: 300;
-      --fw-regular: 400;
-      --fw-semibold: 600;
-      --fw-bold: 700;
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --border-radius: 10px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
-    a { text-decoration: none; color: inherit; transition: color var(--transition);} a:hover { color: var(--color-highlight);}    
-    .container { width: min(90%,1200px); margin:0 auto; padding:0 1rem; }
-    header { background: var(--color-surface); backdrop-filter: blur(10px); position: sticky; top:0; z-index:100; box-shadow: 0 2px 10px rgba(0,0,0,0.05);}    
-    nav { display: flex; align-items:center; justify-content: space-between; padding:1rem 0;}    
-    .logo { font-size:1.5rem; font-weight: var(--fw-bold); color: var(--color-primary);}    
-    .nav-links { display:flex; gap:2rem;} .nav-links a { font-weight: var(--fw-semibold); text-transform:uppercase; font-size:0.9rem;}    
-    #banner { background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%); color:#fff; text-align:center; padding:6rem 2rem;}    
-    #banner h1 { font-size:3rem; font-weight: var(--fw-bold); margin-bottom:0.5rem;}    
-    #banner p { font-size:1.1rem; max-width:800px; margin:0 auto; opacity:0.9;}    
-    .section-title { font-size:2rem; font-weight: var(--fw-semibold); margin-bottom:1.5rem; position:relative;}    
-    .section-title::before { content:''; position:absolute; bottom:-5px; left:0; width:60px; height:4px; background: var(--color-highlight); border-radius:var(--radius);}    
-    /* Main Tiles */
-    #main { padding:4rem 0;}    
-    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:2rem;}    
-    .tiles article { background: var(--color-surface); border-radius: var(--radius); overflow:hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform var(--transition), box-shadow var(--transition);}    
-    .tiles article:hover { transform: translateY(-5px); box-shadow:0 8px 24px rgba(0,0,0,0.1);}    
-    .tiles .image img { width:100%; display:block;}    
-    .tiles .major { padding:1.5rem;}    
-    .tiles h3 { font-size:1.25rem; font-weight: var(--fw-semibold); color: var(--color-primary); margin-bottom:0.75rem;}    
-    .tiles p { font-size:1rem; color: var(--color-accent); line-height:1.5;}    
-    /* Section Two */
-    #two { padding:4rem 0; background: var(--color-bg);}    
-    #two .inner { max-width:800px; margin:0 auto; text-align:center;}    
-    #two h2 { font-size:2rem; font-weight: var(--fw-semibold); margin-bottom:1rem; position:relative; display:inline-block;}    
-    #two h2::before { content:''; position:absolute; bottom:-5px; left:0; width:60px; height:4px; background: var(--color-highlight); border-radius:var(--radius);}    
-    #two p { font-size:1rem; color: var(--color-text); margin-bottom:1.5rem; }
-    #two .actions .next { display:inline-block; padding:0.75rem 1.5rem; background: var(--color-highlight); color:#fff; border-radius:var(--radius); font-weight:var(--fw-semibold); transition:background var(--transition);}    
-    #two .actions .next:hover { background: var(--color-primary);}    
-    /* Contact Section */
-    #contact { padding:4rem 0;}    
-    .contact-container { display:flex; flex-wrap:wrap; gap:2rem;}    
-    .contact-form, .contact-info { background: var(--color-surface); padding:2rem; border-radius: var(--radius); flex:1 1 300px; box-shadow:0 4px 12px rgba(0,0,0,0.05);}    
-    .contact-form .field { margin-bottom:1rem;}    
-    .contact-form label { display:block; margin-bottom:0.5rem; font-weight:var(--fw-semibold);}    
-    .contact-form input, .contact-form textarea { width:100%; padding:0.75rem; border:1px solid #ddd; border-radius:var(--radius); font-family:inherit;}    
-    .contact-form textarea { resize:vertical;}    
-    .contact-form .actions { display:flex; gap:1rem;}    
-    .contact-form .actions input { cursor:pointer; padding:0.75rem 1.5rem; border:none; border-radius:var(--radius); background:var(--color-highlight); color:#fff; font-weight:var(--fw-semibold); transition:background var(--transition);}    
-    .contact-form .actions input[type="reset"] { background:var(--color-accent);}    
-    .contact-form .actions input:hover { background:var(--color-primary);}    
-    .contact-info .contact-method { margin-bottom:1.5rem;}    
-    .contact-info h3 { font-size:1.1rem; font-weight:var(--fw-semibold); margin-bottom:0.5rem;}    
-    .contact-info a, .contact-info span { display:block; color:var(--color-text);}    
-    /* Footer */
-    footer { background: var(--color-primary); color:#fff; text-align:center; padding:2rem 0; font-size:0.9rem;}    
-    footer a { color:#fff; font-weight:var(--fw-semibold);}  </style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 4px solid var(--secondary-color);
+    }
+
+    header h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #ecf0f1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .unit-container {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .unit-container h3 {
+      color: var(--secondary-color);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .unit-container p {
+      margin-bottom: 1rem;
+      color: #444;
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card-style {
+      background-color: var(--light-color);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s;
+    }
+
+    .card-style:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-style h4 {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-style p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .contact-section {
+      padding: 2rem;
+      background-color: var(--light-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      text-align: center;
+    }
+
+    .contact-section a {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+  </style>
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <nav>
-        <a href="index.html" class="logo">E-Portfolio</a>
-        <div class="nav-links">
-        </div>
-      </nav>
-    </div>
+    <h1>Ade Putra Tio Aldino</h1>
+    <p>Software Engineer | Python, COBOL, SQL | Core Banking & Automation Specialist</p>
   </header>
 
-  <section id="banner">
-    <div class="container">
-      <h1>Hi, I'm Ade Putra Tio Aldino</h1>
-      <p>I am a passionate Software Engineer with expertise in Python, COBOL, and database systems, building scalable solutions for the financial industry.</p>
+  <div class="container">
+    <h2 class="section-title">About Me & Portfolio</h2>
+
+    <div class="unit-container">
+      <p>I am an experienced Software Engineer with a focus on high-volume financial systems. My technical strengths lie in COBOL-based core banking platforms, database optimization (Oracle, SQL), and automation using Python and Shell scripting on Linux.</p>
+      <p>This portfolio showcases my professional and academic work, including full-stack system development, data pipelines, and applied machine learning aligned with compliance and security standards.</p>
     </div>
-  </section>
 
-  <!-- Main Content -->
-  <div id="main" class="container">
+    <div class="tile-grid">
+      <div class="card-style">
+        <h4><i class="fas fa-briefcase"></i> Project Showcase</h4>
+        <p>COBOL/Oracle modules, automated Linux data pipelines with Python, scalable SQL-based reporting.</p>
+        <a href="landing.html">View Project</a>
+      </div>
+      <div class="card-style">
+        <h4><i class="fas fa-cogs"></i> Skills & Expertise</h4>
+        <p>Specialist in core banking, Python scripting, database optimization, and Linux environments.</p>
+        <a href="landing-1.html">Explore Skills</a>
+      </div>
+      <div class="card-style">
+        <h4><i class="fas fa-briefcase-tie"></i> Work Experience</h4>
+        <p>Led modernization of core banking systems and optimized operational flows via shell automation.</p>
+        <a href="landing-2.html">View Experience</a>
+      </div>
+      <div class="card-style">
+        <h4><i class="fas fa-graduation-cap"></i> Education & Certifications</h4>
+        <p>Certified Oracle DBA, academic background in Computer Science and formal training in data systems.</p>
+        <a href="landing-3.html">View Education</a>
+      </div>
+      <div class="card-style">
+        <h4><i class="fas fa-database"></i> Data Science Portfolio</h4>
+        <p>Modular analytics, visualizations, machine learning applications, and regulatory considerations.</p>
+        <a href="landing-4.html">Go to Portfolio</a>
+      </div>
+    </div>
 
-    <!-- One -->
-	<div class="inner">
-		<h2 class="section-title">About Me :</h2>
-		</div>
-<section id="one" class="tiles">
-
-	<article>
-        <header class="major">
-            <span class="icon solid alt fa-briefcase fa-2x"></span>
-            <h3><a href="landing.html" class="link">Project Showcase</a></h3>
-            <p>Built COBOL/Oracle core‐banking modules, automated Linux data pipelines with Python and shell, and optimized SQL for scalable, high-volume back-end systems.</p>
-        </header>
-    </article>
-    <article>
-        <header class="major">
-            <span class="icon solid alt fa-cogs fa-2x"></span>
-            <h3><a href="landing-1.html" class="link">Skills &amp; Expertise</a></h3>
-            <p>Specializing in core banking development using COBOL, database management with Oracle, and automation through Python and Shell Scripting in Linux environments.</p>
-        </header>
-    </article>
-    <article>
-        <header class="major">
-            <span class="icon solid alt fa-briefcase-tie fa-2x"></span>
-            <h3><a href="landing-2.html" class="link">Work Experience</a></h3>
-            <p>As a software engineer, I spearheaded core banking development and optimization, integrating COBOL with Oracle and automating workflows via Python and shell scripts.</p>
-        </header>
-    </article>
-    <article>
-        <header class="major">
-            <span class="icon solid alt fa-graduation-cap fa-2x"></span>
-            <h3><a href="landing-3.html" class="link">Education &amp; Certifications</a></h3>
-            <p>Certified in Oracle DBA , with formal education in Computer Science.</p>
-        </header>
-    </article>
-	<article>
-        <header class="major">
-            <span class="icon solid alt fa-graduation-cap fa-2x"></span>
-            <h3><a href="landing-4.html" class="link">Data Science Learning Portfolio</a></h3>
-            <p>A snapshot of my learning journey, reflections, and skill development.</p>
-        </header>
-    </article>
-    
-</section>
-
-<!-- Two -->
-
-
+    <div class="contact-section" style="margin-top:3rem;">
+      <h3>Get In Touch</h3>
+      <p>Feel free to contact me for consulting, collaboration, or professional inquiries.</p>
+      <a href="mailto:adeputratio@gmail.com">adeputratio@gmail.com</a>
+    </div>
   </div>
 
-
- <!-- Contact Section (Optional) -->
- <section id="contact" class="container" style="padding:4rem 0">
-    <h2 class="section-title">Get In Touch</h2>
-    <p style="margin-bottom:2rem;color:var(--color-text)">Feel free to reach out via email for opportunities and collaborations.</p>
-    <a href="mailto:adeputratio@gmail.com" style="font-weight:var(--fw-semibold);">adeputratio@gmail.com</a>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <div class="container">
-      &copy; 2025 Your Name. Built & Designed by Me.
-    </div>
+    &copy; 2025 Ade Putra Tio Aldino. Built & designed with passion.
   </footer>
+
 </body>
 </html>
