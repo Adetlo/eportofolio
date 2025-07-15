@@ -3,212 +3,319 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills & Expertise – E-Portfolio</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet"/>
+  <title>Skills & Expertise – Ade Putra Tio Aldino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --color-bg: #f5f7fa;
-      --color-surface: #ffffff;
-      --color-primary: #2b2d42;
-      --color-accent: #8d99ae;
-      --color-highlight: #ef233c;
-      --color-text: #343a40;
-      --radius: 10px;
-      --transition: 0.3s ease;
-      --fw-light: 300;
-      --fw-regular: 400;
-      --fw-semibold: 600;
-      --fw-bold: 700;
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --border-radius: 10px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
     }
 
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--color-bg);
-      color: var(--color-text);
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--text-color);
       line-height: 1.6;
     }
 
     a {
       text-decoration: none;
-      color: inherit;
-      transition: color var(--transition);
-    }
-    a:hover {
-      color: var(--color-highlight);
+      transition: var(--transition);
     }
 
+    /* Header */
     header {
-      background: var(--color-surface);
-      backdrop-filter: blur(10px);
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
+      color: white;
+      padding: 1rem 0;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+      border-bottom: 4px solid var(--secondary-color);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     }
+
     .container {
-      width: min(90%, 1200px);
-      margin: 0 auto;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
     }
+
     nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 1rem 0;
+      align-items: center;
+      padding: 0.5rem 0;
     }
+
     .logo {
+      font-family: 'Roboto Slab', serif;
       font-size: 1.5rem;
-      font-weight: var(--fw-bold);
-      color: var(--color-primary);
+      font-weight: 700;
+      color: white;
     }
+
+    .logo:hover {
+      color: var(--secondary-color);
+    }
+
     .nav-links {
       display: flex;
       gap: 2rem;
     }
+
     .nav-links a {
-      font-weight: var(--fw-semibold);
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    /* Hero */
-    #hero {
-      background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 6rem 2rem;
-    }
-    #hero h1 {
-      font-size: 3rem;
-      font-weight: var(--fw-bold);
-      margin-bottom: 0.5rem;
-    }
-	#hero p {
-  text-align: justify;
-  text-justify: inter-word;
-  line-height: 1.7;
-  max-width: 800px; /* Adjust width for readability */
-  margin: auto;
-}
-
-    /* Section Titles */
-    .section-title {
-      font-size: 2rem;
-      font-weight: var(--fw-semibold);
-      margin-bottom: 1.5rem;
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 0;
       position: relative;
     }
-    .section-title::before {
+
+    .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      bottom: 0;
       left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--color-highlight);
-      border-radius: var(--radius);
+      transition: var(--transition);
     }
 
-       /* Skills List */
-	   .skills-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 2rem;
-      padding: 0;
-      margin: 0;
+    .nav-links a:hover::after {
+      width: 100%;
     }
-    .skills-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: transform var(--transition), color var(--transition);
-    }
-    .skills-list li:hover {
-      transform: translateY(-4px);
-      color: var(--highlight);
-    }
-    .skill-icon {
-      font-size: 2rem;
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 0.2rem;
-    }
-    .skill-text h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
       position: relative;
+      overflow: hidden;
     }
-    .skill-text h3::after {
+
+    #hero::before {
       content: '';
-      display: block;
-      width: 40px;
-      height: 3px;
-      background: var(--highlight);
-      border-radius: 2px;
-      margin-top: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
     }
-    .skill-text .skill-points {
-      list-style: none;
-      margin: 0.5rem 0 0;
-      padding: 0;
-    }
-    .skill-text .skill-points li {
-      margin-bottom: 0.3rem;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: var(--text);
+
+    #hero h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
       position: relative;
-      padding-left: 1.2em;
+      display: inline-block;
+    }
+
+    #hero h1::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      left: 25%;
+      border-radius: 3px;
+    }
+
+    #hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
       text-align: justify;
       text-justify: inter-word;
     }
-    .skill-text .skill-points li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      top: 0.1em;
-      color: var(--color-highlight);
+
+    /* Skills Section */
+    .skills-section {
+      padding: 4rem 0;
     }
 
-    /* Footer */
-    footer {
-      background: var(--color-primary);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.9rem;
+    .section-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2rem;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      position: relative;
     }
-    footer a {
-      color: #fff;
-      font-weight: var(--fw-semibold);
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: rgba(52, 152, 219, 0.2);
+      bottom: -5px;
+      left: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      transition: var(--transition);
+      border-left: 4px solid var(--secondary-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      color: var(--secondary-color);
+      width: 60px;
+      height: 60px;
+      background: rgba(52, 152, 219, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .skill-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-items {
+      list-style: none;
+    }
+
+    .skill-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .skill-item:last-child {
+      border-bottom: none;
+    }
+
+    .skill-item i {
+      color: var(--accent-color);
+      font-size: 0.8rem;
+    }
+
+    .skill-name {
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .skill-level {
+      height: 6px;
+      background: rgba(52, 152, 219, 0.2);
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .skill-level-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+      border-radius: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skill-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .skill-icon {
+        margin-bottom: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="container">
       <nav>
-        <a href="index.html" class="logo">E-Portfolio</a>
+        <a href="index.html" class="logo">Ade Putra Tio Aldino</a>
         <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="landing.html">Projects</a>
+          <a href="landing-2.html">Experience</a>
+          <a href="landing-3.html">Education</a>
+          <a href="landing-4.html">Data Science</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section id="hero">
     <div class="container">
       <h1>Skills & Expertise</h1>
@@ -216,68 +323,216 @@
     </div>
   </section>
 
-   <!-- Skills Section -->
-  <section id="skills" class="container">
+  <section class="skills-section container">
     <h2 class="section-title">Technical Proficiencies</h2>
-    <ul class="skills-list">
-      <li>
-        <i class="fas fa-code skill-icon"></i>
-        <div class="skill-text">
-          <h3>Backend Programming</h3>
-          <ul class="skill-points">
-            <li>COBOL</li>
-            <li>Java</li>
-            <li>Python</li>
-            <li>JavaScript</li>
-            <li>C++</li>
-            <li>PHP</li>
-          </ul>
+    
+    <div class="skills-grid">
+      <!-- Backend Programming -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div>
+            <h3 class="skill-title">Backend Programming</h3>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 90%"></div>
+            </div>
+          </div>
         </div>
-      </li>
-      <li>
-        <i class="fas fa-database skill-icon"></i>
-        <div class="skill-text">
-          <h3>Database &amp; SQL</h3>
-          <ul class="skill-points">
-            <li>Oracle: schema design, tuning, indexing</li>
-            <li>MySQL: replication, backup, performance optimization</li>
-          </ul>
+        <ul class="skill-items">
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">COBOL</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Java</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Python</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">JavaScript</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">C++</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">PHP</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Database & SQL -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div>
+            <h3 class="skill-title">Database & SQL</h3>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 85%"></div>
+            </div>
+          </div>
         </div>
-      </li>
-      <li>
-        <i class="fas fa-cogs skill-icon"></i>
-        <div class="skill-text">
-          <h3>Data Automation</h3>
-          <ul class="skill-points">
-            <li>ETL pipelines</li>
-            <li>Cron job scheduling</li>
-            <li>Shell scripts for reporting</li>
-          </ul>
+        <ul class="skill-items">
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Oracle: schema design, tuning, indexing</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">MySQL: replication, backup, performance optimization</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">SQL Server: administration, maintenance</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">NoSQL: MongoDB basics</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Data Automation -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <div>
+            <h3 class="skill-title">Data Automation</h3>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 80%"></div>
+            </div>
+          </div>
         </div>
-      </li>
-      <li>
-        <i class="fas fa-tools skill-icon"></i>
-        <div class="skill-text">
-          <h3>Infrastructure &amp; Tools</h3>
-          <ul class="skill-points">
-            <li>Git &amp; CI/CD</li>
-            <li>Linux CLI administration</li>
-            <li>SD-WAN orchestration</li>
-          </ul>
+        <ul class="skill-items">
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">ETL pipelines development</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Cron job scheduling</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Shell scripts for reporting</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Python automation scripts</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Infrastructure & Tools -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div>
+            <h3 class="skill-title">Infrastructure & Tools</h3>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 75%"></div>
+            </div>
+          </div>
         </div>
-      </li>
-      <li>
-        <i class="fas fa-users skill-icon"></i>
-        <div class="skill-text">
-          <h3>Soft Skills</h3>
-          <ul class="skill-points">
-            <li>Analytical thinking</li>
-            <li>Collaboration</li>
-            <li>Decisive leadership</li>
-          </ul>
+        <ul class="skill-items">
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Git & CI/CD pipelines</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Linux CLI administration</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">SD-WAN orchestration</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Docker containerization</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div>
+            <h3 class="skill-title">Soft Skills</h3>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 85%"></div>
+            </div>
+          </div>
         </div>
-      </li>
-    </ul>
+        <ul class="skill-items">
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Analytical thinking</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Cross-functional collaboration</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Decisive leadership</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Problem-solving</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Banking Expertise -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <div>
+            <h3 class="skill-title">Banking Expertise</h3>
+            <div class="skill-level">
+              <div class="skill-level-bar" style="width: 90%"></div>
+            </div>
+          </div>
+        </div>
+        <ul class="skill-items">
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Core banking systems</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Financial reporting</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Regulatory compliance</span>
+          </li>
+          <li class="skill-item">
+            <i class="fas fa-check"></i>
+            <span class="skill-name">Risk management</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </section>
 
 </body>
