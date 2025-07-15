@@ -337,6 +337,45 @@
         text-align: center;
       }
     }
+	.dual-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: var(--transition);
+  border: 2px solid var(--secondary-color);
+}
+
+.dual-link:hover {
+  background: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.dual-link a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.dual-link a:first-child {
+  padding-right: 0.5rem;
+}
+
+.dual-link a:last-child {
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+
+.dual-link:hover a:last-child {
+  border-left-color: rgba(255,255,255,0.5);
+}
   </style>
 </head>
 <body>
@@ -368,7 +407,10 @@
       <a href="#num-analysis"><i class="fas fa-calculator"></i> Numerical Analysis</a>
       <a href="#visualising-data"><i class="fas fa-chart-line"></i> Visualising Data</a>
       <a href="#data-professional"><i class="fas fa-user-tie"></i> The Data Professional</a>
-	  <a href="#deciphering-data"><i class="fas fa-search-plus"></i> Deciphering Big Data</a>
+	  <span class="dual-link">
+  <a href="reflection.html" title="Reflection">Deciphering Big Data</a>
+  <a href="e-portfolio.html" title="Portfolio"><i class="fas fa-search-plus"></i></a>
+</span>
     </div>
 
     <div class="module" id="num-analysis">
