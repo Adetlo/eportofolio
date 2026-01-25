@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Final Reflective Piece - Research Methods and Professional Practice - MSc Data Science">
+  <title>Final Reflection | Research Methods E-Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --color-primary: #0f172a;
+      --color-primary-light: #1e293b;
+      --color-secondary: #06b6d4;
+      --color-accent: #f97316;
+      --color-accent-alt: #8b5cf6;
+      --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #f97316 100%);
+      --color-white: #ffffff;
+      --color-gray-100: #f1f5f9;
+      --color-gray-300: #cbd5e1;
+      --color-gray-400: #94a3b8;
+      --color-gray-500: #64748b;
+      --color-gray-800: #1e293b;
+      --color-success: #22c55e;
+      --color-warning: #eab308;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 9999px;
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.3);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-gray-100);
+      background-color: var(--color-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul, ol { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-white);
+    }
+    
+    p { margin-bottom: 1rem; }
+    
+    .text-gradient {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 768px) { .container { padding: 0 2rem; } }
+    @media (min-width: 1200px) { .container { padding: 0 3rem; } }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: 0.3s ease;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); }
+    .logo-dot { width: 8px; height: 8px; background: var(--gradient-primary); border-radius: 50%; }
+    
+    .nav-menu { display: none; align-items: center; gap: 0.5rem; }
+    @media (min-width: 768px) { .nav-menu { display: flex; } }
+    
+    .nav-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-gray-300);
+      border-radius: var(--radius-full);
+      transition: 0.3s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding: 10rem 0 4rem;
+      text-align: center;
+      position: relative;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(6, 182, 212, 0.1) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .page-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .page-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .page-description {
+      font-size: 1.1rem;
+      color: var(--color-gray-400);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ===== PROGRAM CARD ===== */
+    .program-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.5rem;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: var(--radius-xl);
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 768px) {
+      .program-card { grid-template-columns: 1fr; text-align: center; }
+    }
+    .program-icon {
+      width: 70px; height: 70px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--color-secondary);
+      border-radius: var(--radius-xl);
+      font-size: 2rem;
+      color: white;
+    }
+    .program-info h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .program-info p { color: var(--color-gray-400); margin: 0; }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: var(--radius-full);
+      color: var(--color-success);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .status-badge i { font-size: 6px; }
+    .progress-info { display: block; font-size: 0.8rem; color: var(--color-gray-400); margin-top: 0.5rem; }
+
+    /* ===== QUICK ACCESS ===== */
+    .quick-access {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .quick-access-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      transition: 0.3s ease;
+    }
+    .quick-access-item:hover {
+      border-color: var(--color-secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+    }
+    .quick-access-icon {
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--color-secondary);
+      border-radius: var(--radius-lg);
+      font-size: 1.2rem;
+      color: white;
+    }
+    .quick-access-icon.purple { background: var(--color-accent-alt); }
+    .quick-access-icon.orange { background: var(--color-accent); }
+    .quick-access-text h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .quick-access-text p { font-size: 0.85rem; color: var(--color-gray-400); margin: 0; }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header { margin-bottom: 2rem; }
+    .section-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+    /* ===== PROCESS TIMELINE ===== */
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .process-step {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      transition: 0.3s ease;
+    }
+    .process-step:hover {
+      border-color: var(--color-secondary);
+      transform: translateY(-2px);
+    }
+    .process-step.completed { border-color: rgba(34, 197, 94, 0.3); }
+    .process-step.completed::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--color-success);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+    .process-number {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--color-secondary);
+      border-radius: 50%;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      margin: 0 auto 1rem;
+    }
+    .process-step.completed .process-number { background: var(--color-success); }
+    .process-title { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .process-desc { font-size: 0.8rem; color: var(--color-gray-400); margin: 0; }
+    .process-badge {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(34, 197, 94, 0.15);
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-success);
+    }
+
+    /* ===== CONTENT CARD ===== */
+    .content-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+
+    /* ===== REFLECTION HEADINGS ===== */
+    .reflection-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-secondary);
+      margin: 2.5rem 0 1.25rem 0;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .reflection-heading:first-child { margin-top: 0; }
+    .reflection-heading i { font-size: 1.25rem; opacity: 0.8; }
+    
+    .reflection-subheading {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-accent-alt);
+      margin: 1.75rem 0 1rem 0;
+    }
+
+    /* ===== REFLECTION CONTENT ===== */
+    .reflection-content p {
+      text-align: justify;
+      color: var(--color-gray-300);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ===== SKILLS LIST ===== */
+    .skills-list {
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    .skills-list li {
+      background: rgba(0, 0, 0, 0.2);
+      border-left: 3px solid var(--color-secondary);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .skills-list li strong {
+      color: var(--color-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    .skills-list li p {
+      margin: 0;
+      color: var(--color-gray-400);
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    /* ===== WORD COUNT ===== */
+    .word-count {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      background: rgba(6, 182, 212, 0.1);
+      border-radius: var(--radius-md);
+      color: var(--color-gray-400);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    /* ===== REFERENCES ===== */
+    .references-box {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    .references-box h4 {
+      color: var(--color-gray-300);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .references-box ul { padding: 0; }
+    .references-box li {
+      font-size: 0.9rem;
+      color: var(--color-gray-400);
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      text-indent: -1.5rem;
+    }
+    .references-box li em { font-style: italic; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--glass-border);
+      margin-top: 4rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 768px) {
+      .footer-content { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; }
+    .footer-tagline { color: var(--color-gray-400); font-size: 0.9rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links h4 { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .footer-links a { color: var(--color-gray-400); font-size: 0.9rem; }
+    .footer-links a:hover { color: var(--color-white); }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      color: var(--color-gray-400);
+      font-size: 0.9rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: white; color: #333; }
+      body::before { display: none; }
+      .navbar, .footer { display: none; }
+      .page-header { padding-top: 2rem; }
+      .page-header::before { display: none; }
+      .content-card { border: 1px solid #ddd; background: white; }
+      .content-card::before { display: none; }
+      .reflection-heading { color: #06b6d4; }
+      .reflection-subheading { color: #8b5cf6; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo"><span class="logo-text">Aldino</span><span class="logo-dot"></span></a>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="data-science.html" class="nav-link active">Data Science</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="education.html" class="nav-link">Education</a>
+      </div>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-label">Final Assessment · 40% of Module Grade</p>
+      <h1 class="page-title">Final <span class="text-gradient">Reflective Piece</span></h1>
+      <p class="page-description">
+        A comprehensive reflection on my learning journey through Research Methods and Professional Practice, using Rolfe et al.'s (2001) reflective framework.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section style="padding: 2rem 0 4rem;">
+    <div class="container">
+      <!-- Program Card -->
+      <div class="program-card">
+        <div class="program-icon"><i class="fas fa-flask"></i></div>
+        <div class="program-info">
+          <h3>Research Methods and Professional Practice</h3>
+          <p>University of Essex Online · October 2025 - January 2026</p>
+        </div>
+        <div>
+          <span class="status-badge">
+            <i class="fas fa-check"></i> Completed
+          </span>
+          <span class="progress-info">12 Units · 3 Assessments</span>
+        </div>
+      </div>
+      
+      <!-- Quick Access -->
+      <div class="quick-access">
+        <a href="research-methods.html" class="quick-access-item">
+          <div class="quick-access-icon"><i class="fas fa-folder-open"></i></div>
+          <div class="quick-access-text">
+            <h4>Full E-Portfolio</h4>
+            <p>12 Units Documentation</p>
+          </div>
+        </a>
+        <a href="research-presentation-fixed.html" class="quick-access-item">
+          <div class="quick-access-icon purple"><i class="fas fa-presentation-screen"></i></div>
+          <div class="quick-access-text">
+            <h4>Research Proposal</h4>
+            <p>30% Presentation</p>
+          </div>
+        </a>
+        <a href="#reflection" class="quick-access-item">
+          <div class="quick-access-icon orange"><i class="fas fa-pen-fancy"></i></div>
+          <div class="quick-access-text">
+            <h4>Final Reflection</h4>
+            <p>998 Words</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Process Section -->
+      <div class="section-header">
+        <p class="section-label">Module Process</p>
+        <h2 class="section-title">Learning Journey Timeline</h2>
+      </div>
+      
+      <div class="process-timeline">
+        <div class="process-step completed">
+          <div class="process-number">1</div>
+          <h4 class="process-title">Foundation</h4>
+          <p class="process-desc">Units 1-3: Research ethics, literature review fundamentals, research methods</p>
+          <span class="process-badge">✓ Completed</span>
+        </div>
+        <div class="process-step completed">
+          <div class="process-number">2</div>
+          <h4 class="process-title">Data Collection</h4>
+          <p class="process-desc">Units 4-6: Case studies, interviews, surveys, quantitative methods</p>
+          <span class="process-badge">✓ Completed</span>
+        </div>
+        <div class="process-step completed">
+          <div class="process-number">3</div>
+          <h4 class="process-title">Statistical Analysis</h4>
+          <p class="process-desc">Units 7-9: Inferential statistics, hypothesis testing, validity</p>
+          <span class="process-badge">✓ Completed</span>
+        </div>
+        <div class="process-step completed">
+          <div class="process-number">4</div>
+          <h4 class="process-title">Professional Practice</h4>
+          <p class="process-desc">Units 10-12: Research writing, CPD, project management</p>
+          <span class="process-badge">✓ Completed</span>
+        </div>
+      </div>
+      
+      <!-- Assessments Summary -->
+      <div class="section-header">
+        <p class="section-label">Module Assessments</p>
+        <h2 class="section-title">Completed Deliverables</h2>
+      </div>
+      
+      <div class="quick-access" style="margin-bottom: 3rem;">
+        <div class="quick-access-item" style="border-color: rgba(34, 197, 94, 0.3);">
+          <div class="quick-access-icon" style="background: var(--color-success);"><i class="fas fa-book"></i></div>
+          <div class="quick-access-text">
+            <h4>Literature Review</h4>
+            <p>30% · Data Science in Banking</p>
+          </div>
+        </div>
+        <div class="quick-access-item" style="border-color: rgba(34, 197, 94, 0.3);">
+          <div class="quick-access-icon" style="background: var(--color-success);"><i class="fas fa-microphone"></i></div>
+          <div class="quick-access-text">
+            <h4>Research Proposal</h4>
+            <p>30% · BNI London Case Study</p>
+          </div>
+        </div>
+        <div class="quick-access-item" style="border-color: rgba(34, 197, 94, 0.3);">
+          <div class="quick-access-icon" style="background: var(--color-success);"><i class="fas fa-folder"></i></div>
+          <div class="quick-access-text">
+            <h4>E-Portfolio</h4>
+            <p>40% · 12 Units + Reflection</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Reflection Content Card -->
+      <div class="content-card" id="reflection">
+        <div class="reflection-content">
+          
+          <!-- WHAT Section -->
+          <h2 class="reflection-heading">
+            <i class="fas fa-book-open"></i>
+            WHAT: Description of Learning Experience
+          </h2>
+          
+          <p>This module furnished me with the basic academic tools for researching and structuring a literature review on data science in the digital transformation of banking, as well as a proposal for the BNI London Branch. For me, as a Head of IT professional in a heavily regulated financial institution, this was a particularly valuable module because it integrated theory and practice instead of treating them as two disassociated elements.</p>
+          
+          <p>During the twelve-week course, I was introduced to the three principal categories of research: qualitative, quantitative, and mixed methods; I gained a fair amount of proficiency in statistical analysis in Excel; and I deepened my capability to review and critique academic literature. Among others, I was required to fill out statistical hypothesis testing worksheets, perform basic data analyses, and create visualisations in Power BI. The class also required the development of a proposal for a convergent mixed-methods case study on the use of data science to improve operational efficiency in banking.</p>
+          
+          <!-- SO WHAT Section -->
+          <h2 class="reflection-heading">
+            <i class="fas fa-lightbulb"></i>
+            SO WHAT: Analysis and Interpretation
+          </h2>
+          
+          <h3 class="reflection-subheading">Emotional Response and Personal Growth</h3>
+          
+          <p>While participating in this specific task, I undoubtedly experienced a fair share of concerns. Don't take me wrong, I had my fair share of worries while partaking in this specific task. A large amount of my worries stemmed from me trying to analyse and appraise literature while developing my own academic writing skills. To be frank, I did have my theoretical and practical concerns, and my practical duties were focused on my own job. The feedback from the literature review was quite supportive, and it was a surprise that someone took the time to annotate it. I appreciate that someone took the time to review my literature review and provide feedback. For documentation purposes, feedback like this simply does not occur. I appreciate that the review highlighted the literature in a very satisfactory way. I appreciate that all issues were supportive. I appreciate that the review highlighted the literature in a very satisfactory way.</p>
+          
+          <p>I initially encountered numerous negative feelings, primarily confusion, regarding statistical exercises in Units 7-9. Since I was going to be using Excel, I assumed I'd be able to avoid making guesses as to how deep the hypotheses would go. Encountering null hypotheses, alternative hypotheses, p-values, and the whole Type I/II error thing was an enormous test of my faith. I learnt that just because someone is familiar with an analytical tool doesn't mean that they can perform statistical analysis. During this experience, I learnt that user familiarity with analytical tools does not equate to someone's ability to perform statistical analysis. Kolb's (2015) experiential learning cycle pertains here, as learning is an integration of the concrete and the abstract, and this module fostered that integration.</p>
+          
+          <h3 class="reflection-subheading">Critical Insights and Challenged Assumptions</h3>
+          
+          <p>The Cambridge Analytica case study in Unit 5 fundamentally challenged my assumptions regarding data ethics. Prior to this module, my understanding of data protection was largely procedural, framed around GDPR compliance checklists and internal policy adherence. Analysing how data analytics techniques were exploited for political manipulation prompted deeper ethical reflection on the power and responsibility embedded within data science practices. This learning has directly influenced how I now approach data governance at BNI London, particularly when assessing third-party AML and monitoring system vendors following recent OJK audit findings.</p>
+          
+          <p>Similarly, engagement with concepts of validity, reliability, and generalisability in Unit 9 exposed limitations within my own research design. Recognising that a single-case study offers contextual depth but limited external validity was initially uncomfortable, as it challenged my instinct to seek broadly applicable conclusions. However, this awareness reflects Creswell and Creswell's (2018) emphasis on explicitly acknowledging methodological trade-offs rather than overstating research claims. Importantly, this insight has reshaped how I evaluate internal operational analyses at work, prompting greater caution when extrapolating findings across different regulatory or organisational contexts.</p>
+          
+          <!-- NOW WHAT Section -->
+          <h2 class="reflection-heading">
+            <i class="fas fa-rocket"></i>
+            NOW WHAT: Application and Future Direction
+          </h2>
+          
+          <h3 class="reflection-subheading">Evidence of Skills Development</h3>
+          
+          <p>The skills developed through this module are directly transferable to my professional practice:</p>
+          
+          <ul class="skills-list">
+            <li>
+              <strong><i class="fas fa-drafting-compass"></i> Research Design</strong>
+              <p>My research proposal demonstrated the ability to design a coherent mixed-methods study, with feedback highlighting clear alignment between research gaps, questions, and methodological choices.</p>
+            </li>
+            <li>
+              <strong><i class="fas fa-calculator"></i> Statistical Analysis</strong>
+              <p>I successfully completed hypothesis testing exercises, including t-tests, F-tests, and chi-square analyses, with appropriate interpretation. However, I also recognise an ongoing tendency to prioritise statistical significance over effect size, an area I intend to address in future analyses.</p>
+            </li>
+            <li>
+              <strong><i class="fas fa-chart-bar"></i> Data Visualisation</strong>
+              <p>I created PowerBI dashboards presenting operational efficiency metrics, skills that are immediately applicable to management reporting within a banking environment.</p>
+            </li>
+            <li>
+              <strong><i class="fas fa-search"></i> Critical Literature Review</strong>
+              <p>I synthesised over seventeen academic sources to identify research gaps related to data science implementation in regulated financial institutions, strengthening my evaluative and analytical writing skills.</p>
+            </li>
+          </ul>
+          
+          <h3 class="reflection-subheading">Changed Actions and Future Plans</h3>
+          
+          <p>This module has fundamentally reshaped my approach to problem-solving in the workplace. Previously, solutions were often implemented based on vendor recommendations or industry norms. I now adopt a more evidence-based mindset, consistently questioning what data supports a decision, what methodological limitations exist, and whether findings are transferable to our specific regulatory context.</p>
+          
+          <p>Looking ahead, I plan to apply these learning outcomes to my MSc capstone project by potentially extending the BNI London case study to include empirical data collection. Additionally, reflection on my Professional Skills Matrix in Unit 11 highlighted gaps in advanced analytics and machine learning deployment. As a result, I have identified Azure DP-100 and AWS Machine Learning Specialty certifications as priority development goals within the next twelve months to complement the research competencies gained through this module.</p>
+          
+          <!-- Conclusion -->
+          <h2 class="reflection-heading">
+            <i class="fas fa-flag-checkered"></i>
+            Conclusion
+          </h2>
+          
+          <p>Rolfe et al. (2001) argue that effective reflection must progress from description to critical analysis and future action. This module has enabled precisely that transition. What began as an academic requirement has evolved into a professional capability: the ability to design rigorous investigations, critically evaluate evidence, and apply research-informed insights to real-world banking challenges. By integrating theory with practice and using my workplace as a reflective context, this learning experience has become both personally meaningful and professionally transformative.</p>
+          
+          <!-- Word Count -->
+          <div class="word-count">
+            <i class="fas fa-file-word"></i> Word Count: 998 (Maximum: 1,000)
+          </div>
+          
+          <!-- References -->
+          <div class="references-box">
+            <h4><i class="fas fa-bookmark"></i> References</h4>
+            <ul>
+              <li>Creswell, J.W. and Creswell, J.D. (2018) <em>Research Design: Qualitative, Quantitative, and Mixed Methods Approaches</em>. 5th edn. Thousand Oaks, CA: Sage Publications.</li>
+              <li>Kolb, D.A. (2015) <em>Experiential Learning: Experience as the Source of Learning and Development</em>. 2nd edn. Upper Saddle River, NJ: Pearson Education.</li>
+              <li>Rolfe, G., Freshwater, D. and Jasper, M. (2001) <em>Critical Reflection for Nursing and the Helping Professions: A User's Guide</em>. Basingstoke: Palgrave Macmillan.</li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Aldino</div>
+          <p class="footer-tagline">Head of IT · MSc Data Science Student</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="research-methods.html">E-Portfolio</a>
+          <a href="research-methods.html#units">All Units</a>
+          <a href="research-presentation-fixed.html">Presentation</a>
+        </div>
+        <div class="footer-links">
+          <h4>Module</h4>
+          <a href="#">Research Methods</a>
+          <a href="#">Professional Practice</a>
+          <a href="#">University of Essex</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Research Methods and Professional Practice · MSc Data Science · University of Essex Online · 2025-2026</p>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>

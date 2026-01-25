@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MSc Data Science Portfolio - University of Essex">
+  <title>MSc Data Science Portfolio | Ade Putra Tio Aldino</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --color-primary: #0f172a;
+      --color-primary-light: #1e293b;
+      --color-secondary: #0ea5e9;
+      --color-accent: #f97316;
+      --color-accent-alt: #8b5cf6;
+      --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #f97316 100%);
+      --color-white: #ffffff;
+      --color-gray-100: #f1f5f9;
+      --color-gray-300: #cbd5e1;
+      --color-gray-400: #94a3b8;
+      --color-gray-500: #64748b;
+      --color-gray-800: #1e293b;
+      --color-success: #22c55e;
+      --color-warning: #eab308;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 9999px;
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.3);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-gray-100);
+      background-color: var(--color-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul, ol { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-white);
+    }
+    
+    .text-gradient {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 768px) { .container { padding: 0 2rem; } }
+    @media (min-width: 1200px) { .container { padding: 0 3rem; } }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); }
+    .logo-dot { width: 8px; height: 8px; background: var(--gradient-primary); border-radius: 50%; }
+    
+    .nav-menu { display: none; align-items: center; gap: 0.5rem; }
+    @media (min-width: 1024px) { .nav-menu { display: flex; } }
+    
+    .nav-link {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-gray-300);
+      border-radius: var(--radius-full);
+      transition: 0.3s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; padding: 0.5rem; }
+    @media (min-width: 1024px) { .nav-toggle { display: none; } }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--color-white); transition: 0.3s ease; }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s ease;
+    }
+    .mobile-menu.active { opacity: 1; visibility: visible; }
+    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .mobile-link { font-size: 1.5rem; font-weight: 600; color: var(--color-gray-300); }
+    .mobile-link:hover { color: var(--color-white); }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding: 10rem 0 4rem;
+      text-align: center;
+      position: relative;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .page-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-accent-alt);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .page-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .page-description {
+      font-size: 1.1rem;
+      color: var(--color-gray-400);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ===== PROGRAM CARD ===== */
+    .program-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.5rem;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: var(--radius-xl);
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .program-card { grid-template-columns: 1fr; text-align: center; }
+    }
+    .program-icon {
+      width: 70px; height: 70px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--color-accent-alt);
+      border-radius: var(--radius-xl);
+      font-size: 2rem;
+      color: white;
+    }
+    .program-info h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .program-info p { color: var(--color-gray-400); margin: 0; }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: var(--radius-full);
+      color: var(--color-success);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .status-badge i { font-size: 6px; animation: pulse 2s infinite; }
+    .progress-info { display: block; font-size: 0.8rem; color: var(--color-gray-400); margin-top: 0.5rem; }
+
+    /* ===== QUICK ACCESS ===== */
+    .quick-access {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+    .quick-access-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      transition: 0.3s ease;
+    }
+    .quick-access-item:hover {
+      border-color: var(--color-accent-alt);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+    }
+    .quick-access-icon {
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--color-accent-alt);
+      border-radius: var(--radius-lg);
+      font-size: 1.2rem;
+      color: white;
+    }
+    .quick-access-text h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .quick-access-text p { font-size: 0.85rem; color: var(--color-gray-400); margin: 0; }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header { margin-bottom: 2rem; }
+    .section-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+    /* ===== MODULES GRID ===== */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+    @media (max-width: 400px) {
+      .modules-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== MODULE CARD ===== */
+    .module-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    }
+    .module-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow-xl);
+    }
+    .module-card.card-highlight {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border-color: rgba(14, 165, 233, 0.3);
+    }
+    .module-card.card-highlight:hover { box-shadow: var(--shadow-glow); }
+    .module-card.card-accent { border-color: rgba(249, 115, 22, 0.3); }
+    .module-card.card-accent:hover { box-shadow: 0 0 40px rgba(249, 115, 22, 0.3); }
+    
+    .module-number {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.05);
+      font-family: var(--font-display);
+    }
+    .module-status { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .module-status-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .module-status-dot.completed { background: var(--color-success); }
+    .module-status-dot.in-progress { background: var(--color-warning); animation: pulse 2s infinite; }
+    .module-status-dot.upcoming { background: var(--color-gray-500); }
+    .module-status-text { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .module-status-text.completed { color: var(--color-success); }
+    .module-status-text.in-progress { color: var(--color-warning); }
+    .module-status-text.upcoming { color: var(--color-gray-500); }
+    
+    .module-icon {
+      width: 50px; height: 50px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      font-size: 1.25rem;
+      color: var(--color-secondary);
+      margin-bottom: 1rem;
+    }
+    .module-title { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .module-subtitle { font-size: 0.9rem; color: var(--color-gray-400); margin-bottom: 1rem; font-style: italic; }
+    
+    .module-outcomes {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .module-outcomes h4 { font-size: 0.8rem; color: var(--color-secondary); margin-bottom: 0.75rem; font-weight: 600; }
+    .module-outcomes ul { padding-left: 0; }
+    .module-outcomes li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--color-gray-400);
+    }
+    .module-outcomes li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-secondary);
+    }
+    
+    .module-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    
+    .badge {
+      display: inline-flex;
+      padding: 0.25rem 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-gray-300);
+    }
+    .badge-primary { background: rgba(14, 165, 233, 0.2); color: var(--color-secondary); }
+    .badge-accent { background: rgba(249, 115, 22, 0.2); color: var(--color-accent); }
+    .badge-success { background: rgba(34, 197, 94, 0.15); color: var(--color-success); }
+    
+    .module-reflection {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-lg);
+      border-left: 3px solid var(--color-accent-alt);
+      margin-top: 1rem;
+    }
+    .module-reflection h4 { font-size: 0.8rem; color: var(--color-accent-alt); margin-bottom: 0.5rem; }
+    .module-reflection p { font-size: 0.85rem; color: var(--color-gray-400); margin: 0; font-style: italic; }
+    
+    .module-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--glass-border);
+    }
+    .module-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-gray-300);
+    }
+    .module-link:hover {
+      background: rgba(14, 165, 233, 0.1);
+      border-color: rgba(14, 165, 233, 0.3);
+      color: var(--color-secondary);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--glass-border);
+      margin-top: 6rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 768px) {
+      .footer-content { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: var(--color-gray-400); }
+    .footer-links a:hover { color: var(--color-white); }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      color: var(--color-gray-400);
+      transition: 0.3s ease;
+    }
+    .footer-social a:hover {
+      color: var(--color-white);
+      border-color: var(--color-secondary);
+      transform: translateY(-2px);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      color: var(--color-gray-400);
+      font-size: 0.9rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">Aldino</span>
+        <span class="logo-dot"></span>
+      </a>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="data-science.html" class="nav-link active">Data Science</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="education.html" class="nav-link">Education</a>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="data-science.html" class="mobile-link">Data Science</a>
+      <a href="skills.html" class="mobile-link">Skills</a>
+      <a href="experience.html" class="mobile-link">Experience</a>
+      <a href="education.html" class="mobile-link">Education</a>
+    </div>
+  </div>
+  
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <p class="page-label">Academic E-Portfolio</p>
+      <h1 class="page-title">MSc <span class="text-gradient">Data Science</span></h1>
+      <p class="page-description">
+        As an MSc Data Science student at the University of Essex, this e-Portfolio captures my learning artefacts, reflections, and professional growth throughout the program.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section style="padding: 2rem 0 4rem;">
+    <div class="container">
+      <!-- Program Card -->
+      <div class="program-card">
+        <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="program-info">
+          <h3>Master of Science in Data Science</h3>
+          <p>University of Essex Online · September 2024 - Present</p>
+        </div>
+        <div>
+          <span class="status-badge">
+            <i class="fas fa-circle"></i> In Progress
+          </span>
+          <span class="progress-info">5 Modules Completed</span>
+        </div>
+      </div>
+      
+      <!-- Quick Access -->
+      <div class="quick-access">
+        <a href="modules/big-data.html" class="quick-access-item">
+          <div class="quick-access-icon"><i class="fas fa-database"></i></div>
+          <div class="quick-access-text">
+            <h4>Deciphering Big Data</h4>
+            <p>Full E-Portfolio</p>
+          </div>
+        </a>
+        <a href="modules/big-data-reflection.html" class="quick-access-item">
+          <div class="quick-access-icon"><i class="fas fa-book-open"></i></div>
+          <div class="quick-access-text">
+            <h4>Big Data Reflection</h4>
+            <p>Module Reflection</p>
+          </div>
+        </a>
+        <a href="modules/machine-learning.html" class="quick-access-item">
+          <div class="quick-access-icon"><i class="fas fa-brain"></i></div>
+          <div class="quick-access-text">
+            <h4>Machine Learning</h4>
+            <p>Full E-Portfolio</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Modules Section -->
+      <div class="section-header">
+        <p class="section-label">Course Modules</p>
+        <h2 class="section-title">Learning Journey</h2>
+      </div>
+      
+      <div class="modules-grid">
+        <!-- Module 1 -->
+        <article class="module-card">
+          <span class="module-number">01</span>
+          <div class="module-status">
+            <span class="module-status-dot completed"></span>
+            <span class="module-status-text completed">Completed</span>
+          </div>
+          <div class="module-icon"><i class="fas fa-calculator"></i></div>
+          <h3 class="module-title">Numerical Analysis</h3>
+          <p class="module-subtitle">Mathematics & statistics for Data Science & AI</p>
+          <div class="module-outcomes">
+            <h4>Learning Outcomes</h4>
+            <ul>
+              <li>Mathematical/statistical concepts for DS & AI</li>
+              <li>Apply methods in data-driven decision-making</li>
+              <li>Critically evaluate statistical analyses</li>
+            </ul>
+          </div>
+          <div class="module-skills">
+            <span class="badge">Numeracy</span>
+            <span class="badge badge-primary">R Programming</span>
+            <span class="badge">Statistics</span>
+          </div>
+        </article>
+
+        <!-- Module 2 -->
+        <article class="module-card">
+          <span class="module-number">02</span>
+          <div class="module-status">
+            <span class="module-status-dot completed"></span>
+            <span class="module-status-text completed">Completed</span>
+          </div>
+          <div class="module-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="module-title">Visualising Data</h3>
+          <p class="module-subtitle">Grammar & idioms of visualisation</p>
+          <div class="module-outcomes">
+            <h4>Learning Outcomes</h4>
+            <ul>
+              <li>Apply visualisation grammar across full process</li>
+              <li>Evaluate tools for exploring complex data</li>
+              <li>Communicate insights for decision-making</li>
+            </ul>
+          </div>
+          <div class="module-skills">
+            <span class="badge badge-primary">Plotly</span>
+            <span class="badge badge-primary">Seaborn</span>
+            <span class="badge">Storytelling</span>
+          </div>
+        </article>
+
+        <!-- Module 3 -->
+        <article class="module-card">
+          <span class="module-number">03</span>
+          <div class="module-status">
+            <span class="module-status-dot completed"></span>
+            <span class="module-status-text completed">Completed</span>
+          </div>
+          <div class="module-icon"><i class="fas fa-user-tie"></i></div>
+          <h3 class="module-title">The Data Professional</h3>
+          <p class="module-subtitle">Roles, ethics & tools of the data professional</p>
+          <div class="module-outcomes">
+            <h4>Learning Outcomes</h4>
+            <ul>
+              <li>Identify roles considering ethics, law, privacy</li>
+              <li>Develop GitHub and workflow automation skills</li>
+              <li>Analyse data-to-knowledge transformation</li>
+            </ul>
+          </div>
+          <div class="module-skills">
+            <span class="badge badge-primary">Git/GitHub</span>
+            <span class="badge badge-accent">Ethics</span>
+            <span class="badge">CI/CD</span>
+          </div>
+        </article>
+
+        <!-- Module 4: Big Data -->
+        <article class="module-card card-highlight">
+          <span class="module-number">04</span>
+          <div class="module-status">
+            <span class="module-status-dot completed"></span>
+            <span class="module-status-text completed">Completed</span>
+          </div>
+          <div class="module-icon" style="background: var(--color-secondary); border: none; color: white;"><i class="fas fa-database"></i></div>
+          <h3 class="module-title">Deciphering Big Data</h3>
+          <p class="module-subtitle">Big data technologies, management & compliance</p>
+          <div class="module-outcomes">
+            <h4>Learning Outcomes</h4>
+            <ul>
+              <li>Understand the 4 Vs and common formats</li>
+              <li>Build ETL pipelines with Python/SQL</li>
+              <li>Apply GDPR and data governance principles</li>
+            </ul>
+          </div>
+          <div class="module-skills">
+            <span class="badge badge-primary">Python</span>
+            <span class="badge badge-primary">SQL</span>
+            <span class="badge badge-primary">MongoDB</span>
+            <span class="badge badge-accent">GDPR</span>
+          </div>
+          <div class="module-reflection">
+            <h4><i class="fas fa-quote-left"></i> My Reflection</h4>
+            <p>This module sharpened my technical skills in data cleaning, modelling, and governance. I now build pipelines with privacy-by-design thinking.</p>
+          </div>
+          <div class="module-links">
+            <a href="big-data.html" class="module-link"><i class="fas fa-folder-open"></i> E-Portfolio</a>
+            <a href="big-data-reflection.html" class="module-link"><i class="fas fa-book-open"></i> Reflection</a>
+          </div>
+        </article>
+
+        <!-- Module 5: Machine Learning -->
+        <article class="module-card card-highlight">
+          <span class="module-number">05</span>
+          <div class="module-status">
+            <span class="module-status-dot completed"></span>
+            <span class="module-status-text completed">Completed</span>
+          </div>
+          <div class="module-icon" style="background: var(--color-accent); border: none; color: white;"><i class="fas fa-brain"></i></div>
+          <h3 class="module-title">Machine Learning</h3>
+          <p class="module-subtitle">CNN, Transfer Learning, Industry 4.0/5.0</p>
+          <div class="module-outcomes">
+            <h4>Learning Outcomes</h4>
+            <ul>
+              <li>Implement neural networks for image classification</li>
+              <li>Apply transfer learning with pre-trained models</li>
+              <li>Understand explainability (SHAP, Grad-CAM)</li>
+            </ul>
+          </div>
+          <div class="module-skills">
+            <span class="badge badge-primary">TensorFlow</span>
+            <span class="badge badge-primary">Keras</span>
+            <span class="badge">CNN</span>
+            <span class="badge badge-accent">XAI</span>
+          </div>
+          <div class="module-reflection">
+            <h4><i class="fas fa-lightbulb"></i> Current Focus</h4>
+            <p>Working on CIFAR-10 image classification using MobileNetV2 transfer learning. Exploring Grad-CAM for model interpretability.</p>
+          </div>
+          <div class="module-links">
+            <a href="machine-learning.html" class="module-link"><i class="fas fa-folder-open"></i> E-Portfolio</a>
+			<a href="machine-learning-reflection.html" class="module-link"><i class="fas fa-book-open"></i> Reflection</a>
+          </div>
+        </article>
+
+        <!-- Module 6: Research Methods -->
+        <article class="module-card card-highlight">
+          <span class="module-number">06</span>
+          <div class="module-status">
+            <span class="module-status-dot in-progress"></span>
+            <span class="module-status-text in-progress">in progress</span>
+          </div>
+          <div class="module-icon"><i class="fas fa-flask"></i></div>
+          <h3 class="module-title">Research Methods</h3>
+          <p class="module-subtitle">Academic research & dissertation prep</p>
+          <div class="module-outcomes">
+            <h4>Expected Outcomes</h4>
+            <ul>
+              <li>Formulate research questions and hypotheses</li>
+              <li>Conduct systematic literature reviews</li>
+              <li>Prepare dissertation proposal</li>
+            </ul>
+          </div>
+          <div class="module-skills">
+            <span class="badge badge-primary">Research</span>
+            <span class="badge badge-primary">Academic Writing</span>
+            <span class="badge badge-primary">Literature Review</span>
+			<div class="module-reflection">
+            <h4><i class="fas fa-lightbulb"></i> My Reflection</h4>
+            <p>Throughout this module, I explored qualitative, quantitative, and mixed-methods research approaches while completing statistical analyses and developing a research proposal for my workplace. This reflection uses Rolfe et al.'s (2001) framework to critically evaluate how my understanding of research methodology has evolved and how I will apply these skills to future academic and professional challenges.</p>
+          </div>
+          </div>
+		              <a href="research-methods.html" class="module-link"><i class="fas fa-folder-open"></i> E-Portfolio</a>
+            <a href="RMPP_Final_Reflection.html" class="module-link"><i class="fas fa-book-open"></i> Reflection</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Ade Putra Tio Aldino</div>
+          <p style="color: var(--color-gray-400);">Software Engineer & Data Scientist</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Portfolio</h4>
+          <div class="footer-links">
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="experience.html">Experience</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Connect</h4>
+          <div class="footer-social">
+            <a href="https://github.com/adeputratio" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/adeputratio" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:adeputratio@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ade Putra Tio Aldino. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>

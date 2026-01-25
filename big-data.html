@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deciphering Big Data | MSc Data Science E-Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --color-primary: #0f172a;
+      --color-secondary: #0ea5e9;
+      --color-accent: #f97316;
+      --color-accent-alt: #8b5cf6;
+      --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #f97316 100%);
+      --color-white: #ffffff;
+      --color-gray-100: #f1f5f9;
+      --color-gray-300: #cbd5e1;
+      --color-gray-400: #94a3b8;
+      --color-success: #22c55e;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 9999px;
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; color: var(--color-gray-100); background-color: var(--color-primary); min-height: 100vh; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%); pointer-events: none; z-index: -1; }
+    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; color: var(--color-white); }
+    .text-gradient { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    @media (min-width: 768px) { .container { padding: 0 2rem; } }
+
+    /* Navigation */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0; transition: 0.3s ease; }
+    .navbar.scrolled { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); }
+    .logo-dot { width: 8px; height: 8px; background: var(--gradient-primary); border-radius: 50%; }
+    .nav-menu { display: none; align-items: center; gap: 0.5rem; }
+    @media (min-width: 1024px) { .nav-menu { display: flex; } }
+    .nav-link { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; color: var(--color-gray-300); border-radius: var(--radius-full); }
+    .nav-link:hover, .nav-link.active { color: var(--color-white); background: rgba(255, 255, 255, 0.1); }
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; padding: 0.5rem; }
+    @media (min-width: 1024px) { .nav-toggle { display: none; } }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--color-white); }
+
+    .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s ease; }
+    .mobile-menu.active { opacity: 1; visibility: visible; }
+    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .mobile-link { font-size: 1.5rem; font-weight: 600; color: var(--color-gray-300); }
+
+    /* Module Header */
+    .module-header { padding: 10rem 0 4rem; text-align: center; position: relative; background: linear-gradient(to bottom, rgba(34, 197, 94, 0.1) 0%, transparent 100%); }
+    .module-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(34, 197, 94, 0.15); color: var(--color-success); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
+    .module-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.5rem; }
+    .module-subtitle { font-size: 1.1rem; color: var(--color-gray-400); margin-bottom: 1.5rem; }
+    .module-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; }
+    .meta-item { display: flex; align-items: center; gap: 0.5rem; color: var(--color-gray-300); font-size: 0.9rem; }
+    .meta-item i { color: var(--color-secondary); }
+    .quick-nav { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .quick-nav-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-full); font-size: 0.9rem; color: var(--color-gray-300); transition: 0.3s ease; }
+    .quick-nav-btn:hover { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+    /* Section Header */
+    .section-header { margin-bottom: 2rem; }
+    .section-label { font-size: 0.9rem; font-weight: 600; color: var(--color-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .section-title { font-size: 1.5rem; }
+
+    /* Unit Accordion */
+    .unit-accordion { display: flex; flex-direction: column; gap: 1rem; }
+    .unit-item { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); overflow: hidden; transition: 0.3s ease; }
+    .unit-item:hover { border-color: rgba(255, 255, 255, 0.2); }
+    .unit-item.active { border-color: rgba(34, 197, 94, 0.3); }
+    
+    .unit-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; cursor: pointer; }
+    .unit-header-left { display: flex; align-items: center; gap: 1rem; }
+    .unit-number { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--gradient-primary); border-radius: var(--radius-lg); font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+    .unit-info h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .unit-info p { font-size: 0.85rem; color: var(--color-gray-400); margin: 0; }
+    .unit-toggle { color: var(--color-gray-400); transition: 0.3s ease; }
+    .unit-item.active .unit-toggle { transform: rotate(180deg); color: var(--color-success); }
+    
+    .unit-content { padding: 0 1.5rem 1.5rem; display: none; }
+    .unit-item.active .unit-content { display: block; }
+    
+    .content-section { margin-bottom: 1.5rem; padding: 1rem; background: rgba(0, 0, 0, 0.2); border-radius: var(--radius-lg); }
+    .content-section:last-child { margin-bottom: 0; }
+    .content-section h4 { font-size: 0.95rem; color: var(--color-secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .content-section h4 i { font-size: 0.9rem; }
+    .content-section p { font-size: 0.9rem; color: var(--color-gray-300); margin-bottom: 0.75rem; }
+    .content-section p:last-child { margin-bottom: 0; }
+    .content-section ul { padding-left: 1.5rem; }
+    .content-section li { position: relative; padding-left: 1rem; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--color-gray-300); }
+    .content-section li::before { content: '→'; position: absolute; left: 0; color: var(--color-success); }
+    
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tech-tag { padding: 0.25rem 0.75rem; background: rgba(14, 165, 233, 0.2); color: var(--color-secondary); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; }
+    
+    .code-block { background: rgba(0, 0, 0, 0.4); border-radius: var(--radius-lg); padding: 1rem; margin: 1rem 0; overflow-x: auto; }
+    .code-block pre { margin: 0; }
+    .code-block code { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-gray-300); white-space: pre; }
+
+    /* Skills Summary */
+    .skills-summary { background: linear-gradient(145deg, rgba(34, 197, 94, 0.1) 0%, var(--glass-bg) 100%); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--radius-xl); padding: 2rem; margin-top: 3rem; text-align: center; }
+    .skills-summary h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .skills-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+    .skill-item { padding: 0.5rem 1rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-full); font-size: 0.85rem; color: var(--color-gray-300); }
+
+    /* Footer */
+    .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--glass-border); margin-top: 4rem; }
+    .footer-content { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
+    @media (min-width: 768px) { .footer-content { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: var(--color-gray-400); }
+    .footer-links a:hover { color: var(--color-white); }
+    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--glass-border); color: var(--color-gray-400); font-size: 0.9rem; }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo"><span class="logo-text">Aldino</span><span class="logo-dot"></span></a>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="data-science.html" class="nav-link active">Data Science</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="education.html" class="nav-link">Education</a>
+      </div>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="data-science.html" class="mobile-link">Data Science</a>
+      <a href="skills.html" class="mobile-link">Skills</a>
+      <a href="experience.html" class="mobile-link">Experience</a>
+      <a href="education.html" class="mobile-link">Education</a>
+    </div>
+  </div>
+
+  <header class="module-header">
+    <div class="container">
+      <span class="module-badge"><i class="fas fa-check-circle"></i> Completed Module</span>
+      <h1 class="module-title text-gradient">Deciphering Big Data</h1>
+      <p class="module-subtitle">MSc Data Science • University of Essex</p>
+      <div class="module-meta">
+        <span class="meta-item"><i class="fas fa-calendar-alt"></i> 12 Units</span>
+        <span class="meta-item"><i class="fas fa-clock"></i> Oct 2024 – Jan 2025</span>
+        <span class="meta-item"><i class="fas fa-code"></i> Python, SQL, MongoDB</span>
+      </div>
+      <div class="quick-nav">
+        <a href="big-data-reflection.html" class="quick-nav-btn"><i class="fas fa-lightbulb"></i> View Reflection</a>
+        <a href="data-science.html" class="quick-nav-btn"><i class="fas fa-arrow-left"></i> Back to Modules</a>
+      </div>
+    </div>
+  </header>
+
+  <section style="padding: 2rem 0 4rem;">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Learning Journey</p>
+        <h2 class="section-title">Module Units</h2>
+      </div>
+      
+      <div class="unit-accordion">
+        <div class="unit-item active">
+          <div class="unit-header" onclick="toggleUnit(this)">
+            <div class="unit-header-left">
+              <span class="unit-number">1</span>
+              <div class="unit-info">
+                <h3>Introduction to Big Data</h3>
+                <p>Understanding the 4 Vs and Common Data Formats</p>
+              </div>
+            </div>
+            <span class="unit-toggle"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="unit-content">
+            <div class="content-section">
+              <h4><i class="fas fa-bullseye"></i> Learning Objectives</h4>
+              <ul>
+                <li>Identify Big Data characteristics using the 4 Vs framework (Volume, Velocity, Variety, Veracity)</li>
+                <li>Distinguish between different data structures and their use cases</li>
+                <li>Analyze real-world Big Data scenarios using standardized criteria</li>
+              </ul>
+            </div>
+            <div class="content-section">
+              <h4><i class="fas fa-folder-open"></i> Key Activities</h4>
+              <p>Completed practical exploration of Big Data characteristics using real-world datasets including COVID-19 global statistics and financial transaction records.</p>
+              <div class="code-block">
+                <pre><code># Chunk processing for large datasets
+import pandas as pd
+
+for chunk in pd.read_csv('large_dataset.csv', chunksize=10000):
+    process_data(chunk)</code></pre>
+              </div>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Jupyter Notebook</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unit-item">
+          <div class="unit-header" onclick="toggleUnit(this)">
+            <div class="unit-header-left">
+              <span class="unit-number">2</span>
+              <div class="unit-info">
+                <h3>Data Collection & Storage</h3>
+                <p>Web Scraping, APIs & Compliance Challenges</p>
+              </div>
+            </div>
+            <span class="unit-toggle"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="unit-content">
+            <div class="content-section">
+              <h4><i class="fas fa-bullseye"></i> Learning Objectives</h4>
+              <ul>
+                <li>Implement data scraping methods for automated data collection</li>
+                <li>Apply GDPR and data privacy considerations in data collection</li>
+                <li>Develop REST API integration for real-time data access</li>
+              </ul>
+            </div>
+            <div class="content-section">
+              <h4><i class="fas fa-folder-open"></i> Key Activities</h4>
+              <p>Built web scraping solutions using BeautifulSoup and Selenium, implemented API integrations with rate limiting and error handling.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">BeautifulSoup</span>
+                <span class="tech-tag">Selenium</span>
+                <span class="tech-tag">REST APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="unit-item">
+          <div class="unit-header" onclick="toggleUnit(this)">
+            <div class="unit-header-left">
+              <span class="unit-number">3</span>
+              <div class="unit-info">
+                <h3>Data Cleaning & Transformation</h3>
+                <p>Handling Missing Values, Outliers & Normalization</p>
+              </div>
+            </div>
+            <span class="unit-toggle"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="unit-content">
+            <div class="content-section">
+              <h4><i class="fas fa-bullseye"></i> Learning Objectives</h4>
+              <ul>
+                <li>Apply data cleaning techniques for missing and invalid data</li>
+                <li>Implement outlier detection and handling strategies</li>
+                <li>Transform and normalise data for analysis readiness</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="unit-item">
+          <div class="unit-header" onclick="toggleUnit(this)">
+            <div class="unit-header-left">
+              <span class="unit-number">4</span>
+              <div class="unit-info">
+                <h3>Database Design & SQL</h3>
+                <p>Entity Relationship Diagrams & Query Optimization</p>
+              </div>
+            </div>
+            <span class="unit-toggle"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="unit-content">
+            <div class="content-section">
+              <h4><i class="fas fa-bullseye"></i> Learning Objectives</h4>
+              <ul>
+                <li>Design normalized database schemas using ERD methodology</li>
+                <li>Write optimized SQL queries for data retrieval</li>
+                <li>Implement indexing strategies for query performance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="unit-item">
+          <div class="unit-header" onclick="toggleUnit(this)">
+            <div class="unit-header-left">
+              <span class="unit-number">5</span>
+              <div class="unit-info">
+                <h3>NoSQL Databases</h3>
+                <p>MongoDB, Document Stores & Schema Flexibility</p>
+              </div>
+            </div>
+            <span class="unit-toggle"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="unit-content">
+            <div class="content-section">
+              <h4><i class="fas fa-bullseye"></i> Learning Objectives</h4>
+              <ul>
+                <li>Compare SQL and NoSQL database paradigms</li>
+                <li>Implement MongoDB collections and aggregation pipelines</li>
+                <li>Design flexible document schemas for varied data</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="unit-item">
+          <div class="unit-header" onclick="toggleUnit(this)">
+            <div class="unit-header-left">
+              <span class="unit-number">6</span>
+              <div class="unit-info">
+                <h3>Data Governance & GDPR</h3>
+                <p>Privacy-by-Design, Compliance & Ethics</p>
+              </div>
+            </div>
+            <span class="unit-toggle"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="unit-content">
+            <div class="content-section">
+              <h4><i class="fas fa-bullseye"></i> Learning Objectives</h4>
+              <ul>
+                <li>Apply GDPR principles to data processing activities</li>
+                <li>Implement data anonymization and pseudonymization</li>
+                <li>Develop data retention and deletion policies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-summary">
+        <h3>Skills Developed in This Module</h3>
+        <div class="skills-list">
+          <span class="skill-item">Python</span>
+          <span class="skill-item">Pandas</span>
+          <span class="skill-item">SQL</span>
+          <span class="skill-item">MongoDB</span>
+          <span class="skill-item">ETL Pipelines</span>
+          <span class="skill-item">Data Cleaning</span>
+          <span class="skill-item">GDPR Compliance</span>
+          <span class="skill-item">ERD Design</span>
+          <span class="skill-item">Git/GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Ade Putra Tio Aldino</div>
+          <p style="color: var(--color-gray-400);">Software Engineer & Data Scientist</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Module Pages</h4>
+          <div class="footer-links">
+            <a href="big-data-reflection.html">Big Data Reflection</a>
+            <a href="machine-learning.html">Machine Learning</a>
+            <a href="../data-science.html">All Modules</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Portfolio</h4>
+          <div class="footer-links">
+            <a href="../projects.html">Projects</a>
+            <a href="../skills.html">Skills</a>
+            <a href="../experience.html">Experience</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Ade Putra Tio Aldino. All rights reserved.</p></div>
+    </div>
+  </footer>
+  
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
+    
+    function toggleUnit(header) {
+      const item = header.closest('.unit-item');
+      item.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Data Reflection | MSc Data Science E-Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --color-primary: #0f172a;
+      --color-secondary: #0ea5e9;
+      --color-accent: #f97316;
+      --color-accent-alt: #8b5cf6;
+      --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #f97316 100%);
+      --color-white: #ffffff;
+      --color-gray-100: #f1f5f9;
+      --color-gray-300: #cbd5e1;
+      --color-gray-400: #94a3b8;
+      --color-success: #22c55e;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 9999px;
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; color: var(--color-gray-100); background-color: var(--color-primary); min-height: 100vh; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%); pointer-events: none; z-index: -1; }
+    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; color: var(--color-white); }
+    .text-gradient { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    @media (min-width: 768px) { .container { padding: 0 2rem; } }
+
+    /* Navigation */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0; transition: 0.3s ease; }
+    .navbar.scrolled { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); }
+    .logo-dot { width: 8px; height: 8px; background: var(--gradient-primary); border-radius: 50%; }
+    .nav-menu { display: none; align-items: center; gap: 0.5rem; }
+    @media (min-width: 1024px) { .nav-menu { display: flex; } }
+    .nav-link { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; color: var(--color-gray-300); border-radius: var(--radius-full); }
+    .nav-link:hover, .nav-link.active { color: var(--color-white); background: rgba(255, 255, 255, 0.1); }
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; padding: 0.5rem; }
+    @media (min-width: 1024px) { .nav-toggle { display: none; } }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--color-white); }
+
+    .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s ease; }
+    .mobile-menu.active { opacity: 1; visibility: visible; }
+    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .mobile-link { font-size: 1.5rem; font-weight: 600; color: var(--color-gray-300); }
+
+    /* Page Header */
+    .page-header { padding: 10rem 0 3rem; text-align: center; position: relative; background: linear-gradient(to bottom, rgba(139, 92, 246, 0.1) 0%, transparent 100%); }
+    .page-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(139, 92, 246, 0.15); color: var(--color-accent-alt); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
+    .page-title { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 0.5rem; }
+    .page-subtitle { font-size: 1.1rem; color: var(--color-gray-400); margin-bottom: 1.5rem; }
+    .quick-nav { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .quick-nav-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-full); font-size: 0.9rem; color: var(--color-gray-300); }
+    .quick-nav-btn:hover { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+    /* Reflection Content */
+    .reflection-content { padding: 3rem 0; }
+    
+    .reflection-section { margin-bottom: 3rem; }
+    .reflection-section h2 { font-size: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .reflection-section h2 i { color: var(--color-secondary); font-size: 1.25rem; }
+    
+    .reflection-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .reflection-card:hover { border-color: rgba(255, 255, 255, 0.2); }
+    .reflection-card h3 { font-size: 1.1rem; color: var(--color-accent-alt); margin-bottom: 1rem; }
+    .reflection-card p { color: var(--color-gray-300); margin-bottom: 1rem; font-size: 0.95rem; }
+    .reflection-card p:last-child { margin-bottom: 0; }
+    
+    .highlight-quote { background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, var(--glass-bg) 100%); border-left: 4px solid var(--color-accent-alt); padding: 1.5rem; border-radius: 0 var(--radius-xl) var(--radius-xl) 0; margin: 2rem 0; }
+    .highlight-quote p { font-size: 1.1rem; font-style: italic; color: var(--color-gray-100); margin: 0; }
+    .highlight-quote cite { display: block; margin-top: 1rem; font-size: 0.9rem; color: var(--color-gray-400); font-style: normal; }
+
+    .skills-gained { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .skill-card { background: rgba(0, 0, 0, 0.2); border-radius: var(--radius-lg); padding: 1rem; text-align: center; }
+    .skill-card i { font-size: 1.5rem; color: var(--color-secondary); margin-bottom: 0.5rem; display: block; }
+    .skill-card h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .skill-card p { font-size: 0.8rem; color: var(--color-gray-400); margin: 0; }
+
+    /* Footer */
+    .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--glass-border); margin-top: 4rem; }
+    .footer .container { max-width: 1400px; }
+    .footer-content { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
+    @media (min-width: 768px) { .footer-content { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: var(--color-gray-400); }
+    .footer-links a:hover { color: var(--color-white); }
+    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--glass-border); color: var(--color-gray-400); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo"><span class="logo-text">Aldino</span><span class="logo-dot"></span></a>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="data-science.html" class="nav-link active">Data Science</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="education.html" class="nav-link">Education</a>
+      </div>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="data-science.html" class="mobile-link">Data Science</a>
+      <a href="skills.html" class="mobile-link">Skills</a>
+      <a href="experience.html" class="mobile-link">Experience</a>
+      <a href="education.html" class="mobile-link">Education</a>
+    </div>
+  </div>
+
+  <header class="page-header">
+    <div class="container">
+      <span class="page-badge"><i class="fas fa-lightbulb"></i> Module Reflection</span>
+      <h1 class="page-title">Deciphering Big Data <span class="text-gradient">Reflection</span></h1>
+      <p class="page-subtitle">Personal growth, challenges overcome, and lessons learned</p>
+      <div class="quick-nav">
+        <a href="big-data.html" class="quick-nav-btn"><i class="fas fa-folder-open"></i> View E-Portfolio</a>
+        <a href="data-science.html" class="quick-nav-btn"><i class="fas fa-arrow-left"></i> Back to Modules</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="reflection-content">
+    <div class="container">
+      
+      <div class="reflection-section">
+        <h2><i class="fas fa-seedling"></i> Starting Point</h2>
+        <div class="reflection-card">
+          <h3>Initial Knowledge & Expectations</h3>
+          <p>Coming into this module, I had practical experience with databases from my banking IT work, but my understanding of "Big Data" was largely theoretical. I knew the 4 Vs framework conceptually but hadn't applied them to real-world data challenges.</p>
+          <p>My expectation was to gain hands-on experience with Python-based data processing and understand how data governance applies in practice—skills directly relevant to my work at BNI London Branch.</p>
+        </div>
+      </div>
+
+      <div class="highlight-quote">
+        <p>"The most impactful learning came from wrestling with real datasets that didn't behave as expected—missing values, encoding issues, and performance bottlenecks forced me to develop practical problem-solving skills."</p>
+        <cite>— Personal reflection, Week 8</cite>
+      </div>
+
+      <div class="reflection-section">
+        <h2><i class="fas fa-mountain"></i> Challenges & Growth</h2>
+        <div class="reflection-card">
+          <h3>Technical Challenges</h3>
+          <p>The Volume challenge was my first major hurdle. Loading a 1.2GB COVID-19 dataset crashed my initial Jupyter notebook. This forced me to learn chunk processing with Pandas—a technique I now use regularly in production environments.</p>
+          <p>Understanding when to use SQL vs. NoSQL was another growth area. Through the module's comparative exercises, I developed intuition for choosing the right database paradigm based on data structure and query patterns.</p>
+        </div>
+        <div class="reflection-card">
+          <h3>Conceptual Shifts</h3>
+          <p>My biggest mindset shift was around data governance. Initially, I viewed GDPR as a compliance checkbox. Through case study analysis, I came to understand privacy-by-design as a foundational principle that should inform data architecture from the start.</p>
+          <p>This directly influenced how I approach data projects at work—I now consider data retention, anonymisation, and access controls during the design phase rather than as afterthoughts.</p>
+        </div>
+      </div>
+
+      <div class="reflection-section">
+        <h2><i class="fas fa-trophy"></i> Key Achievements</h2>
+        <div class="reflection-card">
+          <h3>Skills Developed</h3>
+          <div class="skills-gained">
+            <div class="skill-card">
+              <i class="fab fa-python"></i>
+              <h4>Python ETL</h4>
+              <p>Building data pipelines</p>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-database"></i>
+              <h4>SQL & NoSQL</h4>
+              <p>Database design & queries</p>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-shield-alt"></i>
+              <h4>Data Governance</h4>
+              <p>GDPR implementation</p>
+            </div>
+            <div class="skill-card">
+              <i class="fas fa-broom"></i>
+              <h4>Data Cleaning</h4>
+              <p>Quality assurance</p>
+            </div>
+          </div>
+        </div>
+        <div class="reflection-card">
+          <h3>Professional Application</h3>
+          <p>The skills gained have immediate practical value. I've already applied chunk processing techniques to optimize a monthly reporting script at work, reducing execution time from 45 minutes to 8 minutes.</p>
+          <p>The data governance frameworks inform my approach to the AML system enhancement project, ensuring we build compliance into the architecture rather than retrofitting it.</p>
+        </div>
+      </div>
+
+      <div class="reflection-section">
+        <h2><i class="fas fa-road"></i> Looking Forward</h2>
+        <div class="reflection-card">
+          <h3>Areas for Continued Development</h3>
+          <p>While I've developed strong fundamentals, I want to deepen my expertise in distributed computing frameworks like Apache Spark for truly massive datasets. The module gave me conceptual understanding, but hands-on practice with cluster computing remains a goal.</p>
+          <p>I'm also keen to explore real-time streaming data processing—building on the velocity concepts from this module to work with technologies like Apache Kafka.</p>
+        </div>
+        <div class="reflection-card">
+          <h3>Connection to Future Modules</h3>
+          <p>This module provides essential foundations for the Machine Learning module. Clean, well-structured data is prerequisite for effective model training. The ETL pipeline skills and data quality understanding will directly support my ML project work.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Ade Putra Tio Aldino</div>
+          <p style="color: var(--color-gray-400);">Software Engineer & Data Scientist</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Module Pages</h4>
+          <div class="footer-links">
+            <a href="big-data.html">Big Data E-Portfolio</a>
+            <a href="machine-learning.html">Machine Learning</a>
+            <a href="../data-science.html">All Modules</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Portfolio</h4>
+          <div class="footer-links">
+            <a href="../projects.html">Projects</a>
+            <a href="../skills.html">Skills</a>
+            <a href="../experience.html">Experience</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Ade Putra Tio Aldino. All rights reserved.</p></div>
+    </div>
+  </footer>
+  
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
+  </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning | MSc Data Science E-Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --color-primary: #0f172a;
+      --color-secondary: #0ea5e9;
+      --color-accent: #f97316;
+      --color-accent-alt: #8b5cf6;
+      --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #f97316 100%);
+      --color-white: #ffffff;
+      --color-gray-100: #f1f5f9;
+      --color-gray-300: #cbd5e1;
+      --color-gray-400: #94a3b8;
+      --color-success: #22c55e;
+      --color-warning: #eab308;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 9999px;
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; color: var(--color-gray-100); background-color: var(--color-primary); min-height: 100vh; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%); pointer-events: none; z-index: -1; }
+    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; color: var(--color-white); }
+    .text-gradient { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    @media (min-width: 768px) { .container { padding: 0 2rem; } }
+
+    /* Navigation */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0; transition: 0.3s ease; }
+    .navbar.scrolled { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); }
+    .logo-dot { width: 8px; height: 8px; background: var(--gradient-primary); border-radius: 50%; }
+    .nav-menu { display: none; align-items: center; gap: 0.5rem; }
+    @media (min-width: 1024px) { .nav-menu { display: flex; } }
+    .nav-link { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; color: var(--color-gray-300); border-radius: var(--radius-full); }
+    .nav-link:hover, .nav-link.active { color: var(--color-white); background: rgba(255, 255, 255, 0.1); }
+    .nav-toggle { display: flex; flex-direction: column; gap: 5px; padding: 0.5rem; }
+    @media (min-width: 1024px) { .nav-toggle { display: none; } }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--color-white); }
+
+    .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s ease; }
+    .mobile-menu.active { opacity: 1; visibility: visible; }
+    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .mobile-link { font-size: 1.5rem; font-weight: 600; color: var(--color-gray-300); }
+
+    /* Module Header */
+    .module-header { padding: 10rem 0 4rem; text-align: center; position: relative; background: linear-gradient(to bottom, rgba(249, 115, 22, 0.1) 0%, transparent 100%); }
+    .module-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(234, 179, 8, 0.15); color: var(--color-warning); padding: 0.5rem 1rem; border-radius: var(--radius-full); font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
+    .module-badge i { animation: pulse 2s infinite; }
+    .module-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.5rem; }
+    .module-subtitle { font-size: 1.1rem; color: var(--color-gray-400); margin-bottom: 1.5rem; }
+    .module-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; }
+    .meta-item { display: flex; align-items: center; gap: 0.5rem; color: var(--color-gray-300); font-size: 0.9rem; }
+    .meta-item i { color: var(--color-accent); }
+    .quick-nav { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .quick-nav-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-full); font-size: 0.9rem; color: var(--color-gray-300); }
+    .quick-nav-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    /* Section Header */
+    .section-header { margin-bottom: 2rem; }
+    .section-label { font-size: 0.9rem; font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .section-title { font-size: 1.5rem; }
+
+    /* Project Card */
+    .project-highlight { background: linear-gradient(145deg, rgba(249, 115, 22, 0.1) 0%, var(--glass-bg) 100%); border: 1px solid rgba(249, 115, 22, 0.2); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3rem; }
+    .project-highlight h3 { font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .project-highlight h3 i { color: var(--color-accent); }
+    .project-highlight p { color: var(--color-gray-300); margin-bottom: 1rem; }
+    
+    .project-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .project-stat { background: rgba(0, 0, 0, 0.2); border-radius: var(--radius-lg); padding: 1rem; text-align: center; }
+    .project-stat-value { font-size: 1.5rem; font-weight: 700; color: var(--color-accent); }
+    .project-stat-label { font-size: 0.8rem; color: var(--color-gray-400); }
+
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tech-tag { padding: 0.25rem 0.75rem; background: rgba(249, 115, 22, 0.2); color: var(--color-accent); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; }
+
+    /* Unit Grid */
+    .units-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .unit-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 1.5rem; transition: 0.3s ease; }
+    .unit-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); box-shadow: var(--shadow-xl); }
+    .unit-card.completed { border-color: rgba(34, 197, 94, 0.3); }
+    .unit-card.in-progress { border-color: rgba(234, 179, 8, 0.3); }
+    
+    .unit-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .unit-number { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--gradient-primary); border-radius: var(--radius-lg); font-weight: 700; flex-shrink: 0; }
+    .unit-title { font-size: 1rem; }
+    .unit-status { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .unit-status.completed { color: var(--color-success); }
+    .unit-status.in-progress { color: var(--color-warning); }
+    .unit-status i { font-size: 6px; }
+    .unit-status.in-progress i { animation: pulse 2s infinite; }
+    .unit-desc { font-size: 0.9rem; color: var(--color-gray-400); }
+
+    /* Learning Outcomes */
+    .outcomes-section { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 2rem; margin-top: 3rem; }
+    .outcomes-section h3 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    .outcomes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .outcome-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: rgba(0, 0, 0, 0.2); border-radius: var(--radius-lg); }
+    .outcome-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(249, 115, 22, 0.2); border-radius: 50%; color: var(--color-accent); font-size: 0.9rem; flex-shrink: 0; }
+    .outcome-text { font-size: 0.9rem; color: var(--color-gray-300); }
+
+    /* Footer */
+    .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--glass-border); margin-top: 4rem; }
+    .footer-content { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
+    @media (min-width: 768px) { .footer-content { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: var(--color-gray-400); }
+    .footer-links a:hover { color: var(--color-white); }
+    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--glass-border); color: var(--color-gray-400); font-size: 0.9rem; }
+
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-logo"><span class="logo-text">Aldino</span><span class="logo-dot"></span></a>
+      <div class="nav-menu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../projects.html" class="nav-link">Projects</a>
+        <a href="../data-science.html" class="nav-link active">Data Science</a>
+        <a href="../skills.html" class="nav-link">Skills</a>
+        <a href="../experience.html" class="nav-link">Experience</a>
+        <a href="../education.html" class="nav-link">Education</a>
+      </div>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <a href="../index.html" class="mobile-link">Home</a>
+      <a href="../projects.html" class="mobile-link">Projects</a>
+      <a href="../data-science.html" class="mobile-link">Data Science</a>
+      <a href="../skills.html" class="mobile-link">Skills</a>
+      <a href="../experience.html" class="mobile-link">Experience</a>
+      <a href="../education.html" class="mobile-link">Education</a>
+    </div>
+  </div>
+
+  <header class="module-header">
+    <div class="container">
+      <span class="module-badge"><i class="fas fa-circle"></i> In Progress</span>
+      <h1 class="module-title text-gradient">Machine Learning</h1>
+      <p class="module-subtitle">MSc Data Science • University of Essex</p>
+      <div class="module-meta">
+        <span class="meta-item"><i class="fas fa-calendar-alt"></i> 12 Units</span>
+        <span class="meta-item"><i class="fas fa-clock"></i> Jan 2025 – Apr 2025</span>
+        <span class="meta-item"><i class="fas fa-code"></i> TensorFlow, Keras, Python</span>
+      </div>
+      <div class="quick-nav">
+        <a href="../data-science.html" class="quick-nav-btn"><i class="fas fa-arrow-left"></i> Back to Modules</a>
+      </div>
+    </div>
+  </header>
+
+  <section style="padding: 2rem 0 4rem;">
+    <div class="container">
+      
+      <!-- Current Project -->
+      <div class="project-highlight">
+        <h3><i class="fas fa-brain"></i> Current Project: CIFAR-10 Image Classification</h3>
+        <p>Implementing a Convolutional Neural Network for image classification using transfer learning with MobileNetV2. The project explores model interpretability using Grad-CAM visualizations.</p>
+        <div class="project-stats">
+          <div class="project-stat">
+            <div class="project-stat-value">60K</div>
+            <div class="project-stat-label">Training Images</div>
+          </div>
+          <div class="project-stat">
+            <div class="project-stat-value">10</div>
+            <div class="project-stat-label">Classes</div>
+          </div>
+          <div class="project-stat">
+            <div class="project-stat-value">~85%</div>
+            <div class="project-stat-label">Target Accuracy</div>
+          </div>
+          <div class="project-stat">
+            <div class="project-stat-value">MobileNetV2</div>
+            <div class="project-stat-label">Base Model</div>
+          </div>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">TensorFlow</span>
+          <span class="tech-tag">Keras</span>
+          <span class="tech-tag">CNN</span>
+          <span class="tech-tag">Transfer Learning</span>
+          <span class="tech-tag">Grad-CAM</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <p class="section-label">Learning Journey</p>
+        <h2 class="section-title">Module Units</h2>
+      </div>
+      
+      <div class="units-grid">
+        <div class="unit-card completed">
+          <div class="unit-header">
+            <span class="unit-number">1</span>
+            <h3 class="unit-title">Introduction to ML & AI</h3>
+          </div>
+          <span class="unit-status completed"><i class="fas fa-circle"></i> Completed</span>
+          <p class="unit-desc">Machine learning fundamentals, supervised vs. unsupervised learning, Industry 4.0/5.0 context</p>
+        </div>
+
+        <div class="unit-card completed">
+          <div class="unit-header">
+            <span class="unit-number">2</span>
+            <h3 class="unit-title">Exploratory Data Analysis</h3>
+          </div>
+          <span class="unit-status completed"><i class="fas fa-circle"></i> Completed</span>
+          <p class="unit-desc">EDA techniques, correlation analysis, feature engineering for ML models</p>
+        </div>
+
+        <div class="unit-card completed">
+          <div class="unit-header">
+            <span class="unit-number">3</span>
+            <h3 class="unit-title">Neural Networks Basics</h3>
+          </div>
+          <span class="unit-status completed"><i class="fas fa-circle"></i> Completed</span>
+          <p class="unit-desc">Perceptrons, activation functions, backpropagation, gradient descent</p>
+        </div>
+
+        <div class="unit-card in-progress">
+          <div class="unit-header">
+            <span class="unit-number">4</span>
+            <h3 class="unit-title">Convolutional Neural Networks</h3>
+          </div>
+          <span class="unit-status in-progress"><i class="fas fa-circle"></i> In Progress</span>
+          <p class="unit-desc">CNN architecture, convolution layers, pooling, image classification</p>
+        </div>
+
+        <div class="unit-card">
+          <div class="unit-header">
+            <span class="unit-number">5</span>
+            <h3 class="unit-title">Transfer Learning</h3>
+          </div>
+          <span class="unit-status" style="color: var(--color-gray-400);"><i class="fas fa-circle"></i> Upcoming</span>
+          <p class="unit-desc">Pre-trained models, fine-tuning, MobileNet, ResNet architectures</p>
+        </div>
+
+        <div class="unit-card">
+          <div class="unit-header">
+            <span class="unit-number">6</span>
+            <h3 class="unit-title">Model Evaluation</h3>
+          </div>
+          <span class="unit-status" style="color: var(--color-gray-400);"><i class="fas fa-circle"></i> Upcoming</span>
+          <p class="unit-desc">Metrics, confusion matrices, ROC curves, cross-validation</p>
+        </div>
+      </div>
+
+      <div class="outcomes-section">
+        <h3>Expected Learning Outcomes</h3>
+        <div class="outcomes-grid">
+          <div class="outcome-item">
+            <div class="outcome-icon"><i class="fas fa-network-wired"></i></div>
+            <p class="outcome-text">Design and implement neural network architectures for various problem types</p>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-icon"><i class="fas fa-image"></i></div>
+            <p class="outcome-text">Apply CNNs for image classification and computer vision tasks</p>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-icon"><i class="fas fa-exchange-alt"></i></div>
+            <p class="outcome-text">Leverage transfer learning to achieve high accuracy with limited data</p>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-icon"><i class="fas fa-eye"></i></div>
+            <p class="outcome-text">Interpret model decisions using explainability techniques (SHAP, Grad-CAM)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Ade Putra Tio Aldino</div>
+          <p style="color: var(--color-gray-400);">Software Engineer & Data Scientist</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Module Pages</h4>
+          <div class="footer-links">
+            <a href="big-data.html">Big Data E-Portfolio</a>
+            <a href="big-data-reflection.html">Big Data Reflection</a>
+            <a href="../data-science.html">All Modules</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Portfolio</h4>
+          <div class="footer-links">
+            <a href="../projects.html">Projects</a>
+            <a href="../skills.html">Skills</a>
+            <a href="../experience.html">Experience</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Ade Putra Tio Aldino. All rights reserved.</p></div>
+    </div>
+  </footer>
+  
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
+  </script>
+</body>
+</html>
