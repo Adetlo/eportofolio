@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+
   <style>
     :root {
       --color-primary: #0f172a;
@@ -232,36 +233,39 @@
       <div class="footer-content">
         <div>
           <div class="footer-brand">Ade Putra Tio Aldino</div>
-          <p style="color: var(--color-gray-400);">Software Engineer & Data Scientist</p>
+          <p class="text-muted" style="max-width: 360px;">Software Engineer · Head of IT, BNI London Branch · MSc Data Science @ Essex.</p>
         </div>
         <div>
-          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Module Pages</h4>
+          <h4>Data Science</h4>
           <div class="footer-links">
-            <a href="big-data.html">Big Data E-Portfolio</a>
+            <a href="data-science.html">Overview</a>
+            <a href="big-data.html">Big Data</a>
             <a href="machine-learning.html">Machine Learning</a>
-            <a href="../data-science.html">All Modules</a>
+            <a href="research-methods.html">Research Methods</a>
           </div>
         </div>
         <div>
-          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Portfolio</h4>
+          <h4>Portfolio</h4>
           <div class="footer-links">
-            <a href="../projects.html">Projects</a>
-            <a href="../skills.html">Skills</a>
-            <a href="../experience.html">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
+          </div>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://github.com/adeputratio" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/adeputratio" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:putratioaldino@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2025 Ade Putra Tio Aldino. All rights reserved.</p></div>
+      <div class="footer-bottom"><p>&copy; <span data-year>2026</span> Ade Putra Tio Aldino. All rights reserved.</p></div>
     </div>
   </footer>
-  
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
-    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
-  </script>
+
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>

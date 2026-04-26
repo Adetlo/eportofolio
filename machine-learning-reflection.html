@@ -13,7 +13,8 @@
   
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+
   <style>
     /* ============================================
        CSS Variables & Base Styles
@@ -29,7 +30,7 @@
       --color-gray-400: #94a3b8;
       --color-gray-500: #64748b;
       --color-gray-600: #475569;
-      --color-accent: #06b6d4;
+      --color-accent: #0ea5e9;
       --color-accent-alt: #f97316;
       --color-purple: #8b5cf6;
       --color-green: #10b981;
@@ -38,7 +39,7 @@
       --color-pink: #ec4899;
       
       /* Gradients */
-      --gradient-primary: linear-gradient(135deg, #06b6d4, #8b5cf6, #f97316);
+      --gradient-primary: linear-gradient(135deg, #0ea5e9, #8b5cf6, #f97316);
       --gradient-card: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
       
       /* Spacing */
@@ -669,7 +670,7 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
         <span class="logo-text">Aldino</span>
@@ -683,16 +684,15 @@
         <a href="experience.html" class="nav-link">Experience</a>
         <a href="education.html" class="nav-link">Education</a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a href="mailto:putratioaldino@gmail.com" class="nav-cta"><i class="fas fa-paper-plane"></i> Hire Me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
-  
+
   <!-- Mobile Menu -->
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
       <a href="index.html" class="mobile-link">Home</a>
       <a href="projects.html" class="mobile-link">Projects</a>
@@ -913,7 +913,7 @@
       <div class="footer-content">
         <div class="footer-brand">
           <span class="logo-text">Aldino</span>
-          <p>Software Engineer & Data Scientist</p>
+          <p>Software Engineer · Head of IT, BNI London Branch · MSc Data Science @ Essex</p>
         </div>
         <div class="footer-links">
           <a href="../index.html">Home</a>
@@ -936,26 +936,6 @@
     </div>
   </footer>
   
-  <script>
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-    
-    // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    });
-  </script>
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>

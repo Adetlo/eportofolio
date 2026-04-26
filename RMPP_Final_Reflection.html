@@ -10,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
@@ -19,7 +20,7 @@
       --color-secondary: #06b6d4;
       --color-accent: #f97316;
       --color-accent-alt: #8b5cf6;
-      --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #f97316 100%);
+      --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #f97316 100%);
       --color-white: #ffffff;
       --color-gray-100: #f1f5f9;
       --color-gray-300: #cbd5e1;
@@ -487,9 +488,23 @@
         <a href="experience.html" class="nav-link">Experience</a>
         <a href="education.html" class="nav-link">Education</a>
       </div>
-      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <a href="mailto:putratioaldino@gmail.com" class="nav-cta"><i class="fas fa-paper-plane"></i> Hire Me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="projects.html" class="mobile-link">Projects</a>
+      <a href="data-science.html" class="mobile-link">Data Science</a>
+      <a href="skills.html" class="mobile-link">Skills</a>
+      <a href="experience.html" class="mobile-link">Experience</a>
+      <a href="education.html" class="mobile-link">Education</a>
+      <a href="mailto:putratioaldino@gmail.com" class="mobile-link" style="color: var(--color-secondary);">Contact</a>
+    </div>
+  </div>
   
   <!-- Page Header -->
   <header class="page-header">
@@ -708,27 +723,40 @@
     <div class="container">
       <div class="footer-content">
         <div>
-          <div class="footer-brand">Aldino</div>
-          <p class="footer-tagline">Head of IT · MSc Data Science Student</p>
+          <div class="footer-brand">Ade Putra Tio Aldino</div>
+          <p class="text-muted" style="max-width: 360px;">Software Engineer · Head of IT, BNI London Branch · MSc Data Science @ Essex.</p>
         </div>
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <a href="research-methods.html">E-Portfolio</a>
-          <a href="research-methods.html#units">All Units</a>
-          <a href="research-presentation-fixed.html">Presentation</a>
+        <div>
+          <h4>Data Science</h4>
+          <div class="footer-links">
+            <a href="data-science.html">Overview</a>
+            <a href="research-methods.html">Research Methods</a>
+            <a href="machine-learning.html">Machine Learning</a>
+            <a href="big-data.html">Big Data</a>
+          </div>
         </div>
-        <div class="footer-links">
-          <h4>Module</h4>
-          <a href="#">Research Methods</a>
-          <a href="#">Professional Practice</a>
-          <a href="#">University of Essex</a>
+        <div>
+          <h4>Portfolio</h4>
+          <div class="footer-links">
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
+          </div>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://github.com/adeputratio" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/adeputratio" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:putratioaldino@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>Research Methods and Professional Practice · MSc Data Science · University of Essex Online · 2025-2026</p>
-      </div>
+      <div class="footer-bottom"><p>Research Methods and Professional Practice · MSc Data Science · University of Essex Online · &copy; <span data-year>2026</span></p></div>
     </div>
   </footer>
-  
+
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>

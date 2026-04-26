@@ -3,161 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projects Portfolio - Banking IT, Data Migration, and Automation">
-  <title>Projects | Ade Putra Tio Aldino</title>
-  
+  <meta name="description" content="Projects Portfolio — Banking IT, Data Migration, Automation by Ade Putra Tio Aldino.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Projects · Ade Putra Tio Aldino</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+
   <style>
-    :root {
-      --color-primary: #0f172a;
-      --color-secondary: #0ea5e9;
-      --color-accent: #f97316;
-      --color-accent-alt: #8b5cf6;
-      --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #f97316 100%);
-      --color-white: #ffffff;
-      --color-gray-100: #f1f5f9;
-      --color-gray-300: #cbd5e1;
-      --color-gray-400: #94a3b8;
-      --color-success: #22c55e;
-      --font-display: 'Space Grotesk', system-ui, sans-serif;
-      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --radius-lg: 1rem;
-      --radius-xl: 1.5rem;
-      --radius-full: 9999px;
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.3);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--color-gray-100);
-      background-color: var(--color-primary);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-image: 
-        radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
-    img { max-width: 100%; height: auto; display: block; }
-    ul, ol { list-style: none; }
-    button { font-family: inherit; cursor: pointer; border: none; background: none; }
-    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; color: var(--color-white); }
-    .text-gradient { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-    .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
-    @media (min-width: 768px) { .container { padding: 0 2rem; } }
-    @media (min-width: 1200px) { .container { padding: 0 3rem; } }
-
-    /* Navigation */
-    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0; transition: 0.3s ease; }
-    .navbar.scrolled { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
-    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-    .logo-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); }
-    .logo-dot { width: 8px; height: 8px; background: var(--gradient-primary); border-radius: 50%; }
-    .nav-menu { display: none; align-items: center; gap: 0.5rem; }
-    @media (min-width: 1024px) { .nav-menu { display: flex; } }
-    .nav-link { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; color: var(--color-gray-300); border-radius: var(--radius-full); }
-    .nav-link:hover, .nav-link.active { color: var(--color-white); background: rgba(255, 255, 255, 0.1); }
-    .nav-toggle { display: flex; flex-direction: column; gap: 5px; padding: 0.5rem; }
-    @media (min-width: 1024px) { .nav-toggle { display: none; } }
-    .nav-toggle span { width: 24px; height: 2px; background: var(--color-white); }
-
-    /* Mobile Menu */
-    .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s ease; }
-    .mobile-menu.active { opacity: 1; visibility: visible; }
-    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-    .mobile-link { font-size: 1.5rem; font-weight: 600; color: var(--color-gray-300); }
-    .mobile-link:hover { color: var(--color-white); }
-
-    /* Page Header */
-    .page-header { padding: 10rem 0 4rem; text-align: center; position: relative; }
-    .page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100%; background: linear-gradient(to bottom, rgba(14, 165, 233, 0.1) 0%, transparent 100%); pointer-events: none; }
-    .page-label { font-size: 0.9rem; font-weight: 600; color: var(--color-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .page-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem; }
+    .page-header { padding: calc(var(--nav-height) + 5rem) 0 3rem; text-align: center; position: relative; }
+    .page-title { font-size: clamp(2.25rem, 4.5vw, 3.4rem); font-weight: 700; margin-bottom: 1rem; }
     .page-description { font-size: 1.1rem; color: var(--color-gray-400); max-width: 700px; margin: 0 auto; }
 
-    /* Stats Section */
-    .stats-section { margin-bottom: 4rem; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-    .stat-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 1.5rem; text-align: center; transition: 0.3s ease; }
-    .stat-card:hover { transform: translateY(-4px); border-color: var(--color-secondary); }
-    .stat-icon { width: 50px; height: 50px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; background: var(--gradient-primary); border-radius: var(--radius-lg); font-size: 1.25rem; }
-    .stat-value { font-size: 2.5rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .stat-label { font-size: 0.9rem; color: var(--color-gray-400); margin-top: 0.5rem; }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+    .stat-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      text-align: center;
+      transition: all var(--dur-base) var(--ease-out);
+      backdrop-filter: blur(12px);
+    }
+    .stat-card:hover { transform: translateY(-4px); border-color: var(--color-secondary); box-shadow: var(--shadow-glow); }
+    .stat-card-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--gradient-primary);
+      border-radius: var(--radius-lg);
+      font-size: 1.25rem;
+    }
+    .stat-card-value {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-card-label { font-size: 0.85rem; color: var(--color-gray-400); margin-top: 0.4rem; }
 
-    /* Project Card */
-    .projects-list { display: flex; flex-direction: column; gap: 2rem; }
-    .project-card { display: grid; grid-template-columns: 1fr; gap: 2rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 1.5rem; transition: 0.3s ease; overflow: hidden; }
-    @media (min-width: 768px) { .project-card { grid-template-columns: 300px 1fr; padding: 2rem; } }
-    .project-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); box-shadow: var(--shadow-xl); }
-    
-    .project-image { position: relative; border-radius: var(--radius-lg); overflow: hidden; height: 200px; }
-    @media (min-width: 768px) { .project-image { height: 100%; min-height: 250px; } }
-    .project-image img { width: 100%; height: 100%; object-fit: cover; }
-    .project-image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, transparent 50%); }
-    
+    .projects-list { display: flex; flex-direction: column; gap: 1.75rem; }
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      transition: all var(--dur-base) var(--ease-out);
+      overflow: hidden;
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .project-card { grid-template-columns: 320px 1fr; padding: 1.75rem; }
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(14, 165, 233, 0.08), transparent 40%);
+      opacity: 0;
+      transition: opacity var(--dur-base);
+      pointer-events: none;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--glass-border-strong);
+      box-shadow: var(--shadow-xl);
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 220px;
+      background: var(--gradient-card);
+    }
+    @media (min-width: 768px) { .project-image { height: 100%; min-height: 240px; } }
+    .project-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .project-card:hover .project-image img { transform: scale(1.05); }
+    .project-image-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, transparent 60%);
+    }
+
+    /* Icon placeholder used when no photo is available */
+    .project-image-icon {
+      position: absolute; inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-primary);
+      background-size: 220% 220%;
+      animation: gradient-shift 12s ease-in-out infinite;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 4.5rem;
+    }
+    .project-image-icon::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 45%),
+        radial-gradient(circle at 70% 80%, rgba(0,0,0,0.25), transparent 50%);
+      pointer-events: none;
+    }
+    .project-image-icon i { position: relative; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35)); }
+    .project-image-icon.theme-purple { background: linear-gradient(135deg, #8b5cf6, #ec4899, #f97316); }
+    .project-image-icon.theme-cool   { background: linear-gradient(135deg, #0ea5e9, #06b6d4, #10b981); }
+    .project-image-icon.theme-warm   { background: linear-gradient(135deg, #f97316, #eab308, #ec4899); }
+    .project-image-icon.theme-deep   { background: linear-gradient(135deg, #1e3a8a, #8b5cf6, #0ea5e9); }
+    .project-image-icon.theme-gov    { background: linear-gradient(135deg, #b45309, #ef4444, #8b5cf6); }
+
     .project-content { position: relative; }
-    .project-number { position: absolute; top: 0; right: 0; font-size: 4rem; font-weight: 800; color: rgba(255, 255, 255, 0.05); font-family: var(--font-display); line-height: 1; }
-    .project-title { font-size: 1.5rem; margin-bottom: 1rem; padding-right: 3rem; }
-    .project-desc { color: var(--color-gray-400); margin-bottom: 1rem; font-size: 0.95rem; }
-    
+    .project-number {
+      position: absolute;
+      top: -8px; right: 0;
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.05);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .project-title { font-size: 1.4rem; margin-bottom: 0.85rem; padding-right: 3rem; }
+    .project-desc { color: var(--color-gray-300); margin-bottom: 1rem; font-size: 0.95rem; }
     .project-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
-    .project-meta-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--color-gray-400); }
+    .project-meta-item {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.85rem; color: var(--color-gray-400);
+    }
     .project-meta-item i { color: var(--color-secondary); }
-    
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .badge { display: inline-flex; padding: 0.25rem 0.75rem; background: rgba(255, 255, 255, 0.1); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; color: var(--color-gray-300); }
-    .badge-primary { background: rgba(14, 165, 233, 0.2); color: var(--color-secondary); }
-    .badge-accent { background: rgba(249, 115, 22, 0.2); color: var(--color-accent); }
-    .badge-purple { background: rgba(139, 92, 246, 0.2); color: var(--color-accent-alt); }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 
-    /* Highlight Section */
-    .highlight-section { margin-top: 4rem; padding: 2rem; background: linear-gradient(145deg, rgba(14, 165, 233, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%); border: 1px solid rgba(14, 165, 233, 0.2); border-radius: var(--radius-xl); }
-    .highlight-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-    .highlight-icon { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: var(--color-secondary); border-radius: var(--radius-lg); font-size: 1.25rem; }
-    .highlight-title { font-size: 1.25rem; }
-    .highlight-content p { color: var(--color-gray-300); margin-bottom: 1rem; }
+    .highlight-section {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      background: linear-gradient(145deg, rgba(14, 165, 233, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight-section::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .highlight-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; position: relative; }
+    .highlight-icon {
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--gradient-primary);
+      border-radius: var(--radius-lg);
+      font-size: 1.25rem;
+      box-shadow: 0 8px 18px -6px rgba(14, 165, 233, 0.5);
+    }
+    .highlight-content { position: relative; }
+    .highlight-content p { color: var(--color-gray-300); margin-bottom: 0.85rem; }
     .highlight-content p:last-child { margin-bottom: 0; }
-
-    /* Footer */
-    .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--glass-border); margin-top: 6rem; }
-    .footer-content { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
-    @media (min-width: 768px) { .footer-content { grid-template-columns: 2fr 1fr 1fr; } }
-    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; }
-    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer-links a { color: var(--color-gray-400); }
-    .footer-links a:hover { color: var(--color-white); }
-    .footer-social { display: flex; gap: 1rem; }
-    .footer-social a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); color: var(--color-gray-400); transition: 0.3s ease; }
-    .footer-social a:hover { color: var(--color-white); border-color: var(--color-secondary); transform: translateY(-2px); }
-    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--glass-border); color: var(--color-gray-400); font-size: 0.9rem; }
   </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -167,16 +196,19 @@
       </a>
       <div class="nav-menu">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="projects.html" class="nav-link">Projects</a>
         <a href="data-science.html" class="nav-link">Data Science</a>
         <a href="skills.html" class="nav-link">Skills</a>
         <a href="experience.html" class="nav-link">Experience</a>
         <a href="education.html" class="nav-link">Education</a>
       </div>
-      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <a href="mailto:putratioaldino@gmail.com" class="nav-cta"><i class="fas fa-paper-plane"></i> Hire Me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-  
+
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
       <a href="index.html" class="mobile-link">Home</a>
@@ -185,54 +217,31 @@
       <a href="skills.html" class="mobile-link">Skills</a>
       <a href="experience.html" class="mobile-link">Experience</a>
       <a href="education.html" class="mobile-link">Education</a>
+      <a href="mailto:putratioaldino@gmail.com" class="mobile-link" style="color: var(--color-secondary);">Contact</a>
     </div>
   </div>
-  
+
   <!-- Page Header -->
   <header class="page-header">
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-3"></div>
+    </div>
     <div class="container">
-      <p class="page-label">Portfolio</p>
-      <h1 class="page-title">Project <span class="text-gradient">Showcase</span></h1>
-      <p class="page-description">
-        Delivering robust and high-performing solutions in the financial industry. Each project prioritizes durability, performance, security, and regulatory compliance.
+      <span class="section-label" data-reveal>Portfolio</span>
+      <h1 class="page-title" data-reveal data-reveal-delay="1">Project <span class="text-gradient">Showcase</span></h1>
+      <p class="page-description" data-reveal data-reveal-delay="2">
+        Robust, high-performing solutions for the financial industry — built for durability, performance, security, and regulatory compliance.
       </p>
     </div>
   </header>
 
-  <!-- Stats Section -->
-  <section class="container">
-    <div class="stats-section">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-          <div class="stat-value">15+</div>
-          <div class="stat-label">Projects Delivered</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-users"></i></div>
-          <div class="stat-value">50+</div>
-          <div class="stat-label">Team Members Led</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-clock"></i></div>
-          <div class="stat-value">30+</div>
-          <div class="stat-label">Months of Execution</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
-          <div class="stat-value">100%</div>
-          <div class="stat-label">Success Rate</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects List -->
+  <!-- Projects -->
   <section style="padding: 2rem 0;">
     <div class="container">
       <div class="projects-list">
-        
-        <article class="project-card">
+
+        <article class="project-card" data-reveal>
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1623524713064-257294b0e34b?w=800&auto=format&fit=crop" alt="Core Banking Migration" loading="lazy">
             <div class="project-image-overlay"></div>
@@ -249,15 +258,15 @@
               <span class="project-meta-item"><i class="fas fa-tasks"></i> 10+ Challenges Resolved</span>
             </div>
             <div class="project-tags">
-              <span class="badge badge-primary">COBOL</span>
-              <span class="badge badge-primary">Oracle</span>
+              <span class="badge">COBOL</span>
+              <span class="badge">Oracle</span>
               <span class="badge badge-accent">FRB Compliance</span>
-              <span class="badge">Data Migration</span>
+              <span class="badge badge-purple">Data Migration</span>
             </div>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" data-reveal>
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1674591879620-952110bef92c?w=800&auto=format&fit=crop" alt="Shariah Banking" loading="lazy">
             <div class="project-image-overlay"></div>
@@ -275,20 +284,20 @@
             </div>
             <div class="project-tags">
               <span class="badge badge-purple">Shariah Banking</span>
-              <span class="badge badge-primary">Data Extraction</span>
+              <span class="badge">Data Extraction</span>
               <span class="badge">SQL</span>
             </div>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" data-reveal>
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&auto=format&fit=crop" alt="IT Centralisation" loading="lazy">
             <div class="project-image-overlay"></div>
           </div>
           <div class="project-content">
             <div class="project-number">03</div>
-            <h2 class="project-title">IT Centralisation & Standardisation</h2>
+            <h2 class="project-title">IT Centralisation &amp; Standardisation</h2>
             <p class="project-desc">
               Successfully migrated core banking infrastructure and critical applications from BNI London Branch to BNI Head Office (Jakarta). Collaborated with IBM and EY consultants to ensure compliance with PRA and FCA regulations while achieving zero data loss and 30% reduction in infrastructure costs.
             </p>
@@ -299,13 +308,13 @@
             </div>
             <div class="project-tags">
               <span class="badge badge-accent">SD-WAN</span>
-              <span class="badge badge-primary">PRA/FCA Compliance</span>
+              <span class="badge">PRA/FCA Compliance</span>
               <span class="badge">Infrastructure</span>
             </div>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" data-reveal>
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&auto=format&fit=crop" alt="Financial Dashboard" loading="lazy">
             <div class="project-image-overlay"></div>
@@ -314,7 +323,7 @@
             <div class="project-number">04</div>
             <h2 class="project-title">Office Automation Financial Dashboard</h2>
             <p class="project-desc">
-              Developed a robust, web-based financial dashboard for Balance Sheet and P&L reporting. Powered by SQL-based ETL processes and PHP/MySQL backend, providing interactive filters for tracking financial growth (day-to-day, MoM, YoY) with automated email delivery to management.
+              Developed a robust, web-based financial dashboard for Balance Sheet and P&amp;L reporting. Powered by SQL-based ETL processes and PHP/MySQL backend, providing interactive filters for tracking financial growth (day-to-day, MoM, YoY) with automated email delivery to management.
             </p>
             <div class="project-meta">
               <span class="project-meta-item"><i class="fas fa-calendar-alt"></i> 4 Months</span>
@@ -322,23 +331,323 @@
               <span class="project-meta-item"><i class="fas fa-envelope"></i> Automated Reports</span>
             </div>
             <div class="project-tags">
-              <span class="badge badge-primary">PHP</span>
-              <span class="badge badge-primary">MySQL</span>
+              <span class="badge">PHP</span>
+              <span class="badge">MySQL</span>
               <span class="badge">ETL</span>
-              <span class="badge">Dashboard</span>
+              <span class="badge badge-purple">Dashboard</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&auto=format&fit=crop" alt="Performance Management System" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">05</div>
+            <h2 class="project-title">Performance Management System</h2>
+            <p class="project-desc">
+              Designed and built an information-system-based application for branch HR to measure employee KPIs end to end — from KPI definition and target-setting to periodic scoring, calibration, and reporting. Replaced manual spreadsheet-driven tracking with a single source of truth used directly by branch HR for performance reviews.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-users"></i> Branch HR Tool</span>
+              <span class="project-meta-item"><i class="fas fa-bullseye"></i> KPI Tracking</span>
+              <span class="project-meta-item"><i class="fas fa-chart-bar"></i> Performance Scoring</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge">HR Application</span>
+              <span class="badge">KPI Management</span>
+              <span class="badge badge-purple">Internal System</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&auto=format&fit=crop" alt="Automated Account Statement Delivery" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">06</div>
+            <h2 class="project-title">Automated Account Statement Delivery</h2>
+            <p class="project-desc">
+              Built an end-of-day automation that generates and emails customer account statements automatically every business day. Eliminated manual extraction and dispatch by branch staff, ensuring consistent, on-time delivery to every customer with full delivery logging and exception handling for bounced emails.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-clock"></i> End-of-Day Job</span>
+              <span class="project-meta-item"><i class="fas fa-envelope"></i> Email Delivery</span>
+              <span class="project-meta-item"><i class="fas fa-robot"></i> Fully Automated</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge">Batch Automation</span>
+              <span class="badge">SMTP / Email</span>
+              <span class="badge badge-accent">Customer Service</span>
+              <span class="badge">Shell Script</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&auto=format&fit=crop" alt="Vendor Management System" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">07</div>
+            <h2 class="project-title">Vendor Management System</h2>
+            <p class="project-desc">
+              Centralised application to record and manage every vendor — vendor master data, contracts, contract terms and renewal dates, invoices, payment status, and supporting documents. Removed reliance on scattered spreadsheets and shared folders, giving Procurement, Finance, and IT a single screen to track who is owed what, when contracts expire, and which invoices are outstanding.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-handshake"></i> Vendor Master</span>
+              <span class="project-meta-item"><i class="fas fa-file-invoice"></i> Invoice Tracking</span>
+              <span class="project-meta-item"><i class="fas fa-file-contract"></i> Contract Lifecycle</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge">Procurement</span>
+              <span class="badge">Document Management</span>
+              <span class="badge badge-purple">Operational Efficiency</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop" alt="ISO 20022 CBPR+ Migration" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">08</div>
+            <h2 class="project-title">ISO 20022 CBPR+ Migration — London Branch</h2>
+            <p class="project-desc">
+              Led the London Branch side of the SWIFT ISO 20022 CBPR+ migration from legacy MT messages to the new MX (XML) format. Drove branch readiness — operations awareness, training, and end-to-end testing — so payment, treasury, and back-office staff could confidently work in the new message standard. On the SWIFT bureau, implemented MT⇄MX translation so back-office systems that still only accept MT can keep operating during and after the transition without data loss or reconciliation breaks.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-exchange-alt"></i> MT ⇄ MX Translation</span>
+              <span class="project-meta-item"><i class="fas fa-globe-europe"></i> London Branch</span>
+              <span class="project-meta-item"><i class="fas fa-shield-alt"></i> SWIFT Compliance</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">ISO 20022 / CBPR+</span>
+              <span class="badge">SWIFT</span>
+              <span class="badge">MT → MX</span>
+              <span class="badge badge-purple">Payments Modernisation</span>
+              <span class="badge">SWIFT Bureau</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&auto=format&fit=crop" alt="BI-FAST Real-Time Payments" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">09</div>
+            <h2 class="project-title">BI-FAST Payment Integration</h2>
+            <p class="project-desc">
+              Delivered the core-banking side of BNI's integration with Bank Indonesia's BI-FAST real-time retail payment scheme. Designed and built the message handling, account posting, and end-to-end accounting flow — debit/credit booking, fees, GL posting, settlement, and reconciliation — so every BI-FAST inbound and outbound transaction lands in the books accurately and in real time, with full audit trail and exception handling.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-bolt"></i> Real-Time Payments</span>
+              <span class="project-meta-item"><i class="fas fa-university"></i> Bank Indonesia Scheme</span>
+              <span class="project-meta-item"><i class="fas fa-balance-scale"></i> GL Booking &amp; Reconciliation</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">BI-FAST</span>
+              <span class="badge">Core Banking</span>
+              <span class="badge">Accounting / GL</span>
+              <span class="badge badge-purple">Real-Time</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=800&auto=format&fit=crop" alt="QRIS Payment Integration" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">10</div>
+            <h2 class="project-title">QRIS Payment Integration</h2>
+            <p class="project-desc">
+              Implemented core-banking support for QRIS — Indonesia's national QR payment standard. Built the transaction handling, posting logic, fee schedule, and full accounting/GL treatment for both merchant and customer sides. Designed for high-throughput retail volumes, with end-of-day settlement and reconciliation against the QRIS scheme so books always agree with switch reports.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-qrcode"></i> National QR Standard</span>
+              <span class="project-meta-item"><i class="fas fa-mobile-alt"></i> Merchant &amp; Customer</span>
+              <span class="project-meta-item"><i class="fas fa-balance-scale"></i> End-to-End Accounting</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">QRIS</span>
+              <span class="badge">Core Banking</span>
+              <span class="badge">Retail Payments</span>
+              <span class="badge badge-purple">GL Posting</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop" alt="Virtual Account Platform" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">11</div>
+            <h2 class="project-title">Virtual Account Platform</h2>
+            <p class="project-desc">
+              Designed and delivered the Virtual Account capability that lets corporate merchants accept and reconcile payments at scale. Built the VA number generation engine with configurable behaviour types — <strong>Debit Only</strong>, <strong>Credit Only</strong>, and <strong>Debit &amp; Credit</strong> — each transaction transparently routed to the merchant's main customer account in core banking. Included posting rules, expiry handling, and reconciliation reports so merchants can match every collection back to its payer.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-hashtag"></i> VA Number Generator</span>
+              <span class="project-meta-item"><i class="fas fa-random"></i> Debit / Credit / Both Modes</span>
+              <span class="project-meta-item"><i class="fas fa-link"></i> Linked to Main Account</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">Virtual Account</span>
+              <span class="badge">Merchant Payments</span>
+              <span class="badge">Core Banking</span>
+              <span class="badge badge-purple">Reconciliation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop" alt="Notional Pooling for Corporate Customers" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">12</div>
+            <h2 class="project-title">Notional Pooling — Corporate Cash Management</h2>
+            <p class="project-desc">
+              Built the Notional Pooling product for corporate customers managing many operating and subsidiary accounts under one parent. Designed the account hierarchy, balance aggregation logic, and the automated end-of-day <strong>push / pull</strong> sweep that moves funds between member accounts and the master account — so the corporate treasurer sees a consolidated balance position and reconciliation is automatic instead of manual. Supports both pure notional aggregation and physical sweeps depending on the customer's product configuration.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-building"></i> Corporate Banking</span>
+              <span class="project-meta-item"><i class="fas fa-layer-group"></i> Multi-Account Hierarchy</span>
+              <span class="project-meta-item"><i class="fas fa-sync-alt"></i> EoD Auto Push / Pull</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">Notional Pooling</span>
+              <span class="badge">Cash Management</span>
+              <span class="badge">Treasury</span>
+              <span class="badge badge-purple">Auto Reconciliation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop" alt="Government Social Aid Disbursement" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">13</div>
+            <h2 class="project-title">Government Social Aid (Bansos) Disbursement</h2>
+            <p class="project-desc">
+              Built the bulk disbursement engine that distributes government social-aid (<em>bantuan sosial</em>) payments to millions of beneficiaries. Handles bulk multi auto debit/credit instructions from the appointed government agency — input file ingestion, validation, beneficiary matching, posting, error file generation, and full GL accounting. Designed for high-volume, time-bounded campaigns with strong controls, audit trail, and rejection handling so the bank can demonstrate that every rupiah is delivered or returned.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-hand-holding-usd"></i> Bulk Disbursement</span>
+              <span class="project-meta-item"><i class="fas fa-users"></i> Mass Beneficiaries</span>
+              <span class="project-meta-item"><i class="fas fa-landmark"></i> Government Programme</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">Bansos</span>
+              <span class="badge">Bulk Auto Debit / Credit</span>
+              <span class="badge">Core Banking</span>
+              <span class="badge badge-purple">Government Banking</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=800&auto=format&fit=crop" alt="Multicurrency Giro Account" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">14</div>
+            <h2 class="project-title">Multicurrency Giro Account</h2>
+            <p class="project-desc">
+              Designed and delivered a single-account multicurrency current account so customers transacting in foreign exchange only need to remember <strong>one master account number</strong>. Behind the scenes, core banking detects the transaction currency and routes to the correct sub-ledger automatically — keeping balances, postings, and statements per-currency clean while presenting a unified front to the customer. Phase 1 supports <strong>USD, IDR, EUR, SGD, GBP</strong>, with the architecture extensible to additional currencies in later phases.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-coins"></i> 5 Currencies (Phase 1)</span>
+              <span class="project-meta-item"><i class="fas fa-id-card"></i> Single Master Account</span>
+              <span class="project-meta-item"><i class="fas fa-route"></i> Auto Currency Routing</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">Multicurrency</span>
+              <span class="badge">Core Banking</span>
+              <span class="badge">FX</span>
+              <span class="badge">USD · IDR · EUR · SGD · GBP</span>
+              <span class="badge badge-purple">Customer Experience</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&auto=format&fit=crop" alt="Interest Income Reporting — BNI London Branch" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">15</div>
+            <h2 class="project-title">Interest Income Reporting — BNI London Branch</h2>
+            <p class="project-desc">
+              Built the automated month-end Interest Income reporting system for BNI London Branch. At every month-end the job runs unattended, computes interest income at the customer level, generates the report, and reconciles totals against the General Ledger / balance sheet so any variance is flagged immediately. Replaced manual extraction and spreadsheet reconciliation by Finance with a one-click, audit-ready output.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-calendar-check"></i> Month-End Automation</span>
+              <span class="project-meta-item"><i class="fas fa-balance-scale"></i> GL Reconciliation</span>
+              <span class="project-meta-item"><i class="fas fa-user-tag"></i> Per-Customer Detail</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">Interest Income</span>
+              <span class="badge">London Branch</span>
+              <span class="badge">Financial Reporting</span>
+              <span class="badge badge-purple">Reconciliation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop" alt="Anti-Money Laundering Transaction Monitoring" loading="lazy">
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <div class="project-number">16</div>
+            <h2 class="project-title">Anti-Money Laundering (AML) Transaction Monitoring</h2>
+            <p class="project-desc">
+              Built the daily AML transaction-monitoring engine. Each day it ingests the day's transactions and screens them against a configurable rule set defined together with the Compliance team — thresholds, patterns, watch-lists, and behavioural triggers can all be tuned without code changes. The output is delivered automatically by email to Compliance every morning for review, escalation, and case action — replacing ad-hoc data pulls and giving Compliance a consistent, auditable feed they can act on.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item"><i class="fas fa-shield-alt"></i> Daily Screening</span>
+              <span class="project-meta-item"><i class="fas fa-sliders-h"></i> Configurable Rules</span>
+              <span class="project-meta-item"><i class="fas fa-paper-plane"></i> Auto Email to Compliance</span>
+            </div>
+            <div class="project-tags">
+              <span class="badge badge-accent">AML</span>
+              <span class="badge">Compliance</span>
+              <span class="badge">Transaction Monitoring</span>
+              <span class="badge badge-purple">Risk &amp; Surveillance</span>
             </div>
           </div>
         </article>
       </div>
 
-      <div class="highlight-section">
+      <div class="highlight-section" data-reveal>
         <div class="highlight-header">
           <div class="highlight-icon"><i class="fas fa-lightbulb"></i></div>
-          <h3 class="highlight-title">Project Philosophy</h3>
+          <h3 style="font-size: 1.4rem;">Project Philosophy</h3>
         </div>
         <div class="highlight-content">
           <p>Every project I undertake is guided by a commitment to delivering solutions that not only meet immediate business requirements but also stand the test of time. I prioritize scalability, maintainability, and security in every system I build.</p>
-          <p>Collaboration is key to success. By working closely with cross-functional teams—from business analysts to compliance officers—I ensure that each solution addresses real-world needs while adhering to regulatory standards.</p>
+          <p>Collaboration is key to success. By working closely with cross-functional teams — from business analysts to compliance officers — I ensure that each solution addresses real-world needs while adhering to regulatory standards.</p>
           <p>My experience in both traditional banking systems (COBOL, Oracle) and modern technologies (Python, cloud infrastructure) allows me to bridge the gap between legacy systems and contemporary solutions, enabling smooth digital transformation journeys.</p>
         </div>
       </div>
@@ -349,40 +658,43 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div>
+        <div data-reveal>
           <div class="footer-brand">Ade Putra Tio Aldino</div>
-          <p style="color: var(--color-gray-400);">Software Engineer & Data Scientist</p>
+          <p class="text-muted" style="max-width: 360px;">Software Engineer · Head of IT, BNI London Branch · MSc Data Science @ Essex.</p>
         </div>
-        <div>
-          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Portfolio</h4>
+        <div data-reveal data-reveal-delay="1">
+          <h4>Portfolio</h4>
           <div class="footer-links">
             <a href="projects.html">Projects</a>
             <a href="skills.html">Skills</a>
             <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
           </div>
         </div>
-        <div>
-          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Connect</h4>
+        <div data-reveal data-reveal-delay="2">
+          <h4>Data Science</h4>
+          <div class="footer-links">
+            <a href="data-science.html">Overview</a>
+            <a href="big-data.html">Big Data</a>
+            <a href="machine-learning.html">Machine Learning</a>
+            <a href="research-methods.html">Research Methods</a>
+          </div>
+        </div>
+        <div data-reveal data-reveal-delay="3">
+          <h4>Connect</h4>
           <div class="footer-social">
-            <a href="https://github.com/adeputratio" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/adeputratio" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:adeputratio@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/adeputratio" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/adeputratio" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:putratioaldino@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Ade Putra Tio Aldino. All rights reserved.</p>
+        <p>&copy; <span data-year>2026</span> Ade Putra Tio Aldino. All rights reserved.</p>
       </div>
     </div>
   </footer>
-  
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
-    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
-  </script>
+
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>

@@ -3,141 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work Experience | Ade Putra Tio Aldino</title>
+  <meta name="description" content="Work Experience — Over a decade of banking technology, IT centralisation, and software engineering.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Experience · Ade Putra Tio Aldino</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+
   <style>
-    :root {
-      --color-primary: #0f172a;
-      --color-secondary: #0ea5e9;
-      --color-accent: #f97316;
-      --color-accent-alt: #8b5cf6;
-      --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #f97316 100%);
-      --color-white: #ffffff;
-      --color-gray-100: #f1f5f9;
-      --color-gray-300: #cbd5e1;
-      --color-gray-400: #94a3b8;
-      --color-success: #22c55e;
-      --font-display: 'Space Grotesk', system-ui, sans-serif;
-      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --radius-lg: 1rem;
-      --radius-xl: 1.5rem;
-      --radius-full: 9999px;
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    .page-header { padding: calc(var(--nav-height) + 5rem) 0 3rem; text-align: center; position: relative; }
+    .page-title { font-size: clamp(2.25rem, 4.5vw, 3.4rem); font-weight: 700; margin-bottom: 1rem; }
+    .page-description { font-size: 1.1rem; color: var(--color-gray-400); max-width: 720px; margin: 0 auto; }
+
+    .timeline-content {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      backdrop-filter: blur(12px);
+      transition: all var(--dur-base) var(--ease-out);
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; color: var(--color-gray-100); background-color: var(--color-primary); min-height: 100vh; overflow-x: hidden; }
-    body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%); pointer-events: none; z-index: -1; }
-    a { color: inherit; text-decoration: none; transition: 0.3s ease; }
-    ul { list-style: none; }
-    button { font-family: inherit; cursor: pointer; border: none; background: none; }
-    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; color: var(--color-white); }
-    .text-gradient { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
-    @media (min-width: 768px) { .container { padding: 0 2rem; } }
-
-    /* Navigation */
-    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0; transition: 0.3s ease; }
-    .navbar.scrolled { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
-    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-    .logo-text { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); }
-    .logo-dot { width: 8px; height: 8px; background: var(--gradient-primary); border-radius: 50%; }
-    .nav-menu { display: none; align-items: center; gap: 0.5rem; }
-    @media (min-width: 1024px) { .nav-menu { display: flex; } }
-    .nav-link { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 500; color: var(--color-gray-300); border-radius: var(--radius-full); }
-    .nav-link:hover, .nav-link.active { color: var(--color-white); background: rgba(255, 255, 255, 0.1); }
-    .nav-toggle { display: flex; flex-direction: column; gap: 5px; padding: 0.5rem; }
-    @media (min-width: 1024px) { .nav-toggle { display: none; } }
-    .nav-toggle span { width: 24px; height: 2px; background: var(--color-white); }
-
-    .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.3s ease; }
-    .mobile-menu.active { opacity: 1; visibility: visible; }
-    .mobile-menu-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
-    .mobile-link { font-size: 1.5rem; font-weight: 600; color: var(--color-gray-300); }
-    .mobile-link:hover { color: var(--color-white); }
-
-    /* Page Header */
-    .page-header { padding: 10rem 0 4rem; text-align: center; position: relative; }
-    .page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100%; background: linear-gradient(to bottom, rgba(139, 92, 246, 0.1) 0%, transparent 100%); pointer-events: none; }
-    .page-label { font-size: 0.9rem; font-weight: 600; color: var(--color-accent-alt); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .page-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem; }
-    .page-description { font-size: 1.1rem; color: var(--color-gray-400); max-width: 700px; margin: 0 auto; }
-
-    /* Timeline */
-    .timeline { position: relative; padding: 2rem 0; }
-    .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, var(--color-secondary), var(--color-accent-alt), var(--color-accent)); }
-    @media (max-width: 768px) { .timeline::before { left: 20px; } }
-
-    .timeline-item { position: relative; width: 50%; padding: 0 3rem 3rem; }
-    .timeline-item:nth-child(odd) { margin-left: auto; text-align: left; }
-    .timeline-item:nth-child(even) { text-align: right; }
-    @media (max-width: 768px) { .timeline-item, .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { width: 100%; padding-left: 50px; padding-right: 0; text-align: left; margin-left: 0; } }
-
-    .timeline-dot { position: absolute; width: 16px; height: 16px; background: var(--gradient-primary); border-radius: 50%; border: 3px solid var(--color-primary); z-index: 1; }
-    .timeline-item:nth-child(odd) .timeline-dot { left: -8px; }
-    .timeline-item:nth-child(even) .timeline-dot { right: -8px; }
-    @media (max-width: 768px) { .timeline-item:nth-child(odd) .timeline-dot, .timeline-item:nth-child(even) .timeline-dot { left: 12px; right: auto; } }
-
-    .timeline-content { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-xl); padding: 1.5rem; transition: 0.3s ease; }
-    .timeline-content:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); box-shadow: var(--shadow-xl); }
-
-    .timeline-date { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(14, 165, 233, 0.2); color: var(--color-secondary); border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; }
-    .job-title { font-size: 1.25rem; margin-bottom: 0.25rem; }
-    .company-name { color: var(--color-secondary); font-weight: 500; margin-bottom: 1rem; }
-
-    .job-highlights { margin-top: 1rem; }
-    .job-highlights li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--color-gray-300); }
-    .timeline-item:nth-child(even) .job-highlights li { padding-left: 0; padding-right: 1.5rem; }
-    @media (max-width: 768px) { .timeline-item:nth-child(even) .job-highlights li { padding-left: 1.5rem; padding-right: 0; } }
-    .job-highlights li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; background: var(--color-accent); border-radius: 50%; }
-    .timeline-item:nth-child(even) .job-highlights li::before { left: auto; right: 0; }
-    @media (max-width: 768px) { .timeline-item:nth-child(even) .job-highlights li::before { left: 0; right: auto; } }
-
-    .achievement-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-    .timeline-item:nth-child(even) .achievement-tags { justify-content: flex-end; }
-    @media (max-width: 768px) { .timeline-item:nth-child(even) .achievement-tags { justify-content: flex-start; } }
-    .achievement-tag { padding: 0.25rem 0.75rem; background: rgba(14, 165, 233, 0.15); color: var(--color-secondary); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600; }
+    .timeline-content:hover {
+      transform: translateX(6px);
+      border-color: var(--glass-border-strong);
+      box-shadow: var(--shadow-xl);
+    }
+    .job-title { font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .company-name {
+      color: var(--color-secondary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .job-highlights {
+      margin-left: 0;
+      margin-bottom: 1.25rem;
+    }
+    .job-highlights li {
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--color-gray-300);
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+    }
+    .job-highlights li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--color-secondary);
+      font-weight: bold;
+    }
+    .achievement-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .achievement-tag {
+      display: inline-flex;
+      padding: 0.25rem 0.7rem;
+      background: rgba(14, 165, 233, 0.15);
+      color: var(--color-secondary);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
     .achievement-tag.accent { background: rgba(249, 115, 22, 0.15); color: var(--color-accent); }
     .achievement-tag.purple { background: rgba(139, 92, 246, 0.15); color: var(--color-accent-alt); }
-
-    /* Footer */
-    .footer { padding: 4rem 0 2rem; border-top: 1px solid var(--glass-border); margin-top: 4rem; }
-    .footer-content { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
-    @media (min-width: 768px) { .footer-content { grid-template-columns: 2fr 1fr 1fr; } }
-    .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; }
-    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer-links a { color: var(--color-gray-400); }
-    .footer-links a:hover { color: var(--color-white); }
-    .footer-social { display: flex; gap: 1rem; }
-    .footer-social a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); color: var(--color-gray-400); }
-    .footer-social a:hover { color: var(--color-white); border-color: var(--color-secondary); }
-    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--glass-border); color: var(--color-gray-400); font-size: 0.9rem; }
   </style>
 </head>
 <body>
+
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo"><span class="logo-text">Aldino</span><span class="logo-dot"></span></a>
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">Aldino</span>
+        <span class="logo-dot"></span>
+      </a>
       <div class="nav-menu">
         <a href="index.html" class="nav-link">Home</a>
         <a href="projects.html" class="nav-link">Projects</a>
         <a href="data-science.html" class="nav-link">Data Science</a>
         <a href="skills.html" class="nav-link">Skills</a>
-        <a href="experience.html" class="nav-link active">Experience</a>
+        <a href="experience.html" class="nav-link">Experience</a>
         <a href="education.html" class="nav-link">Education</a>
       </div>
-      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+      <a href="mailto:putratioaldino@gmail.com" class="nav-cta"><i class="fas fa-paper-plane"></i> Hire Me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-  
+
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
       <a href="index.html" class="mobile-link">Home</a>
@@ -146,15 +101,20 @@
       <a href="skills.html" class="mobile-link">Skills</a>
       <a href="experience.html" class="mobile-link">Experience</a>
       <a href="education.html" class="mobile-link">Education</a>
+      <a href="mailto:putratioaldino@gmail.com" class="mobile-link" style="color: var(--color-secondary);">Contact</a>
     </div>
   </div>
-  
+
   <header class="page-header">
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
     <div class="container">
-      <p class="page-label">Professional Journey</p>
-      <h1 class="page-title">Work <span class="text-gradient">Experience</span></h1>
-      <p class="page-description">
-        Over a decade of experience in banking technology, leading digital transformations, building high-performing teams, and delivering enterprise solutions.
+      <span class="section-label" data-reveal>Professional Journey</span>
+      <h1 class="page-title" data-reveal data-reveal-delay="1">Work <span class="text-gradient">Experience</span></h1>
+      <p class="page-description" data-reveal data-reveal-delay="2">
+        A decade in banking technology — from Officer Development Program to Head of IT, with a current dual mandate as Acting Head of Accounting at BNI London Branch.
       </p>
     </div>
   </header>
@@ -162,84 +122,169 @@
   <section style="padding: 2rem 0 4rem;">
     <div class="container">
       <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
+
+        <!-- Current concurrent role: Acting Head of Accounting -->
+        <div class="timeline-item" data-reveal="left">
           <div class="timeline-content">
-            <span class="timeline-date">2023 - Present</span>
-            <h3 class="job-title">IT Infrastructure Officer</h3>
-            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk - London Branch</p>
+            <span class="timeline-date">Jan 2026 — Present</span>
+            <span class="achievement-tag accent" style="margin-bottom: 0.6rem; display: inline-flex;">
+              <i class="fas fa-bolt" style="margin-right: 0.35rem;"></i> Concurrent · Acting Role
+            </span>
+            <h3 class="job-title">Acting Head of Accounting</h3>
+            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk — London Branch</p>
+            <p style="color: var(--color-gray-300); font-size: 0.92rem; margin-bottom: 0.85rem;">
+              Appointed in an <em>Acting</em> capacity as Head of Accounting while continuing to serve as Head of IT — running both functions in parallel during the leadership transition period.
+            </p>
             <ul class="job-highlights">
-              <li>Manage core banking systems including SWIFT, Go Remit, Go Trade, Go Trust</li>
-              <li>Lead IT centralisation project achieving 30% cost reduction</li>
-              <li>Ensure PRA/FCA regulatory compliance</li>
-              <li>Develop automation scripts for operational efficiency</li>
+              <li>Dual role: Head of IT &amp; Acting Head of Accounting at the London Branch</li>
+              <li>Oversee day-to-day accounting operations, financial controls, and reconciliation</li>
+              <li>Ensure accuracy of management/regulatory reporting (PRA, FCA, HMRC)</li>
+              <li>Coordinate the Accounting team alongside IT delivery responsibilities</li>
+              <li>Bridge between Accounting and IT to align ledger systems, controls, and automation</li>
             </ul>
             <div class="achievement-tags">
-              <span class="achievement-tag">SD-WAN</span>
-              <span class="achievement-tag accent">PRA/FCA Compliance</span>
+              <span class="achievement-tag accent">Acting Role</span>
+              <span class="achievement-tag">Financial Reporting</span>
+              <span class="achievement-tag">PRA / FCA</span>
+              <span class="achievement-tag purple">Dual Mandate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Head of IT — current substantive role -->
+        <div class="timeline-item" data-reveal="left">
+          <div class="timeline-content">
+            <span class="timeline-date">Jan 2024 — Present</span>
+            <h3 class="job-title">Head of IT</h3>
+            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk — London Branch</p>
+            <ul class="job-highlights">
+              <li>Lead the IT function for the London Branch — strategy, operations, governance, and budget</li>
+              <li>Manage the full application landscape: core banking, SWIFT, Accounting, Treasury, AML/Sanctions, Trade, Remittance</li>
+              <li>Own end-to-end IT infrastructure: data centre, network, SD-WAN, end-user computing, and cybersecurity</li>
+              <li>Drive in-house application development for branch-specific automation and reporting</li>
+              <li>Ensure regulatory compliance (PRA, FCA) for IT operations, change management, and outsourcing</li>
+              <li>Vendor management for IBM, EY, and other strategic partners; risk &amp; audit point of contact</li>
+            </ul>
+            <div class="achievement-tags">
+              <span class="achievement-tag">IT Strategy</span>
+              <span class="achievement-tag">Cybersecurity</span>
+              <span class="achievement-tag">SWIFT</span>
+              <span class="achievement-tag accent">PRA / FCA Compliance</span>
               <span class="achievement-tag purple">Team Leadership</span>
             </div>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
+        <!-- IT Supervisor — London Branch -->
+        <div class="timeline-item" data-reveal="left">
           <div class="timeline-content">
-            <span class="timeline-date">2019 - 2023</span>
-            <h3 class="job-title">Software Engineer</h3>
-            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk - Head Office</p>
+            <span class="timeline-date">Jul 2022 — Dec 2023</span>
+            <h3 class="job-title">IT Supervisor</h3>
+            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk — London Branch</p>
             <ul class="job-highlights">
-              <li>Led Core Banking Implementation at BNI New York Branch</li>
-              <li>Managed data migration for BNI Syariah to BSI merger</li>
-              <li>Developed financial dashboards and ETL pipelines</li>
-              <li>Maintained COBOL-based core banking applications</li>
+              <li>Supervised all IT applications, infrastructure, and in-house development at the London Branch</li>
+              <li>Maintained the Accounting system, SWIFT messaging, Trade Finance, and Remittance platforms</li>
+              <li>Hands-on across application development, infrastructure operations, and user support</li>
+              <li>Led the IT Centralisation project from London Branch to Head Office (Jakarta) — delivered with zero data loss and ~30% infrastructure cost reduction</li>
+              <li>Coordinated audits and IT compliance with PRA and FCA requirements</li>
             </ul>
             <div class="achievement-tags">
-              <span class="achievement-tag">COBOL</span>
+              <span class="achievement-tag">SWIFT</span>
+              <span class="achievement-tag">Accounting System</span>
+              <span class="achievement-tag accent">SD-WAN</span>
+              <span class="achievement-tag purple">IT Centralisation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manager Core Banking -->
+        <div class="timeline-item" data-reveal="left">
+          <div class="timeline-content">
+            <span class="timeline-date">Aug 2020 — Jul 2022</span>
+            <h3 class="job-title">Manager — Core Banking</h3>
+            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk — Head Office</p>
+            <ul class="job-highlights">
+              <li>Promoted to Manager — led a team of core banking engineers and integration specialists</li>
+              <li>Owned delivery of major core banking initiatives: BNI New York Branch implementation and BNI Syariah → BSI merger data segregation</li>
+              <li>Set technical direction for AIX, COBOL, Shell scripting, and Oracle database changes</li>
+              <li>Managed cross-functional collaboration with business, risk, compliance, and external consultants (IBM, EY)</li>
+              <li>Coached engineers, ran code reviews, and grew team capability across legacy and modern stacks</li>
+            </ul>
+            <div class="achievement-tags">
+              <span class="achievement-tag">Team Management</span>
+              <span class="achievement-tag">COBOL / AIX</span>
               <span class="achievement-tag">Oracle</span>
-              <span class="achievement-tag accent">Data Migration</span>
+              <span class="achievement-tag accent">Core Banking Delivery</span>
             </div>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
+        <!-- Assistant Manager Core Banking -->
+        <div class="timeline-item" data-reveal="left">
           <div class="timeline-content">
-            <span class="timeline-date">2015 - 2019</span>
-            <h3 class="job-title">Application Developer</h3>
-            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk - Head Office</p>
+            <span class="timeline-date">Dec 2016 — Jul 2020</span>
+            <h3 class="job-title">Assistant Manager — Core Banking</h3>
+            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk — Head Office</p>
             <ul class="job-highlights">
-              <li>Developed and maintained banking application modules</li>
-              <li>Optimised database queries for improved performance</li>
-              <li>Created automated reporting systems</li>
-              <li>Collaborated with business analysts on requirements</li>
+              <li>Engineering on the core banking platform running on <strong>IBM AIX</strong> with <strong>COBOL</strong> and <strong>Shell scripting</strong></li>
+              <li>Designed and tuned <strong>Oracle</strong> database structures, queries, and batch jobs for high-volume banking workloads</li>
+              <li>Built integration layers using <strong>TCP / UDP messaging</strong> for downstream APIs and the SOA bus</li>
+              <li>Worked alongside (not inside) the SOA team — focused on <em>integration</em>: contracts, message formats, error handling, and reliability of inter-system flows</li>
+              <li>Maintained 24/7 availability for transactional banking modules and supported production incidents</li>
             </ul>
             <div class="achievement-tags">
-              <span class="achievement-tag">Java</span>
-              <span class="achievement-tag">SQL</span>
-              <span class="achievement-tag purple">Automation</span>
+              <span class="achievement-tag">AIX</span>
+              <span class="achievement-tag">COBOL</span>
+              <span class="achievement-tag">Shell Script</span>
+              <span class="achievement-tag">Oracle</span>
+              <span class="achievement-tag accent">TCP / UDP Messaging</span>
+              <span class="achievement-tag purple">SOA Integration</span>
             </div>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
+        <!-- Officer Development Program -->
+        <div class="timeline-item" data-reveal="left">
           <div class="timeline-content">
-            <span class="timeline-date">2012 - 2015</span>
-            <h3 class="job-title">Junior Developer</h3>
-            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk - Head Office</p>
+            <span class="timeline-date">Dec 2015 — Dec 2016</span>
+            <h3 class="job-title">Officer Development Program (IT)</h3>
+            <p class="company-name">PT Bank Negara Indonesia (Persero) Tbk — Head Office</p>
+            <p style="color: var(--color-gray-300); font-size: 0.92rem; margin-bottom: 0.85rem;">
+              A one-year structured officer-development program for high-potential graduates entering the IT track. The curriculum combined <strong>General Banking</strong> education, <strong>On-the-Job Training (OJT)</strong> at a branch, and <strong>In-Service Training (IST)</strong> inside the IT division — designed to produce officers who understand both how a bank operates commercially and how its technology underpins those operations.
+            </p>
+
             <ul class="job-highlights">
-              <li>Supported senior developers in application maintenance</li>
-              <li>Learned core banking system architecture</li>
-              <li>Participated in system testing and documentation</li>
-              <li>Gained expertise in COBOL and Oracle</li>
+              <li>
+                <strong>General Banking education (classroom).</strong>
+                Foundations of Indonesian banking and BNI's business model — banking products and services, deposits and lending, treasury, trade finance, remittance, accounting principles, anti-money-laundering / KYC, risk &amp; compliance, audit, and the regulatory environment (OJK, Bank Indonesia). Also covered leadership, business communication, and BNI's corporate culture.
+              </li>
+              <li>
+                <strong>On-the-Job Training (OJT) at a branch.</strong>
+                Placed inside an operating branch to learn end-to-end branch processes from the customer-facing side: teller and customer-service operations, account opening, payments and clearing, cash handling, branch back-office reconciliation, loan origination workflow, and the day-to-day controls used by branch staff. The goal was to internalise how a branch actually serves customers and what IT systems each role depends on.
+              </li>
+              <li>
+                <strong>In-Service Training (IST) in the IT Division — Core Banking.</strong>
+                Placed inside the Core Banking division at Head Office for hands-on technical induction: the IBM AIX / COBOL core platform, daily batch operations, the database layer (Oracle), and the integration messaging that connects core to channels and downstream systems. Worked alongside senior engineers on real change requests and incident handling.
+              </li>
+              <li>
+                <strong>Cross-divisional IT exposure.</strong>
+                Shorter rotations across the wider IT organisation — Application Development (channels, internet/mobile banking), Database &amp; Data Warehouse, IT Infrastructure (data centre, network, servers), IT Security, and IT Project Management — to map how the divisions hand off to each other.
+              </li>
+              <li>
+                Final placement at the end of the program: <strong>Core Banking</strong> division, promoted to Assistant Manager.
+              </li>
             </ul>
+
             <div class="achievement-tags">
-              <span class="achievement-tag">Foundation</span>
-              <span class="achievement-tag">Learning</span>
+              <span class="achievement-tag">General Banking</span>
+              <span class="achievement-tag">Branch OJT</span>
+              <span class="achievement-tag">Core Banking IST</span>
+              <span class="achievement-tag accent">Multi-Division Rotation</span>
+              <span class="achievement-tag purple">Leadership Program</span>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -247,38 +292,41 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div>
+        <div data-reveal>
           <div class="footer-brand">Ade Putra Tio Aldino</div>
-          <p style="color: var(--color-gray-400);">Software Engineer & Data Scientist</p>
+          <p class="text-muted" style="max-width: 360px;">Software Engineer · Head of IT, BNI London Branch · MSc Data Science @ Essex.</p>
         </div>
-        <div>
-          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Portfolio</h4>
+        <div data-reveal data-reveal-delay="1">
+          <h4>Portfolio</h4>
           <div class="footer-links">
             <a href="projects.html">Projects</a>
             <a href="skills.html">Skills</a>
             <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
           </div>
         </div>
-        <div>
-          <h4 style="margin-bottom: 1rem; font-size: 1rem;">Connect</h4>
+        <div data-reveal data-reveal-delay="2">
+          <h4>Data Science</h4>
+          <div class="footer-links">
+            <a href="data-science.html">Overview</a>
+            <a href="big-data.html">Big Data</a>
+            <a href="machine-learning.html">Machine Learning</a>
+            <a href="research-methods.html">Research Methods</a>
+          </div>
+        </div>
+        <div data-reveal data-reveal-delay="3">
+          <h4>Connect</h4>
           <div class="footer-social">
-            <a href="https://github.com/adeputratio" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/adeputratio" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:adeputratio@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/adeputratio" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/adeputratio" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:putratioaldino@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2025 Ade Putra Tio Aldino. All rights reserved.</p></div>
+      <div class="footer-bottom"><p>&copy; <span data-year>2026</span> Ade Putra Tio Aldino. All rights reserved.</p></div>
     </div>
   </footer>
-  
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
-    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
-  </script>
+
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>
