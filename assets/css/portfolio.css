@@ -811,7 +811,7 @@ body.menu-open { overflow: hidden; }
   gap: var(--space-4);
   counter-reset: stage;
 }
-@media (min-width: 768px) { .track-horizontal { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); } }
+@media (min-width: 768px) { .track-horizontal { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); } }
 .track-stage {
   position: relative;
   padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
