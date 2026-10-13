@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local tooling / scratch
+node_modules/
+*.log
+screenshots/
+.tmp/
+*.local
+.env
+.env.*

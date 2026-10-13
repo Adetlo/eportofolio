@@ -3,676 +3,517 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projects Portfolio — Banking IT, Data Migration, Automation by Ade Putra Tio Aldino.">
-  <meta name="theme-color" content="#0f172a">
-  <title>Projects · Ade Putra Tio Aldino</title>
+  <title>Projects &amp; Case Studies | Tio Aldino</title>
+  <meta name="description" content="Sixteen banking technology case studies by Tio Aldino across payments (ISO 20022, BI-FAST, QRIS), core banking migrations, compliance and reporting automation, and infrastructure, plus a public GitHub engineering portfolio.">
+  <meta name="author" content="Tio Aldino">
+  <link rel="canonical" href="https://adetlo.github.io/eportofolio/projects.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tio Aldino">
+  <meta property="og:title" content="Projects &amp; Case Studies | Tio Aldino">
+  <meta property="og:description" content="Sixteen banking technology case studies by Tio Aldino across payments (ISO 20022, BI-FAST, QRIS), core banking migrations, compliance and reporting automation, and infrastructure, plus a public GitHub engineering portfolio.">
+  <meta property="og:url" content="https://adetlo.github.io/eportofolio/projects.html">
+  <meta property="og:image" content="https://adetlo.github.io/eportofolio/assets/profilepic.jpeg">
+  <meta property="og:image:alt" content="Portrait of Tio Aldino">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Projects &amp; Case Studies | Tio Aldino">
+  <meta name="twitter:description" content="Sixteen banking technology case studies by Tio Aldino across payments (ISO 20022, BI-FAST, QRIS), core banking migrations, compliance and reporting automation, and infrastructure, plus a public GitHub engineering portfolio.">
+  <meta name="twitter:image" content="https://adetlo.github.io/eportofolio/assets/profilepic.jpeg">
+  <meta name="theme-color" content="#fbfbfc">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1726'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Menlo,Consolas,monospace' font-size='13' font-weight='600' fill='%23ffffff'%3ETA%3C/text%3E%3C/svg%3E">
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){d.setAttribute('data-theme',t);}}catch(e){}})();</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/portfolio.css">
-
   <style>
-    .page-header { padding: calc(var(--nav-height) + 5rem) 0 3rem; text-align: center; position: relative; }
-    .page-title { font-size: clamp(2.25rem, 4.5vw, 3.4rem); font-weight: 700; margin-bottom: 1rem; }
-    .page-description { font-size: 1.1rem; color: var(--color-gray-400); max-width: 700px; margin: 0 auto; }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 4rem;
-    }
-    .stat-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-xl);
-      padding: 1.5rem;
-      text-align: center;
-      transition: all var(--dur-base) var(--ease-out);
-      backdrop-filter: blur(12px);
-    }
-    .stat-card:hover { transform: translateY(-4px); border-color: var(--color-secondary); box-shadow: var(--shadow-glow); }
-    .stat-card-icon {
-      width: 52px; height: 52px;
-      margin: 0 auto 1rem;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--gradient-primary);
-      border-radius: var(--radius-lg);
-      font-size: 1.25rem;
-    }
-    .stat-card-value {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      font-weight: 700;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .stat-card-label { font-size: 0.85rem; color: var(--color-gray-400); margin-top: 0.4rem; }
-
-    .projects-list { display: flex; flex-direction: column; gap: 1.75rem; }
-    .project-card {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-xl);
-      padding: 1.5rem;
-      transition: all var(--dur-base) var(--ease-out);
-      overflow: hidden;
-      position: relative;
-    }
-    @media (min-width: 768px) {
-      .project-card { grid-template-columns: 320px 1fr; padding: 1.75rem; }
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(14, 165, 233, 0.08), transparent 40%);
-      opacity: 0;
-      transition: opacity var(--dur-base);
-      pointer-events: none;
-    }
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--glass-border-strong);
-      box-shadow: var(--shadow-xl);
-    }
-    .project-card:hover::before { opacity: 1; }
-
-    .project-image {
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      height: 220px;
-      background: var(--gradient-card);
-    }
-    @media (min-width: 768px) { .project-image { height: 100%; min-height: 240px; } }
-    .project-image img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.7s var(--ease-out);
-    }
-    .project-card:hover .project-image img { transform: scale(1.05); }
-    .project-image-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, transparent 60%);
-    }
-
-    /* Icon placeholder used when no photo is available */
-    .project-image-icon {
-      position: absolute; inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gradient-primary);
-      background-size: 220% 220%;
-      animation: gradient-shift 12s ease-in-out infinite;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 4.5rem;
-    }
-    .project-image-icon::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 45%),
-        radial-gradient(circle at 70% 80%, rgba(0,0,0,0.25), transparent 50%);
-      pointer-events: none;
-    }
-    .project-image-icon i { position: relative; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35)); }
-    .project-image-icon.theme-purple { background: linear-gradient(135deg, #8b5cf6, #ec4899, #f97316); }
-    .project-image-icon.theme-cool   { background: linear-gradient(135deg, #0ea5e9, #06b6d4, #10b981); }
-    .project-image-icon.theme-warm   { background: linear-gradient(135deg, #f97316, #eab308, #ec4899); }
-    .project-image-icon.theme-deep   { background: linear-gradient(135deg, #1e3a8a, #8b5cf6, #0ea5e9); }
-    .project-image-icon.theme-gov    { background: linear-gradient(135deg, #b45309, #ef4444, #8b5cf6); }
-
-    .project-content { position: relative; }
-    .project-number {
-      position: absolute;
-      top: -8px; right: 0;
-      font-family: var(--font-display);
-      font-size: 4rem;
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.05);
-      line-height: 1;
-      pointer-events: none;
-    }
-    .project-title { font-size: 1.4rem; margin-bottom: 0.85rem; padding-right: 3rem; }
-    .project-desc { color: var(--color-gray-300); margin-bottom: 1rem; font-size: 0.95rem; }
-    .project-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
-    .project-meta-item {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.85rem; color: var(--color-gray-400);
-    }
-    .project-meta-item i { color: var(--color-secondary); }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-
-    .highlight-section {
-      margin-top: 4rem;
-      padding: 2.5rem;
-      background: linear-gradient(145deg, rgba(14, 165, 233, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
-      border: 1px solid rgba(14, 165, 233, 0.2);
-      border-radius: var(--radius-xl);
-      position: relative;
-      overflow: hidden;
-    }
-    .highlight-section::before {
-      content: '';
-      position: absolute;
-      top: -50%; right: -10%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
-      filter: blur(60px);
-      pointer-events: none;
-    }
-    .highlight-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; position: relative; }
-    .highlight-icon {
-      width: 52px; height: 52px;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--gradient-primary);
-      border-radius: var(--radius-lg);
-      font-size: 1.25rem;
-      box-shadow: 0 8px 18px -6px rgba(14, 165, 233, 0.5);
-    }
-    .highlight-content { position: relative; }
-    .highlight-content p { color: var(--color-gray-300); margin-bottom: 0.85rem; }
-    .highlight-content p:last-child { margin-bottom: 0; }
+    .toc { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: var(--space-6); }
+    .toc a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 0.85rem; font-size: var(--text-sm); font-weight: 500; color: var(--text-2); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .toc a:hover { color: var(--accent); border-color: var(--accent); }
+    .principles { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
+    @media (min-width: 900px) { .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .principle h3 { font-size: var(--text-lg); margin-bottom: 0.4rem; }
+    .principle p { font-size: var(--text-sm); }
+    .principle .eyebrow { margin-bottom: var(--space-3); }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
+  <header class="site-header" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-text">Aldino</span>
-        <span class="logo-dot"></span>
+      <a href="index.html" class="brand" aria-label="Tio Aldino, home">
+        <span class="brand-mark" aria-hidden="true">TA</span>
+        <span class="brand-text">Tio Aldino</span>
+        <span class="brand-sub">Banking Technology &amp; Engineering</span>
       </a>
-      <div class="nav-menu">
+      <nav class="nav-menu" aria-label="Primary">
         <a href="index.html" class="nav-link">Home</a>
         <a href="projects.html" class="nav-link">Projects</a>
         <a href="data-science.html" class="nav-link">Data Science</a>
         <a href="skills.html" class="nav-link">Skills</a>
         <a href="experience.html" class="nav-link">Experience</a>
         <a href="education.html" class="nav-link">Education</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a href="https://github.com/Adetlo" class="btn btn-secondary btn-sm nav-cta" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <a href="mailto:putratioaldino@gmail.com" class="nav-cta"><i class="fas fa-paper-plane"></i> Hire Me</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </nav>
+  </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-content">
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu-content" aria-label="Primary, mobile">
       <a href="index.html" class="mobile-link">Home</a>
       <a href="projects.html" class="mobile-link">Projects</a>
       <a href="data-science.html" class="mobile-link">Data Science</a>
       <a href="skills.html" class="mobile-link">Skills</a>
       <a href="experience.html" class="mobile-link">Experience</a>
       <a href="education.html" class="mobile-link">Education</a>
-      <a href="mailto:putratioaldino@gmail.com" class="mobile-link" style="color: var(--color-secondary);">Contact</a>
-    </div>
+      <div class="mobile-menu-footer">
+        <a href="https://github.com/Adetlo" class="btn btn-secondary btn-sm" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/ade-putra-tio-aldino-17990753/" class="btn btn-secondary btn-sm" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+        <a href="mailto:putratioaldino@gmail.com" class="btn btn-secondary btn-sm"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
+      </div>
+    </nav>
   </div>
-
-  <!-- Page Header -->
-  <header class="page-header">
-    <div class="hero-blobs" aria-hidden="true">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-3"></div>
-    </div>
-    <div class="container">
-      <span class="section-label" data-reveal>Portfolio</span>
-      <h1 class="page-title" data-reveal data-reveal-delay="1">Project <span class="text-gradient">Showcase</span></h1>
-      <p class="page-description" data-reveal data-reveal-delay="2">
-        Robust, high-performing solutions for the financial industry — built for durability, performance, security, and regulatory compliance.
-      </p>
-    </div>
-  </header>
-
-  <!-- Projects -->
-  <section style="padding: 2rem 0;">
-    <div class="container">
-      <div class="projects-list">
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1623524713064-257294b0e34b?w=800&auto=format&fit=crop" alt="Core Banking Migration" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">01</div>
-            <h2 class="project-title">Core Banking Implementation at BNI New York Branch</h2>
-            <p class="project-desc">
-              Led a high-performing technical team throughout the seamless implementation of a complex data migration project. Oversaw the accurate transfer of Loan, Deposit, and Customer data while ensuring full compliance with FRB and Federal Reserve regulations.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-calendar-alt"></i> 8 Months</span>
-              <span class="project-meta-item"><i class="fas fa-users"></i> Team of 12</span>
-              <span class="project-meta-item"><i class="fas fa-tasks"></i> 10+ Challenges Resolved</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge">COBOL</span>
-              <span class="badge">Oracle</span>
-              <span class="badge badge-accent">FRB Compliance</span>
-              <span class="badge badge-purple">Data Migration</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1674591879620-952110bef92c?w=800&auto=format&fit=crop" alt="Shariah Banking" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">02</div>
-            <h2 class="project-title">Merger Data Migration: BNI Syariah to BSI</h2>
-            <p class="project-desc">
-              Played a pivotal role in the extraction and segregation of Islamic banking data from a shared core banking system. Led the effort to maintain the integrity and confidentiality of Shariah-compliant customer data, achieving 100% accuracy within a stringent 6-month deadline.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-calendar-alt"></i> 6 Months</span>
-              <span class="project-meta-item"><i class="fas fa-database"></i> 100% Accuracy</span>
-              <span class="project-meta-item"><i class="fas fa-shield-alt"></i> Data Confidentiality</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-purple">Shariah Banking</span>
-              <span class="badge">Data Extraction</span>
-              <span class="badge">SQL</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&auto=format&fit=crop" alt="IT Centralisation" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">03</div>
-            <h2 class="project-title">IT Centralisation &amp; Standardisation</h2>
-            <p class="project-desc">
-              Successfully migrated core banking infrastructure and critical applications from BNI London Branch to BNI Head Office (Jakarta). Collaborated with IBM and EY consultants to ensure compliance with PRA and FCA regulations while achieving zero data loss and 30% reduction in infrastructure costs.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-calendar-alt"></i> 10 Months</span>
-              <span class="project-meta-item"><i class="fas fa-percentage"></i> 30% Cost Reduction</span>
-              <span class="project-meta-item"><i class="fas fa-check-circle"></i> Zero Data Loss</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">SD-WAN</span>
-              <span class="badge">PRA/FCA Compliance</span>
-              <span class="badge">Infrastructure</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&auto=format&fit=crop" alt="Financial Dashboard" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">04</div>
-            <h2 class="project-title">Office Automation Financial Dashboard</h2>
-            <p class="project-desc">
-              Developed a robust, web-based financial dashboard for Balance Sheet and P&amp;L reporting. Powered by SQL-based ETL processes and PHP/MySQL backend, providing interactive filters for tracking financial growth (day-to-day, MoM, YoY) with automated email delivery to management.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-calendar-alt"></i> 4 Months</span>
-              <span class="project-meta-item"><i class="fas fa-chart-line"></i> Real-time Analytics</span>
-              <span class="project-meta-item"><i class="fas fa-envelope"></i> Automated Reports</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge">PHP</span>
-              <span class="badge">MySQL</span>
-              <span class="badge">ETL</span>
-              <span class="badge badge-purple">Dashboard</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&auto=format&fit=crop" alt="Performance Management System" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">05</div>
-            <h2 class="project-title">Performance Management System</h2>
-            <p class="project-desc">
-              Designed and built an information-system-based application for branch HR to measure employee KPIs end to end — from KPI definition and target-setting to periodic scoring, calibration, and reporting. Replaced manual spreadsheet-driven tracking with a single source of truth used directly by branch HR for performance reviews.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-users"></i> Branch HR Tool</span>
-              <span class="project-meta-item"><i class="fas fa-bullseye"></i> KPI Tracking</span>
-              <span class="project-meta-item"><i class="fas fa-chart-bar"></i> Performance Scoring</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge">HR Application</span>
-              <span class="badge">KPI Management</span>
-              <span class="badge badge-purple">Internal System</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&auto=format&fit=crop" alt="Automated Account Statement Delivery" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">06</div>
-            <h2 class="project-title">Automated Account Statement Delivery</h2>
-            <p class="project-desc">
-              Built an end-of-day automation that generates and emails customer account statements automatically every business day. Eliminated manual extraction and dispatch by branch staff, ensuring consistent, on-time delivery to every customer with full delivery logging and exception handling for bounced emails.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-clock"></i> End-of-Day Job</span>
-              <span class="project-meta-item"><i class="fas fa-envelope"></i> Email Delivery</span>
-              <span class="project-meta-item"><i class="fas fa-robot"></i> Fully Automated</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge">Batch Automation</span>
-              <span class="badge">SMTP / Email</span>
-              <span class="badge badge-accent">Customer Service</span>
-              <span class="badge">Shell Script</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&auto=format&fit=crop" alt="Vendor Management System" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">07</div>
-            <h2 class="project-title">Vendor Management System</h2>
-            <p class="project-desc">
-              Centralised application to record and manage every vendor — vendor master data, contracts, contract terms and renewal dates, invoices, payment status, and supporting documents. Removed reliance on scattered spreadsheets and shared folders, giving Procurement, Finance, and IT a single screen to track who is owed what, when contracts expire, and which invoices are outstanding.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-handshake"></i> Vendor Master</span>
-              <span class="project-meta-item"><i class="fas fa-file-invoice"></i> Invoice Tracking</span>
-              <span class="project-meta-item"><i class="fas fa-file-contract"></i> Contract Lifecycle</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge">Procurement</span>
-              <span class="badge">Document Management</span>
-              <span class="badge badge-purple">Operational Efficiency</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop" alt="ISO 20022 CBPR+ Migration" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">08</div>
-            <h2 class="project-title">ISO 20022 CBPR+ Migration — London Branch</h2>
-            <p class="project-desc">
-              Led the London Branch side of the SWIFT ISO 20022 CBPR+ migration from legacy MT messages to the new MX (XML) format. Drove branch readiness — operations awareness, training, and end-to-end testing — so payment, treasury, and back-office staff could confidently work in the new message standard. On the SWIFT bureau, implemented MT⇄MX translation so back-office systems that still only accept MT can keep operating during and after the transition without data loss or reconciliation breaks.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-exchange-alt"></i> MT ⇄ MX Translation</span>
-              <span class="project-meta-item"><i class="fas fa-globe-europe"></i> London Branch</span>
-              <span class="project-meta-item"><i class="fas fa-shield-alt"></i> SWIFT Compliance</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">ISO 20022 / CBPR+</span>
-              <span class="badge">SWIFT</span>
-              <span class="badge">MT → MX</span>
-              <span class="badge badge-purple">Payments Modernisation</span>
-              <span class="badge">SWIFT Bureau</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&auto=format&fit=crop" alt="BI-FAST Real-Time Payments" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">09</div>
-            <h2 class="project-title">BI-FAST Payment Integration</h2>
-            <p class="project-desc">
-              Delivered the core-banking side of BNI's integration with Bank Indonesia's BI-FAST real-time retail payment scheme. Designed and built the message handling, account posting, and end-to-end accounting flow — debit/credit booking, fees, GL posting, settlement, and reconciliation — so every BI-FAST inbound and outbound transaction lands in the books accurately and in real time, with full audit trail and exception handling.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-bolt"></i> Real-Time Payments</span>
-              <span class="project-meta-item"><i class="fas fa-university"></i> Bank Indonesia Scheme</span>
-              <span class="project-meta-item"><i class="fas fa-balance-scale"></i> GL Booking &amp; Reconciliation</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">BI-FAST</span>
-              <span class="badge">Core Banking</span>
-              <span class="badge">Accounting / GL</span>
-              <span class="badge badge-purple">Real-Time</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=800&auto=format&fit=crop" alt="QRIS Payment Integration" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">10</div>
-            <h2 class="project-title">QRIS Payment Integration</h2>
-            <p class="project-desc">
-              Implemented core-banking support for QRIS — Indonesia's national QR payment standard. Built the transaction handling, posting logic, fee schedule, and full accounting/GL treatment for both merchant and customer sides. Designed for high-throughput retail volumes, with end-of-day settlement and reconciliation against the QRIS scheme so books always agree with switch reports.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-qrcode"></i> National QR Standard</span>
-              <span class="project-meta-item"><i class="fas fa-mobile-alt"></i> Merchant &amp; Customer</span>
-              <span class="project-meta-item"><i class="fas fa-balance-scale"></i> End-to-End Accounting</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">QRIS</span>
-              <span class="badge">Core Banking</span>
-              <span class="badge">Retail Payments</span>
-              <span class="badge badge-purple">GL Posting</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&auto=format&fit=crop" alt="Virtual Account Platform" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">11</div>
-            <h2 class="project-title">Virtual Account Platform</h2>
-            <p class="project-desc">
-              Designed and delivered the Virtual Account capability that lets corporate merchants accept and reconcile payments at scale. Built the VA number generation engine with configurable behaviour types — <strong>Debit Only</strong>, <strong>Credit Only</strong>, and <strong>Debit &amp; Credit</strong> — each transaction transparently routed to the merchant's main customer account in core banking. Included posting rules, expiry handling, and reconciliation reports so merchants can match every collection back to its payer.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-hashtag"></i> VA Number Generator</span>
-              <span class="project-meta-item"><i class="fas fa-random"></i> Debit / Credit / Both Modes</span>
-              <span class="project-meta-item"><i class="fas fa-link"></i> Linked to Main Account</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">Virtual Account</span>
-              <span class="badge">Merchant Payments</span>
-              <span class="badge">Core Banking</span>
-              <span class="badge badge-purple">Reconciliation</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop" alt="Notional Pooling for Corporate Customers" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">12</div>
-            <h2 class="project-title">Notional Pooling — Corporate Cash Management</h2>
-            <p class="project-desc">
-              Built the Notional Pooling product for corporate customers managing many operating and subsidiary accounts under one parent. Designed the account hierarchy, balance aggregation logic, and the automated end-of-day <strong>push / pull</strong> sweep that moves funds between member accounts and the master account — so the corporate treasurer sees a consolidated balance position and reconciliation is automatic instead of manual. Supports both pure notional aggregation and physical sweeps depending on the customer's product configuration.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-building"></i> Corporate Banking</span>
-              <span class="project-meta-item"><i class="fas fa-layer-group"></i> Multi-Account Hierarchy</span>
-              <span class="project-meta-item"><i class="fas fa-sync-alt"></i> EoD Auto Push / Pull</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">Notional Pooling</span>
-              <span class="badge">Cash Management</span>
-              <span class="badge">Treasury</span>
-              <span class="badge badge-purple">Auto Reconciliation</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop" alt="Government Social Aid Disbursement" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">13</div>
-            <h2 class="project-title">Government Social Aid (Bansos) Disbursement</h2>
-            <p class="project-desc">
-              Built the bulk disbursement engine that distributes government social-aid (<em>bantuan sosial</em>) payments to millions of beneficiaries. Handles bulk multi auto debit/credit instructions from the appointed government agency — input file ingestion, validation, beneficiary matching, posting, error file generation, and full GL accounting. Designed for high-volume, time-bounded campaigns with strong controls, audit trail, and rejection handling so the bank can demonstrate that every rupiah is delivered or returned.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-hand-holding-usd"></i> Bulk Disbursement</span>
-              <span class="project-meta-item"><i class="fas fa-users"></i> Mass Beneficiaries</span>
-              <span class="project-meta-item"><i class="fas fa-landmark"></i> Government Programme</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">Bansos</span>
-              <span class="badge">Bulk Auto Debit / Credit</span>
-              <span class="badge">Core Banking</span>
-              <span class="badge badge-purple">Government Banking</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=800&auto=format&fit=crop" alt="Multicurrency Giro Account" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">14</div>
-            <h2 class="project-title">Multicurrency Giro Account</h2>
-            <p class="project-desc">
-              Designed and delivered a single-account multicurrency current account so customers transacting in foreign exchange only need to remember <strong>one master account number</strong>. Behind the scenes, core banking detects the transaction currency and routes to the correct sub-ledger automatically — keeping balances, postings, and statements per-currency clean while presenting a unified front to the customer. Phase 1 supports <strong>USD, IDR, EUR, SGD, GBP</strong>, with the architecture extensible to additional currencies in later phases.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-coins"></i> 5 Currencies (Phase 1)</span>
-              <span class="project-meta-item"><i class="fas fa-id-card"></i> Single Master Account</span>
-              <span class="project-meta-item"><i class="fas fa-route"></i> Auto Currency Routing</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">Multicurrency</span>
-              <span class="badge">Core Banking</span>
-              <span class="badge">FX</span>
-              <span class="badge">USD · IDR · EUR · SGD · GBP</span>
-              <span class="badge badge-purple">Customer Experience</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&auto=format&fit=crop" alt="Interest Income Reporting — BNI London Branch" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">15</div>
-            <h2 class="project-title">Interest Income Reporting — BNI London Branch</h2>
-            <p class="project-desc">
-              Built the automated month-end Interest Income reporting system for BNI London Branch. At every month-end the job runs unattended, computes interest income at the customer level, generates the report, and reconciles totals against the General Ledger / balance sheet so any variance is flagged immediately. Replaced manual extraction and spreadsheet reconciliation by Finance with a one-click, audit-ready output.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-calendar-check"></i> Month-End Automation</span>
-              <span class="project-meta-item"><i class="fas fa-balance-scale"></i> GL Reconciliation</span>
-              <span class="project-meta-item"><i class="fas fa-user-tag"></i> Per-Customer Detail</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">Interest Income</span>
-              <span class="badge">London Branch</span>
-              <span class="badge">Financial Reporting</span>
-              <span class="badge badge-purple">Reconciliation</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-reveal>
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&auto=format&fit=crop" alt="Anti-Money Laundering Transaction Monitoring" loading="lazy">
-            <div class="project-image-overlay"></div>
-          </div>
-          <div class="project-content">
-            <div class="project-number">16</div>
-            <h2 class="project-title">Anti-Money Laundering (AML) Transaction Monitoring</h2>
-            <p class="project-desc">
-              Built the daily AML transaction-monitoring engine. Each day it ingests the day's transactions and screens them against a configurable rule set defined together with the Compliance team — thresholds, patterns, watch-lists, and behavioural triggers can all be tuned without code changes. The output is delivered automatically by email to Compliance every morning for review, escalation, and case action — replacing ad-hoc data pulls and giving Compliance a consistent, auditable feed they can act on.
-            </p>
-            <div class="project-meta">
-              <span class="project-meta-item"><i class="fas fa-shield-alt"></i> Daily Screening</span>
-              <span class="project-meta-item"><i class="fas fa-sliders-h"></i> Configurable Rules</span>
-              <span class="project-meta-item"><i class="fas fa-paper-plane"></i> Auto Email to Compliance</span>
-            </div>
-            <div class="project-tags">
-              <span class="badge badge-accent">AML</span>
-              <span class="badge">Compliance</span>
-              <span class="badge">Transaction Monitoring</span>
-              <span class="badge badge-purple">Risk &amp; Surveillance</span>
-            </div>
-          </div>
-        </article>
+  <main id="main">
+    <header class="page-header">
+      <div class="container">
+        <p class="eyebrow">Projects</p>
+        <h1 class="page-title">Banking systems delivered in production</h1>
+        <p class="page-description">
+          Sixteen case studies from a decade inside a bank: national payment schemes, core banking migrations, compliance and reporting automation, and infrastructure. Each one states the challenge, the role played, the technology and the outcome, using public-safe detail only.
+        </p>
+        <nav class="toc" aria-label="Case study groups">
+          <a href="#payments">Payments &amp; market infrastructure</a>
+          <a href="#core-banking">Core banking &amp; migration</a>
+          <a href="#compliance">Compliance, reporting &amp; automation</a>
+          <a href="#infrastructure">Infrastructure &amp; operations</a>
+          <a href="#engineering">Engineering portfolio on GitHub</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="highlight-section" data-reveal>
-        <div class="highlight-header">
-          <div class="highlight-icon"><i class="fas fa-lightbulb"></i></div>
-          <h3 style="font-size: 1.4rem;">Project Philosophy</h3>
+    <section class="section" aria-label="Case studies">
+      <div class="container">
+
+        <!-- ================= Payments ================= -->
+        <div class="case-group" id="payments">
+          <div class="case-group-head">
+            <h2>Payments &amp; market infrastructure</h2>
+            <p>SWIFT, national real-time schemes and merchant collections</p>
+          </div>
+          <div class="case-list">
+
+            <article class="case" id="iso-20022" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-right-left" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">ISO 20022 CBPR+ migration, London Branch</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Project lead, branch side</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>SWIFT &middot; Payments</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>SWIFT's cross-border migration from legacy MT messages to ISO 20022 MX, while back-office systems at the branch still only accept MT.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Drove branch readiness: operations awareness, training and end-to-end testing. On the SWIFT bureau, implemented MT&#8644;MX translation so legacy systems keep operating during and after the transition.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">ISO 20022 / CBPR+</li><li class="chip">SWIFT MT &rarr; MX</li><li class="chip">SWIFT bureau</li><li class="chip">Payments</li><li class="chip">Treasury</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Payment, treasury and back-office staff work confidently in the new standard, with no data loss or reconciliation breaks through the migration.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="bi-fast" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">BI-FAST real-time payment integration</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Core banking engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>Head Office</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Core banking &middot; Payments</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Integrate the core banking system with Bank Indonesia's BI-FAST real-time retail payment scheme so every transaction lands in the books accurately and immediately.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Designed and built the message handling, account posting and end-to-end accounting flow: debit and credit booking, fees, GL posting, settlement and reconciliation, with audit trail and exception handling.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Core banking</li><li class="chip">Real-time messaging</li><li class="chip">GL posting</li><li class="chip">Settlement</li><li class="chip">Reconciliation</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Inbound and outbound BI-FAST transactions are booked in real time with a complete audit trail.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="qris" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-qrcode" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">QRIS national QR payment integration</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Core banking engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>Head Office</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Core banking &middot; Retail payments</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Support QRIS, Indonesia's national QR payment standard, for both merchant and customer sides at high retail volumes.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built transaction handling, posting logic, the fee schedule and full accounting treatment, with end-of-day settlement and reconciliation against the scheme.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Core banking</li><li class="chip">QR payments</li><li class="chip">GL posting</li><li class="chip">End-of-day settlement</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Books agree with switch reports at every end of day; the design handles high-throughput retail volumes.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="virtual-account" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-hashtag" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Virtual Account platform for merchant collections</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>Head Office</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Core banking &middot; Merchant payments</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Let corporate merchants accept and reconcile payments at scale without manually matching each collection to a payer.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built the VA number-generation engine with configurable behaviour (debit only, credit only, debit and credit), posting rules, expiry handling and reconciliation reports, each transaction routed transparently to the merchant's main account.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Core banking</li><li class="chip">Number generation</li><li class="chip">Posting rules</li><li class="chip">Reconciliation</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Merchants match every collection back to its payer; the capability scales with corporate volumes.</p></div>
+              </div>
+            </article>
+
+          </div>
         </div>
-        <div class="highlight-content">
-          <p>Every project I undertake is guided by a commitment to delivering solutions that not only meet immediate business requirements but also stand the test of time. I prioritize scalability, maintainability, and security in every system I build.</p>
-          <p>Collaboration is key to success. By working closely with cross-functional teams — from business analysts to compliance officers — I ensure that each solution addresses real-world needs while adhering to regulatory standards.</p>
-          <p>My experience in both traditional banking systems (COBOL, Oracle) and modern technologies (Python, cloud infrastructure) allows me to bridge the gap between legacy systems and contemporary solutions, enabling smooth digital transformation journeys.</p>
+
+        <!-- ================= Core banking ================= -->
+        <div class="case-group" id="core-banking">
+          <div class="case-group-head">
+            <h2>Core banking &amp; migration</h2>
+            <p>New branches, mergers and account products on the core platform</p>
+          </div>
+          <div class="case-list">
+
+            <article class="case" id="new-york" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-building-columns" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Core banking implementation, New York Branch</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Technical lead, team of 12</span><span><i class="fas fa-clock" aria-hidden="true"></i>8 months</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Core banking &middot; Data migration</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Implement the core banking platform for the New York Branch, migrating loan, deposit and customer data under FRB and Federal Reserve requirements.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Led the technical team through a complex data migration, overseeing the accurate transfer of each data domain and resolving the implementation issues raised along the way.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">COBOL</li><li class="chip">Oracle</li><li class="chip">Data migration</li><li class="chip">FRB compliance</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Branch went live on the core platform with its data migrated and regulatory requirements met.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="bsi-merger" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-code-branch" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Merger data segregation, BNI Syariah to BSI</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Lead, data extraction and segregation</span><span><i class="fas fa-clock" aria-hidden="true"></i>6 months</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Core banking &middot; Islamic banking</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Extract and segregate Islamic banking data from a shared core banking system for the merger that formed Bank Syariah Indonesia, within a fixed six-month deadline.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Led the extraction effort with controls designed to protect the integrity and confidentiality of Shariah-compliant customer data throughout.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">SQL</li><li class="chip">Data extraction</li><li class="chip">Shariah banking</li><li class="chip">Data confidentiality</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Delivered on deadline with 100% data accuracy.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="multicurrency" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-coins" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Multicurrency giro account</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>Head Office</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Core banking &middot; FX</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Customers transacting in several currencies had to manage several account numbers.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Delivered a single master account where the core detects the transaction currency and routes to the correct sub-ledger, keeping balances, postings and statements clean per currency behind a unified customer view.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Core banking</li><li class="chip">Sub-ledgers</li><li class="chip">USD &middot; IDR &middot; EUR &middot; SGD &middot; GBP</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Phase 1 live with five currencies; the architecture extends to additional currencies in later phases.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="notional-pooling" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Notional pooling for corporate cash management</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>Head Office</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Corporate banking &middot; Treasury</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Corporate treasurers managing many operating and subsidiary accounts needed one consolidated balance position without manual reconciliation.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Designed the account hierarchy, balance aggregation and an automated end-of-day push/pull sweep between member accounts and the master account, supporting both notional aggregation and physical sweeps by product configuration.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Core banking</li><li class="chip">Account hierarchy</li><li class="chip">EoD sweeps</li><li class="chip">Cash management</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Consolidated positions for the treasurer and automatic rather than manual reconciliation.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="bansos" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-hand-holding-dollar" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Government social aid (Bansos) bulk disbursement</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>Head Office</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Core banking &middot; Government banking</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Distribute government social-aid payments to millions of beneficiaries in high-volume, time-bounded campaigns with strong controls.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built the bulk engine for multi auto debit/credit instructions from the government agency: file ingestion, validation, beneficiary matching, posting, error-file generation and full GL accounting, with rejection handling and audit trail.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Core banking</li><li class="chip">Bulk auto debit / credit</li><li class="chip">File ingestion</li><li class="chip">GL accounting</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>The bank can demonstrate that every payment is either delivered or returned.</p></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ================= Compliance & automation ================= -->
+        <div class="case-group" id="compliance">
+          <div class="case-group-head">
+            <h2>Compliance, reporting &amp; automation</h2>
+            <p>Daily surveillance, month-end reporting and in-house tools that replaced manual work</p>
+          </div>
+          <div class="case-list">
+
+            <article class="case" id="aml-monitoring" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">AML transaction monitoring engine</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Compliance &middot; Surveillance</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Compliance relied on ad-hoc data pulls to review transactions for money-laundering risk.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built a daily engine that ingests the day's transactions and screens them against a rule set defined with Compliance: thresholds, patterns, watch-lists and behavioural triggers, all tunable without code changes. Results are emailed to Compliance every morning.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Rule engine</li><li class="chip">Batch processing</li><li class="chip">Automated reporting</li><li class="chip">AML</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>A consistent, auditable daily feed that Compliance can review, escalate and act on.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="interest-income" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Interest income reporting, London Branch</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Financial reporting &middot; Reconciliation</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Month-end interest income was extracted and reconciled by Finance manually in spreadsheets.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built an unattended month-end job that computes interest income at customer level, generates the report and reconciles totals against the general ledger and balance sheet, flagging any variance immediately.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Month-end automation</li><li class="chip">GL reconciliation</li><li class="chip">Per-customer detail</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>One-click, audit-ready output in place of manual extraction and reconciliation.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="financial-dashboard" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-chart-pie" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Balance sheet and P&amp;L financial dashboard</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Full-stack developer</span><span><i class="fas fa-clock" aria-hidden="true"></i>4 months</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Financial reporting &middot; Analytics</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Management needed a current view of balance sheet and P&amp;L movement without waiting for manually compiled reports.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Developed a web dashboard fed by SQL-based ETL, with interactive filters for day-to-day, month-on-month and year-on-year growth and automated email delivery to management.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">PHP</li><li class="chip">MySQL</li><li class="chip">SQL ETL</li><li class="chip">Dashboard</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Self-service financial tracking with scheduled reports delivered automatically.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="statement-delivery" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-envelope-open-text" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Automated account statement delivery</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Batch automation &middot; Customer service</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Branch staff extracted and dispatched customer account statements by hand every business day.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built an end-of-day job that generates and emails statements automatically, with delivery logging and exception handling for bounced messages.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Shell scripting</li><li class="chip">End-of-day batch</li><li class="chip">SMTP</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Consistent, on-time delivery to every customer with no manual steps.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="performance-management" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-bullseye" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Performance management system</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and developer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Internal systems &middot; HR</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Employee KPIs were tracked in manual spreadsheets with no single source of truth for reviews.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built an application covering KPI definition, target-setting, periodic scoring, calibration and reporting, used directly by branch HR.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Web application</li><li class="chip">KPI management</li><li class="chip">Reporting</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>One system of record for performance reviews across the branch.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="vendor-management" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-file-contract" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Vendor management system</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and developer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Internal systems &middot; Procurement</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Vendor records, contracts, renewal dates and invoices lived in scattered spreadsheets and shared folders.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built a central application for vendor master data, contract terms and lifecycle, invoices, payment status and supporting documents.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Web application</li><li class="chip">Document management</li><li class="chip">Contract lifecycle</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Procurement, Finance and IT share one screen for what is owed, what expires and what is outstanding.</p></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ================= Infrastructure ================= -->
+        <div class="case-group" id="infrastructure">
+          <div class="case-group-head">
+            <h2>Infrastructure &amp; operations</h2>
+            <p>Moving a regulated branch's technology estate</p>
+          </div>
+          <div class="case-list">
+
+            <article class="case" id="it-centralisation" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">IT centralisation and standardisation, London to Jakarta</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Project lead, London Branch</span><span><i class="fas fa-clock" aria-hidden="true"></i>10 months</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Infrastructure &middot; Regulatory</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Migrate the London Branch's core banking infrastructure and critical applications to head office in Jakarta while remaining compliant with PRA and FCA requirements.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Led the branch side of the programme with IBM and EY consultants, covering infrastructure, SD-WAN connectivity, application cut-over and regulatory evidence.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">SD-WAN</li><li class="chip">Data centre</li><li class="chip">PRA / FCA compliance</li><li class="chip">Vendor management</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Zero data loss and roughly 30% lower infrastructure cost.</p></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= Engineering portfolio ================= -->
+    <section class="section section-muted" id="engineering" aria-labelledby="engineering-heading">
+      <div class="container">
+        <div class="section-head-row">
+          <div class="section-header">
+            <p class="eyebrow">Engineering portfolio</p>
+            <h2 id="engineering-heading" class="section-title">Public engineering projects on GitHub</h2>
+            <p class="section-subtitle">Public engineering projects demonstrating financial systems, software engineering, data, AI, identity/security and DevOps, using synthetic data and generic architectures. Together they model a miniature banking technology estate.</p>
+          </div>
+          <a href="https://github.com/Adetlo" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> github.com/Adetlo</a>
+        </div>
+
+        <div class="repo-grid">
+          <article class="card repo" data-reveal>
+            <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i>corebank-ledger</h3><span class="status status-dev">In development</span></div>
+            <p>Double-entry banking ledger demonstrating transaction posting, balance invariants, idempotency and financial-system engineering.</p>
+            <div class="repo-foot"><ul class="chip-list"><li class="chip">Python</li><li class="chip">Ledger</li></ul></div>
+          </article>
+          <article class="card repo" data-reveal data-reveal-delay="1">
+            <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i>txn-data-pipeline</h3><span class="status status-dev">In development</span></div>
+            <p>Financial transaction ingestion, validation, transformation, reconciliation and data-quality pipeline.</p>
+            <div class="repo-foot"><ul class="chip-list"><li class="chip">Data engineering</li><li class="chip">Reconciliation</li></ul></div>
+          </article>
+          <article class="card repo" data-reveal data-reveal-delay="2">
+            <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i>fraud-detection-ml</h3><span class="status status-dev">In development</span></div>
+            <p>Synthetic financial transaction fraud and anomaly detection using machine-learning and risk-scoring techniques.</p>
+            <div class="repo-foot"><ul class="chip-list"><li class="chip">Scikit-learn</li><li class="chip">Anomaly detection</li></ul></div>
+          </article>
+          <article class="card repo" data-reveal data-reveal-delay="3">
+            <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i>entra-id-toolkit</h3><span class="status status-dev">In development</span></div>
+            <p>Microsoft Entra and Microsoft Graph identity governance and security engineering toolkit.</p>
+            <div class="repo-foot"><ul class="chip-list"><li class="chip">Entra ID</li><li class="chip">Microsoft Graph</li></ul></div>
+          </article>
+          <article class="card repo" data-reveal data-reveal-delay="4">
+            <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i>secure-banking-api</h3><span class="status status-dev">In development</span></div>
+            <p>Secure-by-design banking-style REST API with authentication, audit logging, validation and security controls.</p>
+            <div class="repo-foot"><ul class="chip-list"><li class="chip">REST API</li><li class="chip">Security</li></ul></div>
+          </article>
+          <article class="card repo" data-reveal data-reveal-delay="5">
+            <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i>platform-devops-blueprints</h3><span class="status status-dev">In development</span></div>
+            <p>Reusable CI/CD, Docker, GitHub Actions and infrastructure patterns for the engineering portfolio.</p>
+            <div class="repo-foot"><ul class="chip-list"><li class="chip">GitHub Actions</li><li class="chip">Docker</li></ul></div>
+          </article>
+        </div>
+        <p class="text-muted" style="margin-top: var(--space-5); font-size: var(--text-sm);">Each repository is linked from this page when it reaches a first public release. Until then the GitHub profile is the place to watch.</p>
+      </div>
+    </section>
+
+    <!-- ================= How I work ================= -->
+    <section class="section" aria-labelledby="principles-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">How I work</p>
+          <h2 id="principles-heading" class="section-title">Three habits behind the case studies</h2>
+        </div>
+        <div class="principles">
+          <article class="card principle" data-reveal>
+            <p class="eyebrow">01</p>
+            <h3>Build for the audit</h3>
+            <p>Every system above posts to a ledger someone will reconcile and a regulator may inspect. Audit trails, exception handling and reconciliation are designed in from the start, not added later.</p>
+          </article>
+          <article class="card principle" data-reveal data-reveal-delay="1">
+            <p class="eyebrow">02</p>
+            <h3>Bridge enterprise and modern</h3>
+            <p>COBOL on AIX and Python in a container both have a place in a bank. Knowing both sides makes migrations and integrations safer and keeps modernisation grounded in how the core actually behaves.</p>
+          </article>
+          <article class="card principle" data-reveal data-reveal-delay="2">
+            <p class="eyebrow">03</p>
+            <h3>Ship with the business</h3>
+            <p>Compliance officers, treasurers and branch staff shaped each of these tools. Working alongside them, and now running accounting as well as IT, keeps the engineering tied to real operational needs.</p>
+          </article>
         </div>
       </div>
+    </section>
+
+  <section class="section-sm" aria-labelledby="xnav-title">
+    <div class="container">
+      <h2 id="xnav-title" class="visually-hidden">Explore further</h2>
+      <nav class="xnav" aria-label="Explore further">
+        <a href="experience.html" class="xnav-item"><span class="xnav-kicker">Career</span><span class="xnav-title">Professional Experience <span class="arrow" aria-hidden="true">&rarr;</span></span></a>
+        <a href="projects.html" class="xnav-item"><span class="xnav-kicker">Case studies</span><span class="xnav-title">Banking Projects <span class="arrow" aria-hidden="true">&rarr;</span></span></a>
+        <a href="data-science.html" class="xnav-item"><span class="xnav-kicker">Academic</span><span class="xnav-title">MSc Data Science <span class="arrow" aria-hidden="true">&rarr;</span></span></a>
+        <a href="https://github.com/Adetlo" class="xnav-item" target="_blank" rel="noopener"><span class="xnav-kicker">Engineering</span><span class="xnav-title">GitHub Portfolio <span class="arrow" aria-hidden="true">&nearr;</span></span></a>
+      </nav>
     </div>
   </section>
-
-  <!-- Footer -->
+  </main>
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div data-reveal>
+        <div>
           <div class="footer-brand">Ade Putra Tio Aldino</div>
-          <p class="text-muted" style="max-width: 360px;">Software Engineer · Head of IT, BNI London Branch · MSc Data Science @ Essex.</p>
+          <p class="footer-tagline">Banking Technology &amp; Engineering Leader. Head of IT at an international bank's London branch. MSc Data Science, University of Essex.</p>
         </div>
-        <div data-reveal data-reveal-delay="1">
-          <h4>Portfolio</h4>
+        <div>
+          <h2 class="footer-heading">Portfolio</h2>
           <div class="footer-links">
-            <a href="projects.html">Projects</a>
-            <a href="skills.html">Skills</a>
             <a href="experience.html">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="projects.html#engineering">Engineering portfolio</a>
+            <a href="skills.html">Skills</a>
             <a href="education.html">Education</a>
           </div>
         </div>
-        <div data-reveal data-reveal-delay="2">
-          <h4>Data Science</h4>
+        <div>
+          <h2 class="footer-heading">Data Science</h2>
           <div class="footer-links">
             <a href="data-science.html">Overview</a>
             <a href="big-data.html">Big Data</a>
@@ -680,21 +521,21 @@
             <a href="research-methods.html">Research Methods</a>
           </div>
         </div>
-        <div data-reveal data-reveal-delay="3">
-          <h4>Connect</h4>
+        <div>
+          <h2 class="footer-heading">Connect</h2>
           <div class="footer-social">
-            <a href="https://adetlo.github.io/eportofolio/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/ade-putra-tio-aldino-17990753/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:putratioaldino@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/Adetlo" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/ade-putra-tio-aldino-17990753/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            <a href="mailto:putratioaldino@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span data-year>2026</span> Ade Putra Tio Aldino. All rights reserved.</p>
+        <p>&copy; <span data-year>2026</span> Ade Putra Tio Aldino</p>
+        <p>London, United Kingdom</p>
       </div>
     </div>
   </footer>
-
   <script src="assets/js/portfolio.js"></script>
 </body>
 </html>
