@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects &amp; Case Studies | Tio Aldino</title>
-  <meta name="description" content="Sixteen banking technology case studies by Tio Aldino across payments (ISO 20022, BI-FAST, QRIS), core banking migrations, compliance and reporting automation, and infrastructure, plus a public GitHub engineering portfolio.">
+  <meta name="description" content="Twenty-three banking technology case studies by Tio Aldino across payments and SWIFT gpi (ISO 20022, MT199 Universal Confirmation, BI-FAST, QRIS), treasury integration, core banking migrations, compliance and reporting automation, AWS serverless platforms, resilience and security assurance, plus a public GitHub engineering portfolio.">
   <meta name="author" content="Tio Aldino">
   <link rel="canonical" href="https://adetlo.github.io/eportofolio/projects.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tio Aldino">
   <meta property="og:title" content="Projects &amp; Case Studies | Tio Aldino">
-  <meta property="og:description" content="Sixteen banking technology case studies by Tio Aldino across payments (ISO 20022, BI-FAST, QRIS), core banking migrations, compliance and reporting automation, and infrastructure, plus a public GitHub engineering portfolio.">
+  <meta property="og:description" content="Twenty-three banking technology case studies by Tio Aldino across payments and SWIFT gpi (ISO 20022, MT199 Universal Confirmation, BI-FAST, QRIS), treasury integration, core banking migrations, compliance and reporting automation, AWS serverless platforms, resilience and security assurance, plus a public GitHub engineering portfolio.">
   <meta property="og:url" content="https://adetlo.github.io/eportofolio/projects.html">
   <meta property="og:image" content="https://adetlo.github.io/eportofolio/assets/profilepic.jpeg">
   <meta property="og:image:alt" content="Portrait of Tio Aldino">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Projects &amp; Case Studies | Tio Aldino">
-  <meta name="twitter:description" content="Sixteen banking technology case studies by Tio Aldino across payments (ISO 20022, BI-FAST, QRIS), core banking migrations, compliance and reporting automation, and infrastructure, plus a public GitHub engineering portfolio.">
+  <meta name="twitter:description" content="Twenty-three banking technology case studies by Tio Aldino across payments and SWIFT gpi (ISO 20022, MT199 Universal Confirmation, BI-FAST, QRIS), treasury integration, core banking migrations, compliance and reporting automation, AWS serverless platforms, resilience and security assurance, plus a public GitHub engineering portfolio.">
   <meta name="twitter:image" content="https://adetlo.github.io/eportofolio/assets/profilepic.jpeg">
   <meta name="theme-color" content="#fbfbfc">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1726'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Menlo,Consolas,monospace' font-size='13' font-weight='600' fill='%23ffffff'%3ETA%3C/text%3E%3C/svg%3E">
@@ -90,13 +90,13 @@
         <p class="eyebrow">Projects</p>
         <h1 class="page-title">Banking systems delivered in production</h1>
         <p class="page-description">
-          Sixteen case studies from a decade inside a bank: national payment schemes, core banking migrations, compliance and reporting automation, and infrastructure. Each one states the challenge, the role played, the technology and the outcome, using public-safe detail only.
+          Twenty-three case studies from a decade inside a bank: SWIFT and national payment schemes, treasury integration, core banking migrations, compliance and reporting automation, cloud platforms, resilience and security assurance. Each one states the challenge, the role played, the technology and the outcome, using public-safe detail only.
         </p>
         <nav class="toc" aria-label="Case study groups">
-          <a href="#payments">Payments &amp; market infrastructure</a>
+          <a href="#payments">Payments, SWIFT &amp; treasury</a>
           <a href="#core-banking">Core banking &amp; migration</a>
           <a href="#compliance">Compliance, reporting &amp; automation</a>
-          <a href="#infrastructure">Infrastructure &amp; operations</a>
+          <a href="#infrastructure">Cloud, infrastructure &amp; resilience</a>
           <a href="#engineering">Engineering portfolio on GitHub</a>
         </nav>
       </div>
@@ -108,10 +108,26 @@
         <!-- ================= Payments ================= -->
         <div class="case-group" id="payments">
           <div class="case-group-head">
-            <h2>Payments &amp; market infrastructure</h2>
-            <p>SWIFT, national real-time schemes and merchant collections</p>
+            <h2>Payments, SWIFT &amp; treasury</h2>
+            <p>SWIFT gpi and ISO 20022, treasury integration, national real-time schemes and merchant collections</p>
           </div>
           <div class="case-list">
+
+            <article class="case" id="swift-gpi-mtuc" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-satellite-dish" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Automated SWIFT gpi Universal Confirmation platform (MTUC)</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer, engineer and reliability owner</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch &middot; 2026</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>SWIFT gpi &middot; Payments &middot; Production engineering</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>The branch's SWIFT gpi Universal Confirmation flow ran on an undocumented Fiorano ESB integration that had failed, leaving MT103 payments without the MT199 confirmations the gpi rulebook requires and no reliable record of what had already been sent.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Reverse-engineered the flow from Oracle and message-archive evidence, recovering and analysing 7,932 historical confirmations to derive production rules rather than assumptions. Replaced a legacy query that expanded to roughly 243 million rows (about 31,109x amplification) with auditable deduplicated selection and explicit ambiguity handling, so unresolved identities fail closed. Built an autonomous Python/Oracle service with byte-exact MT199/FIN serialisation, UETR handling, acknowledgement reconciliation, no-resend-without-evidence controls and evidence-gated database writes, staged a 1,713-transaction backfill and productionised the runtime as hardened Windows services.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Python 3.12</li><li class="chip">Oracle / python-oracledb</li><li class="chip">SWIFT gpi &middot; MT199 / MT103 &middot; UETR</li><li class="chip">Finastra SWIFT interface</li><li class="chip">Windows Services / pywin32</li><li class="chip">DPAPI</li><li class="chip">SQLite WAL</li><li class="chip">Idempotent state machine</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Approximately 2,000 live confirmations delivered with zero SWIFT-interface rejections. Post-go-live reliability engineering across eight production incidents added bounded database timeouts, progress-based watchdogs, snapshot-scoped Oracle reads and recovery tooling, backed by 12 automated regression suites and 45 design and forensics documents.</p></div>
+              </div>
+            </article>
 
             <article class="case" id="iso-20022" data-reveal>
               <div class="case-head">
@@ -123,9 +139,9 @@
               </div>
               <div class="case-grid">
                 <div class="case-cell"><p class="case-label">Challenge</p><p>SWIFT's cross-border migration from legacy MT messages to ISO 20022 MX, while back-office systems at the branch still only accept MT.</p></div>
-                <div class="case-cell"><p class="case-label">Approach</p><p>Drove branch readiness: operations awareness, training and end-to-end testing. On the SWIFT bureau, implemented MT&#8644;MX translation so legacy systems keep operating during and after the transition.</p></div>
-                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">ISO 20022 / CBPR+</li><li class="chip">SWIFT MT &rarr; MX</li><li class="chip">SWIFT bureau</li><li class="chip">Payments</li><li class="chip">Treasury</li></ul></div>
-                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Payment, treasury and back-office staff work confidently in the new standard, with no data loss or reconciliation breaks through the migration.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Led the migration end to end: schema mapping, validation, dual-publish reconciliation and a consumer-by-consumer cutover, with operations awareness, training and end-to-end testing. On the SWIFT bureau, implemented MT&#8644;MX translation so legacy systems keep operating during and after the transition.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">ISO 20022 / CBPR+</li><li class="chip">SWIFT MT &rarr; MX</li><li class="chip">Schema mapping</li><li class="chip">Dual-publish reconciliation</li><li class="chip">SWIFT bureau</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>No production breakage through the cutover: payment, treasury and back-office staff work in the new standard with no data loss or reconciliation breaks.</p></div>
               </div>
             </article>
 
@@ -174,6 +190,22 @@
                 <div class="case-cell"><p class="case-label">Approach</p><p>Built the VA number-generation engine with configurable behaviour (debit only, credit only, debit and credit), posting rules, expiry handling and reconciliation reports, each transaction routed transparently to the merchant's main account.</p></div>
                 <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Core banking</li><li class="chip">Number generation</li><li class="chip">Posting rules</li><li class="chip">Reconciliation</li></ul></div>
                 <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Merchants match every collection back to its payer; the capability scales with corporate volumes.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="murex-treasury" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Murex treasury integration and F1 rate automation</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Integration owner, branch side</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch &middot; 2026</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Treasury &middot; Accounting integration</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>The treasury platform went live on Murex, and its end-of-day output had to reach the downstream accounting workflow reliably, with the right business date, every day.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Supported the go-live and EOD integration, then automated the FX rate and report handoff into accounting with scheduler automation, file-date handling, validation and reconciliation, plus operational controls for EOD timing.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Murex</li><li class="chip">Python</li><li class="chip">EOD scheduling</li><li class="chip">FX rates</li><li class="chip">Reconciliation</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Rates and reports land in accounting unattended, with date controls and reconciliation evidence instead of manual re-keying.</p></div>
               </div>
             </article>
 
@@ -289,9 +321,41 @@
               </div>
               <div class="case-grid">
                 <div class="case-cell"><p class="case-label">Challenge</p><p>Compliance relied on ad-hoc data pulls to review transactions for money-laundering risk.</p></div>
-                <div class="case-cell"><p class="case-label">Approach</p><p>Built a daily engine that ingests the day's transactions and screens them against a rule set defined with Compliance: thresholds, patterns, watch-lists and behavioural triggers, all tunable without code changes. Results are emailed to Compliance every morning.</p></div>
-                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Rule engine</li><li class="chip">Batch processing</li><li class="chip">Automated reporting</li><li class="chip">AML</li></ul></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Designed and governed an in-house engine that ingests the day's transactions and screens them against scenarios defined with Compliance: thresholds, patterns, watch-lists and behavioural triggers, all tunable without code changes. Added maker/checker roles, alert handling, UAT evidence, operating documentation and production go-live controls; results reach Compliance every morning.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Rule engine</li><li class="chip">Maker / checker</li><li class="chip">Batch processing</li><li class="chip">UAT evidence</li><li class="chip">AML</li></ul></div>
                 <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>A consistent, auditable daily feed that Compliance can review, escalate and act on.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="sharepoint-portal" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-folder-open" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">SharePoint reporting portal</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Designer and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch &middot; 2026</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Reporting &middot; Access control</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Reports were distributed as email attachments: unreliable, hard to audit and impossible to control once sent.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built a secure SharePoint Online/SPFx portal with metadata-driven report libraries, controlled access and automated upload workflows via Microsoft Graph, so reports are published once and read in place.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">SharePoint Online</li><li class="chip">SPFx</li><li class="chip">Microsoft Graph</li><li class="chip">Entra ID access</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Controlled, auditable user access replaced attachment-heavy distribution.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="efs-accounting" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-calculator" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">EFS rollout and operational accounting automation</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Head of IT and Acting Head of Accounting</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch &middot; 2026</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Financial systems &middot; Accounting controls</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>A new financial system had to be rolled out while the accounting function kept closing the books, with controls that would stand up to audit.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Supported the rollout and designed the accounting controls around it: user and access readiness, network routing, charge-account mapping, rate handoff automation and operational posting and reconciliation procedures.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Financial system rollout</li><li class="chip">Access readiness</li><li class="chip">Charge-account mapping</li><li class="chip">Posting &amp; reconciliation</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>The system went live with documented posting and reconciliation procedures owned jointly by IT and Accounting.</p></div>
               </div>
             </article>
 
@@ -321,9 +385,9 @@
               </div>
               <div class="case-grid">
                 <div class="case-cell"><p class="case-label">Challenge</p><p>Management needed a current view of balance sheet and P&amp;L movement without waiting for manually compiled reports.</p></div>
-                <div class="case-cell"><p class="case-label">Approach</p><p>Developed a web dashboard fed by SQL-based ETL, with interactive filters for day-to-day, month-on-month and year-on-year growth and automated email delivery to management.</p></div>
-                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">PHP</li><li class="chip">MySQL</li><li class="chip">SQL ETL</li><li class="chip">Dashboard</li></ul></div>
-                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Self-service financial tracking with scheduled reports delivered automatically.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Built automated Balance Sheet and P&amp;L ingestion pipelines in SQL and Python with embedded validation, reconciliation and anomaly alerting, feeding a web dashboard with interactive filters for day-to-day, month-on-month and year-on-year growth and automated delivery to management.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">Python</li><li class="chip">SQL ETL</li><li class="chip">PHP</li><li class="chip">MySQL</li><li class="chip">Anomaly alerts</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Self-service financial tracking with scheduled reports delivered automatically, and roughly 75% less recurring manual reconciliation effort.</p></div>
               </div>
             </article>
 
@@ -381,8 +445,8 @@
         <!-- ================= Infrastructure ================= -->
         <div class="case-group" id="infrastructure">
           <div class="case-group-head">
-            <h2>Infrastructure &amp; operations</h2>
-            <p>Moving a regulated branch's technology estate</p>
+            <h2>Cloud, infrastructure &amp; resilience</h2>
+            <p>Serverless platforms, a regulated branch estate, business continuity and security assurance</p>
           </div>
           <div class="case-list">
 
@@ -391,14 +455,62 @@
                 <div class="case-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
                 <div>
                   <h3 class="case-title">IT centralisation and standardisation, London to Jakarta</h3>
-                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Project lead, London Branch</span><span><i class="fas fa-clock" aria-hidden="true"></i>10 months</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Infrastructure &middot; Regulatory</span></p>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Project lead, London Branch</span><span><i class="fas fa-clock" aria-hidden="true"></i>Staged programme, 2023 &ndash; 2024</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Infrastructure &middot; Regulatory</span></p>
                 </div>
               </div>
               <div class="case-grid">
                 <div class="case-cell"><p class="case-label">Challenge</p><p>Migrate the London Branch's core banking infrastructure and critical applications to head office in Jakarta while remaining compliant with PRA and FCA requirements.</p></div>
-                <div class="case-cell"><p class="case-label">Approach</p><p>Led the branch side of the programme with IBM and EY consultants, covering infrastructure, SD-WAN connectivity, application cut-over and regulatory evidence.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Led the branch side of the staged programme with IBM and EY consultants: dependency mapping, infrastructure, SD-WAN connectivity, application cut-over with reconciliation controls at each stage, and regulatory evidence.</p></div>
                 <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">SD-WAN</li><li class="chip">Data centre</li><li class="chip">PRA / FCA compliance</li><li class="chip">Vendor management</li></ul></div>
                 <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Zero data loss and roughly 30% lower infrastructure cost.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="aws-secure-reporting" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-cloud" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">AWS secure reporting platform and unattended authentication</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Architect and engineer</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch &middot; 2026</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Cloud &middot; Serverless &middot; Identity</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Publish regulated reports to the cloud from on-premises Windows jobs without static AWS credentials or a human session in the loop.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Designed and productionised a Terraform-managed serverless platform on S3, DynamoDB, KMS, Lambda, API Gateway, CloudFront, Cognito, SNS, CloudWatch and EventBridge. Unattended workloads authenticate through IAM Roles Anywhere with non-exportable certificates and PKI, least-privilege role chaining and production acceptance controls under Windows LOCAL SERVICE, with idempotent S3/DynamoDB verification and reconciliation gates on every publish.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">AWS IAM Roles Anywhere</li><li class="chip">Terraform</li><li class="chip">Lambda &middot; API Gateway</li><li class="chip">S3 &middot; DynamoDB &middot; KMS</li><li class="chip">CloudFront &middot; Cognito</li><li class="chip">EventBridge &middot; CloudWatch</li><li class="chip">PKI</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Zero static credentials and no dependence on human AWS sessions; every published report carries verification and audit evidence.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="bcp-network" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-shuffle" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">Resilience, BCP/DR and network modernisation</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Lead, London Branch</span><span><i class="fas fa-clock" aria-hidden="true"></i>2025 &ndash; 2026</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Resilience &middot; Network</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Prove the branch can keep operating from a split site and fail over cleanly, while the network underneath it was being modernised.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Led split-operation BCP/DR testing with switch-over and switch-back validation and infrastructure readiness, and coordinated SD-WAN deployment, F5 load-balancing changes, failover planning and vendor readiness.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">BCP / DR</li><li class="chip">SD-WAN</li><li class="chip">F5 load balancing</li><li class="chip">Failover planning</li><li class="chip">Vendor coordination</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Tested switch-over and switch-back evidence for regulators and auditors, on a modernised, resilient branch network.</p></div>
+              </div>
+            </article>
+
+            <article class="case" id="swift-csp" data-reveal>
+              <div class="case-head">
+                <div class="case-icon"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="case-title">SWIFT CSP and cybersecurity assurance</h3>
+                  <p class="case-meta"><span><i class="fas fa-user" aria-hidden="true"></i>Coordinator and control owner</span><span><i class="fas fa-location-dot" aria-hidden="true"></i>London Branch &middot; 2026</span><span><i class="fas fa-layer-group" aria-hidden="true"></i>Security &middot; Assurance</span></p>
+                </div>
+              </div>
+              <div class="case-grid">
+                <div class="case-cell"><p class="case-label">Challenge</p><p>Meet the SWIFT Customer Security Programme attestation and close penetration-test findings across a branch estate that spans local systems and head-office services.</p></div>
+                <div class="case-cell"><p class="case-label">Approach</p><p>Coordinated the CSP assessment, penetration-testing activity, vulnerability remediation and access-control reviews across branch and head-office stakeholders, assembling the supporting audit evidence.</p></div>
+                <div class="case-cell"><p class="case-label">Technology &amp; domain</p><ul class="chip-list"><li class="chip">SWIFT CSP</li><li class="chip">Penetration testing</li><li class="chip">Vulnerability remediation</li><li class="chip">Access reviews</li><li class="chip">Audit evidence</li></ul></div>
+                <div class="case-cell case-outcome"><p class="case-label">Outcome</p><p>Findings remediated and evidenced, with access reviews and attestation support delivered on the programme timeline.</p></div>
               </div>
             </article>
 
@@ -439,7 +551,7 @@
           <article class="card repo" data-reveal data-reveal-delay="3">
             <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i><a href="https://github.com/Adetlo/fraud-detection-ml" target="_blank" rel="noopener">fraud-detection-ml</a></h3><span class="status status-ok">Published</span></div>
             <p>Production-style fraud risk scoring and decision-support project demonstrating temporal validation, leakage-safe features, class imbalance handling, threshold optimisation, explainability and drift monitoring.</p>
-            <div class="repo-foot"><ul class="chip-list"><li class="chip">Python</li><li class="chip">scikit-learn</li><li class="chip">XGBoost</li><li class="chip">FastAPI</li></ul><a href="https://github.com/Adetlo/fraud-detection-ml" class="btn btn-secondary btn-sm" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> View on GitHub</a></div>
+            <div class="repo-foot"><ul class="chip-list"><li class="chip">Python</li><li class="chip">scikit-learn</li><li class="chip">XGBoost</li><li class="chip">FastAPI</li><li class="chip">MLflow</li></ul><a href="https://github.com/Adetlo/fraud-detection-ml" class="btn btn-secondary btn-sm" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> View on GitHub</a></div>
           </article>
           <article class="card repo" data-reveal data-reveal-delay="4">
             <div class="repo-head"><h3 class="repo-name"><i class="fas fa-book" aria-hidden="true"></i>entra-id-toolkit</h3><span class="status status-dev">In development</span></div>
@@ -471,8 +583,8 @@
         <div class="principles">
           <article class="card principle" data-reveal>
             <p class="eyebrow">01</p>
-            <h3>Build for the audit</h3>
-            <p>Every system above posts to a ledger someone will reconcile and a regulator may inspect. Audit trails, exception handling and reconciliation are designed in from the start, not added later.</p>
+            <h3>Build for the audit, fail closed</h3>
+            <p>Every system above posts to a ledger someone will reconcile and a regulator may inspect. Audit trails, exception handling, idempotency and reconciliation are designed in from the start, and when the evidence is ambiguous the system stops rather than guesses.</p>
           </article>
           <article class="card principle" data-reveal data-reveal-delay="1">
             <p class="eyebrow">02</p>
@@ -505,7 +617,7 @@
       <div class="footer-content">
         <div>
           <div class="footer-brand">Ade Putra Tio Aldino</div>
-          <p class="footer-tagline">Banking Technology &amp; Engineering Leader. Head of IT at an international bank's London branch. MSc Data Science, University of Essex.</p>
+          <p class="footer-tagline">Banking Technology, Cloud &amp; Reliability Engineering Leader. Head of Information Technology and Acting Head of Accounting at an international bank's London branch. MSc Data Science, University of Essex.</p>
         </div>
         <div>
           <h2 class="footer-heading">Portfolio</h2>

@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tio Aldino | Banking Technology &amp; Engineering Leader</title>
-  <meta name="description" content="Tio Aldino is a Banking Technology and Engineering Leader in London: Head of IT at an international bank, with 10+ years across financial systems, core banking, software engineering, data &amp; AI and security.">
+  <title>Tio Aldino | Banking Technology, Cloud &amp; Reliability Engineering Leader</title>
+  <meta name="description" content="Tio Aldino is a Banking Technology, Cloud and Reliability Engineering Leader in London: Head of Information Technology and Acting Head of Accounting at an international bank, with 10+ years across core banking, payments and SWIFT, production engineering, AWS serverless platforms, data &amp; AI and security.">
   <meta name="author" content="Tio Aldino">
   <link rel="canonical" href="https://adetlo.github.io/eportofolio/">
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Tio Aldino">
-  <meta property="og:title" content="Tio Aldino | Banking Technology &amp; Engineering Leader">
-  <meta property="og:description" content="Tio Aldino is a Banking Technology and Engineering Leader in London: Head of IT at an international bank, with 10+ years across financial systems, core banking, software engineering, data &amp; AI and security.">
+  <meta property="og:title" content="Tio Aldino | Banking Technology, Cloud &amp; Reliability Engineering Leader">
+  <meta property="og:description" content="Tio Aldino is a Banking Technology, Cloud and Reliability Engineering Leader in London: Head of Information Technology and Acting Head of Accounting at an international bank, with 10+ years across core banking, payments and SWIFT, production engineering, AWS serverless platforms, data &amp; AI and security.">
   <meta property="og:url" content="https://adetlo.github.io/eportofolio/">
   <meta property="og:image" content="https://adetlo.github.io/eportofolio/assets/profilepic.jpeg">
   <meta property="og:image:alt" content="Portrait of Tio Aldino">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Tio Aldino | Banking Technology &amp; Engineering Leader">
-  <meta name="twitter:description" content="Tio Aldino is a Banking Technology and Engineering Leader in London: Head of IT at an international bank, with 10+ years across financial systems, core banking, software engineering, data &amp; AI and security.">
+  <meta name="twitter:title" content="Tio Aldino | Banking Technology, Cloud &amp; Reliability Engineering Leader">
+  <meta name="twitter:description" content="Tio Aldino is a Banking Technology, Cloud and Reliability Engineering Leader in London: Head of Information Technology and Acting Head of Accounting at an international bank, with 10+ years across core banking, payments and SWIFT, production engineering, AWS serverless platforms, data &amp; AI and security.">
   <meta name="twitter:image" content="https://adetlo.github.io/eportofolio/assets/profilepic.jpeg">
   <meta name="theme-color" content="#fbfbfc">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1726'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Menlo,Consolas,monospace' font-size='13' font-weight='600' fill='%23ffffff'%3ETA%3C/text%3E%3C/svg%3E">
@@ -46,6 +46,12 @@
     .credential-row { display: flex; flex-direction: column; gap: 0.5rem; }
     .credential-row li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.75rem; align-items: baseline; font-size: var(--text-sm); color: var(--text-2); }
     .credential-row li span:first-child { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-3); letter-spacing: 0.04em; min-width: 3.2rem; }
+    @media (min-width: 1200px) { .domain-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    .proof-strip { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin-top: var(--space-6); }
+    @media (min-width: 768px) { .proof-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .proof-strip .card { padding: var(--space-4) var(--space-5); }
+    .proof-strip strong { display: block; font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: 0.25rem; }
+    .proof-strip span { font-size: var(--text-sm); color: var(--text-2); }
   </style>
 </head>
 <body>
@@ -101,24 +107,25 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-text">
-            <p class="eyebrow">Head of IT &middot; International Banking &middot; London</p>
+            <p class="eyebrow">Head of Information Technology &middot; Acting Head of Accounting &middot; London</p>
             <h1 id="hero-heading">
               <span class="hero-name">Tio Aldino</span>
-              <span class="hero-title">Banking Technology &amp; Engineering Leader</span>
+              <span class="hero-title">Banking Technology, Cloud &amp; Reliability Engineering Leader</span>
             </h1>
             <ul class="hero-triad" aria-label="Areas of practice">
-              <li>Financial Systems</li>
-              <li>Software Engineering</li>
+              <li>Core Banking</li>
+              <li>Payments &amp; SWIFT</li>
+              <li>Cloud &amp; Reliability</li>
               <li>Data &amp; AI</li>
-              <li>Security</li>
+              <li>Production Systems</li>
             </ul>
             <p class="hero-lede">
-              10+ years building, modernising and operating technology across international banking environments, combining deep financial-systems experience with hands-on engineering, data, AI and security.
+              More than ten years across core banking, payments, SWIFT, production application support, serverless cloud platforms, data automation, security and technology leadership. Head of IT for a regulated London branch, still hands-on in Python/FastAPI, SQL/PLSQL, Oracle on AIX, Windows services and AWS with Terraform.
             </p>
             <div class="hero-actions">
               <a href="experience.html" class="btn btn-primary btn-lg">View Experience <span class="arrow" aria-hidden="true">&rarr;</span></a>
-              <a href="https://github.com/Adetlo" class="btn btn-secondary btn-lg" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Engineering on GitHub</a>
-              <a href="data-science.html" class="btn btn-ghost btn-lg">Explore Data Science</a>
+              <a href="projects.html#swift-gpi-mtuc" class="btn btn-secondary btn-lg">SWIFT gpi case study</a>
+              <a href="https://github.com/Adetlo" class="btn btn-ghost btn-lg" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> Engineering on GitHub</a>
             </div>
             <p class="hero-location">London, United Kingdom &middot; Formerly Jakarta, Indonesia</p>
           </div>
@@ -181,12 +188,12 @@
             <dd class="fact-value">10+</dd>
           </div>
           <div class="fact">
-            <dt class="fact-label">Banking projects delivered</dt>
-            <dd class="fact-value">16</dd>
+            <dt class="fact-label">Banking case studies</dt>
+            <dd class="fact-value">23</dd>
           </div>
           <div class="fact">
-            <dt class="fact-label">Professional certifications</dt>
-            <dd class="fact-value">7</dd>
+            <dt class="fact-label">Live SWIFT gpi confirmations, zero interface rejections</dt>
+            <dd class="fact-value">~2,000</dd>
           </div>
           <div class="fact">
             <dt class="fact-label">Data Science, University of Essex, completed 2026</dt>
@@ -201,7 +208,7 @@
       <div class="container">
         <div class="section-header">
           <p class="eyebrow">Profile</p>
-          <h2 id="summary-heading" class="section-title">From core banking code to leading a bank's technology</h2>
+          <h2 id="summary-heading" class="section-title">From core banking code to leading a bank's technology, without leaving the code behind</h2>
         </div>
 
         <div class="split">
@@ -210,10 +217,13 @@
               I joined Bank Negara Indonesia in 2015 through its IT Officer Development Program and spent the next seven years in the core banking division at head office, first as an engineer and then managing a core banking team. That work ran on IBM AIX, COBOL and Oracle: daily batch, posting and general-ledger flows, and the messaging that connects the core to channels and downstream systems. Delivery included the core banking implementation for the New York branch, data segregation for the BNI Syariah to BSI merger, and national payment schemes such as BI-FAST, QRIS and Virtual Account.
             </p>
             <p>
-              In 2022 I moved to the London branch, first as IT Supervisor and since 2024 as Head of IT, accountable for the branch's application landscape, infrastructure, cybersecurity and its technology obligations under the PRA and FCA. Since January 2026 I have also served as Acting Head of Accounting, which keeps me close to the ledger, the financial controls and the reporting that the systems exist to serve.
+              In 2022 I moved to the London branch, first as IT and Accounting Supervisor, where I led the SWIFT MT-to-MX / ISO 20022 migration, and since 2024 as Head of Information Technology, accountable for the branch's application landscape, infrastructure, cybersecurity and its technology obligations under the PRA and FCA. Since January 2026 I have also served as Acting Head of Accounting, which keeps me close to the ledger, the financial controls and the reporting that the systems exist to serve.
             </p>
             <p>
-              I still write code. Branch automation, reconciliation and reporting tools are built in-house, and I am extending that engineering into data, AI, identity and security: an MSc in Data Science from the University of Essex, completed in 2026, certifications in Python, Oracle SQL and PL/SQL, Microsoft Entra identity and Oracle AI, and a public engineering portfolio on GitHub built on synthetic data and generic architectures.
+              I still write code. In 2026 I reverse-engineered and replaced a failed, undocumented SWIFT gpi Universal Confirmation flow with a fail-closed Python/Oracle platform that has delivered roughly 2,000 live confirmations with zero interface rejections, and productionised a Terraform-managed AWS reporting platform that authenticates unattended Windows workloads through IAM Roles Anywhere with no static credentials. Alongside that sit Murex treasury integration, a SharePoint/SPFx reporting portal and automated reconciliation that removed about 75% of recurring manual effort.
+            </p>
+            <p>
+              The engineering is backed by an MSc in Data Science from the University of Essex, completed in 2026, certifications in Python, Oracle SQL and PL/SQL, Microsoft Entra identity and Oracle AI, and a public engineering portfolio on GitHub built on synthetic data and generic architectures.
             </p>
           </div>
 
@@ -222,7 +232,7 @@
               <img src="assets/profilepic.jpeg" alt="Portrait of Tio Aldino" width="72" height="72" loading="lazy" decoding="async">
               <div>
                 <strong>Ade Putra Tio Aldino</strong>
-                <span>Head of IT, London Branch &middot; MSc Data Science</span>
+                <span>Head of Information Technology, London Branch &middot; Acting Head of Accounting &middot; MSc Data Science</span>
               </div>
             </div>
             <p class="eyebrow" style="margin-bottom: var(--space-4);">Progression</p>
@@ -230,22 +240,22 @@
               <li class="track-stage">
                 <span class="track-period">2015 &ndash; 2020</span>
                 <span class="track-name">Software &amp; core banking engineering</span>
-                <span class="track-note">Officer Development Program; Assistant Manager, Core Banking</span>
+                <span class="track-note">IT Officer Development Programme; IT Analyst, Core Banking System</span>
               </li>
               <li class="track-stage">
                 <span class="track-period">2020 &ndash; 2022</span>
                 <span class="track-name">Core banking management</span>
-                <span class="track-note">Manager, Core Banking; New York implementation, BSI merger</span>
+                <span class="track-note">IT Manager, Core Banking System; New York implementation, BSI merger</span>
               </li>
               <li class="track-stage">
                 <span class="track-period">2022 &ndash; 2023</span>
                 <span class="track-name">International banking technology</span>
-                <span class="track-note">IT Supervisor, London Branch; IT centralisation to head office</span>
+                <span class="track-note">IT &amp; Accounting Supervisor, London Branch; ISO 20022 migration</span>
               </li>
               <li class="track-stage current">
                 <span class="track-period">2024 &ndash; present</span>
-                <span class="track-name">Head of IT</span>
-                <span class="track-note">London Branch; Acting Head of Accounting since 2026</span>
+                <span class="track-name">Head of Information Technology</span>
+                <span class="track-note">London Branch; AWS platform, SWIFT gpi platform; Acting Head of Accounting since 2026</span>
               </li>
             </ol>
           </aside>
@@ -259,8 +269,8 @@
         <div class="section-head-row">
           <div class="section-header">
             <p class="eyebrow">Technical depth</p>
-            <h2 id="domains-heading" class="section-title">Six domains, one person</h2>
-            <p class="section-subtitle">Banking domain knowledge and engineering practice that rarely sit together.</p>
+            <h2 id="domains-heading" class="section-title">Eight competency areas, one person</h2>
+            <p class="section-subtitle">Banking domain knowledge, production engineering, cloud and reliability practice that rarely sit together.</p>
           </div>
           <a href="skills.html" class="link-arrow">Full skills matrix <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
@@ -268,39 +278,51 @@
         <div class="domain-grid">
           <article class="card domain-card" data-reveal>
             <div class="card-icon"><i class="fas fa-landmark" aria-hidden="true"></i></div>
-            <h3 class="card-title">Financial Systems</h3>
-            <p>Core banking, payments, treasury, reconciliation and financial reporting inside regulated banks.</p>
-            <ul class="chip-list" aria-label="Keywords"><li class="chip">Core Banking</li><li class="chip">Payments</li><li class="chip">SWIFT / ISO 20022</li><li class="chip">AML</li><li class="chip">Reconciliation</li></ul>
+            <h3 class="card-title">Banking Technology</h3>
+            <p>Core banking, payments, SWIFT MT/MX and gpi, Murex integration, AML monitoring, GL posting, reconciliation and regulatory reporting.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">SWIFT gpi &middot; MT199</li><li class="chip">ISO 20022</li><li class="chip">Finastra</li><li class="chip">Murex</li><li class="chip">AML</li></ul>
           </article>
           <article class="card domain-card" data-reveal data-reveal-delay="1">
-            <div class="card-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
-            <h3 class="card-title">Core Banking Engineering</h3>
-            <p>Posting, batch and general-ledger flows on IBM AIX and Oracle, plus the integration messaging around them.</p>
-            <ul class="chip-list" aria-label="Keywords"><li class="chip">COBOL</li><li class="chip">AIX</li><li class="chip">Oracle</li><li class="chip">PL/SQL</li><li class="chip">Shell</li></ul>
+            <div class="card-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
+            <h3 class="card-title">Software &amp; Production Engineering</h3>
+            <p>Python/FastAPI services, SQL/PLSQL, COBOL and C++, Windows services, idempotent state machines, CI/CD and incident response.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">Python</li><li class="chip">FastAPI</li><li class="chip">SQL / PLSQL</li><li class="chip">COBOL &middot; C++</li><li class="chip">pywin32</li></ul>
           </article>
           <article class="card domain-card" data-reveal data-reveal-delay="2">
-            <div class="card-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
-            <h3 class="card-title">Modern Software Engineering</h3>
-            <p>Services, APIs and automation in Python and Java, versioned and shipped through Git and CI.</p>
-            <ul class="chip-list" aria-label="Keywords"><li class="chip">Python</li><li class="chip">Java</li><li class="chip">REST APIs</li><li class="chip">Git</li><li class="chip">CI/CD</li></ul>
+            <div class="card-icon"><i class="fas fa-cloud" aria-hidden="true"></i></div>
+            <h3 class="card-title">Cloud, Platform &amp; IaC</h3>
+            <p>A Terraform-managed AWS serverless platform with certificate-based unattended access and least-privilege role chaining.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">AWS</li><li class="chip">IAM Roles Anywhere</li><li class="chip">Terraform</li><li class="chip">Lambda &middot; S3 &middot; DynamoDB</li><li class="chip">EventBridge</li></ul>
           </article>
           <article class="card domain-card" data-reveal data-reveal-delay="3">
-            <div class="card-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
-            <h3 class="card-title">Data &amp; AI</h3>
-            <p>Pipelines, analytics and machine learning applied to financial data, grounded in an MSc in Data Science.</p>
-            <ul class="chip-list" aria-label="Keywords"><li class="chip">Pandas</li><li class="chip">NumPy</li><li class="chip">Scikit-learn</li><li class="chip">TensorFlow</li><li class="chip">Data Engineering</li></ul>
+            <div class="card-icon"><i class="fas fa-heart-pulse" aria-hidden="true"></i></div>
+            <h3 class="card-title">Reliability &amp; Test Engineering</h3>
+            <p>Legacy reverse engineering, fail-closed design, acknowledgement-driven workflows, watchdogs and regression, mutation and negative testing.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">Fail-closed</li><li class="chip">Idempotency</li><li class="chip">Watchdogs</li><li class="chip">Golden messages</li><li class="chip">Forensics</li></ul>
           </article>
           <article class="card domain-card" data-reveal data-reveal-delay="4">
-            <div class="card-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
-            <h3 class="card-title">Cloud, Identity &amp; Security</h3>
-            <p>Identity governance, access control and secure operations for a regulated branch estate.</p>
-            <ul class="chip-list" aria-label="Keywords"><li class="chip">Microsoft Azure</li><li class="chip">Entra ID</li><li class="chip">IAM / RBAC</li><li class="chip">Conditional Access</li><li class="chip">Cybersecurity</li></ul>
+            <div class="card-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+            <h3 class="card-title">Data &amp; AI</h3>
+            <p>Financial data pipelines, validation, data quality, reconciliation, dashboards and anomaly detection, grounded in an MSc in Data Science.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">pandas</li><li class="chip">scikit-learn</li><li class="chip">XGBoost</li><li class="chip">Data Quality</li><li class="chip">Model Monitoring</li></ul>
           </article>
           <article class="card domain-card" data-reveal data-reveal-delay="5">
+            <div class="card-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+            <h3 class="card-title">Security, Identity &amp; Resilience</h3>
+            <p>Entra ID, MFA and access reviews, PKI and certificate authentication, BCP/DR, SWIFT CSP and penetration-test remediation.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">Entra ID</li><li class="chip">PKI</li><li class="chip">DPAPI</li><li class="chip">BCP / DR</li><li class="chip">SWIFT CSP</li></ul>
+          </article>
+          <article class="card domain-card" data-reveal data-reveal-delay="6">
+            <div class="card-icon"><i class="fas fa-database" aria-hidden="true"></i></div>
+            <h3 class="card-title">Platforms &amp; Databases</h3>
+            <p>Oracle and python-oracledb, PostgreSQL, MySQL, AIX, Linux and Windows Server, Docker, GitLab CI/CD, Jenkins, SharePoint/SPFx and Microsoft Graph.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">Oracle</li><li class="chip">AIX &middot; Linux</li><li class="chip">Windows Server</li><li class="chip">Docker</li><li class="chip">SharePoint / SPFx</li></ul>
+          </article>
+          <article class="card domain-card" data-reveal data-reveal-delay="7">
             <div class="card-icon"><i class="fas fa-sitemap" aria-hidden="true"></i></div>
-            <h3 class="card-title">Technology Leadership</h3>
-            <p>IT strategy, budget and governance for an international branch; vendors, auditors and regulators.</p>
-            <ul class="chip-list" aria-label="Keywords"><li class="chip">IT Strategy</li><li class="chip">PRA / FCA</li><li class="chip">Vendor Management</li><li class="chip">Team Leadership</li><li class="chip">Audit</li></ul>
+            <h3 class="card-title">Leadership &amp; Governance</h3>
+            <p>Head-office and vendor coordination, mentoring, change and problem management, staged cutovers, audit-grade documentation and regulators.</p>
+            <ul class="chip-list" aria-label="Keywords"><li class="chip">PRA / FCA</li><li class="chip">Vendor Management</li><li class="chip">Staged Cutover</li><li class="chip">Audit Evidence</li><li class="chip">Post-incident Analysis</li></ul>
           </article>
         </div>
       </div>
@@ -313,30 +335,35 @@
           <div class="section-header">
             <p class="eyebrow">Selected work</p>
             <h2 id="work-heading" class="section-title">Banking systems delivered in production</h2>
-            <p class="section-subtitle">Three of sixteen case studies across payments, core banking and infrastructure.</p>
+            <p class="section-subtitle">Three of twenty-three case studies across SWIFT, cloud platforms, core banking and infrastructure.</p>
           </div>
           <a href="projects.html" class="link-arrow">All case studies <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
 
         <div class="featured-grid">
-          <a href="projects.html#iso-20022" class="card featured is-link" data-reveal>
-            <p class="eyebrow">Payments &middot; London Branch</p>
-            <h3>ISO 20022 CBPR+ migration</h3>
-            <p>Led the branch side of SWIFT's move from MT to MX messages, with MT&#8644;MX translation on the SWIFT bureau so back-office systems kept operating.</p>
-            <p class="featured-outcome"><strong>Outcome</strong> &middot; No data loss or reconciliation breaks through the transition</p>
+          <a href="projects.html#swift-gpi-mtuc" class="card featured is-link" data-reveal>
+            <p class="eyebrow">SWIFT gpi &middot; London Branch &middot; 2026</p>
+            <h3>Automated SWIFT gpi Universal Confirmation platform</h3>
+            <p>Reverse-engineered a failed, undocumented Fiorano ESB flow from Oracle and 7,932 recovered confirmations, then replaced it with a fail-closed Python/Oracle service with byte-exact MT199 generation and acknowledgement-led idempotency.</p>
+            <p class="featured-outcome"><strong>Outcome</strong> &middot; ~2,000 live confirmations, zero SWIFT-interface rejections</p>
           </a>
-          <a href="projects.html#bi-fast" class="card featured is-link" data-reveal data-reveal-delay="1">
-            <p class="eyebrow">Core banking &middot; Head Office</p>
-            <h3>BI-FAST real-time payments</h3>
-            <p>Built the core-banking side of Bank Indonesia's real-time retail scheme: message handling, posting, fees, GL, settlement and reconciliation.</p>
-            <p class="featured-outcome"><strong>Outcome</strong> &middot; Every inbound and outbound transaction booked in real time with a full audit trail</p>
+          <a href="projects.html#aws-secure-reporting" class="card featured is-link" data-reveal data-reveal-delay="1">
+            <p class="eyebrow">Cloud &middot; London Branch &middot; 2026</p>
+            <h3>AWS secure reporting platform</h3>
+            <p>Terraform-managed serverless platform on S3, DynamoDB, KMS, Lambda, API Gateway, CloudFront, Cognito, SNS, CloudWatch and EventBridge, with unattended publishing through IAM Roles Anywhere and PKI.</p>
+            <p class="featured-outcome"><strong>Outcome</strong> &middot; Zero static credentials and no dependence on human AWS sessions</p>
           </a>
-          <a href="projects.html#it-centralisation" class="card featured is-link" data-reveal data-reveal-delay="2">
-            <p class="eyebrow">Infrastructure &middot; London &rarr; Jakarta</p>
-            <h3>IT centralisation &amp; standardisation</h3>
-            <p>Migrated branch infrastructure and critical applications to head office with IBM and EY, under PRA and FCA requirements.</p>
-            <p class="featured-outcome"><strong>Outcome</strong> &middot; Zero data loss and roughly 30% lower infrastructure cost</p>
+          <a href="projects.html#iso-20022" class="card featured is-link" data-reveal data-reveal-delay="2">
+            <p class="eyebrow">Payments &middot; London Branch &middot; 2022 &ndash; 2023</p>
+            <h3>ISO 20022 / SWIFT MT-to-MX migration</h3>
+            <p>Led the migration end to end: schema mapping, validation, dual-publish reconciliation and consumer-by-consumer cutover, with MT&#8644;MX translation so back-office systems kept operating.</p>
+            <p class="featured-outcome"><strong>Outcome</strong> &middot; No production breakage, data loss or reconciliation breaks</p>
           </a>
+        </div>
+        <div class="proof-strip" aria-label="Measured outcomes" data-reveal>
+          <div class="card"><strong>~75%</strong><span>less recurring manual reconciliation effort after embedding validation, reconciliation and anomaly alerting in data pipelines</span></div>
+          <div class="card"><strong>~30%</strong><span>infrastructure cost reduction from staged IT centralisation, with zero data loss across migrated systems</span></div>
+          <div class="card"><strong>243M &rarr; 0</strong><span>rows of query amplification eliminated by auditable deduplicated selection with fail-closed ambiguity handling</span></div>
         </div>
       </div>
     </section>
@@ -443,7 +470,7 @@
       <div class="footer-content">
         <div>
           <div class="footer-brand">Ade Putra Tio Aldino</div>
-          <p class="footer-tagline">Banking Technology &amp; Engineering Leader. Head of IT at an international bank's London branch. MSc Data Science, University of Essex.</p>
+          <p class="footer-tagline">Banking Technology, Cloud &amp; Reliability Engineering Leader. Head of Information Technology and Acting Head of Accounting at an international bank's London branch. MSc Data Science, University of Essex.</p>
         </div>
         <div>
           <h2 class="footer-heading">Portfolio</h2>
